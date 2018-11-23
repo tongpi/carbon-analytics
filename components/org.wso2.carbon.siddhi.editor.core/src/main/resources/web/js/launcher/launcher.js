@@ -49,7 +49,7 @@ define(['log', 'jquery', 'backbone', 'lodash', 'context_menu', 'mcustom_scroller
                     this.application.commandManager.dispatch('change-app-status-single-simulation', options);
                     return true;
                 } else {
-                    alerts.error("Save file before start debugging application");
+                    alerts.error("调试应用之前请先保存文件");
                     return false;
                 }
             },
@@ -91,7 +91,7 @@ define(['log', 'jquery', 'backbone', 'lodash', 'context_menu', 'mcustom_scroller
                     this.application.commandManager.dispatch('change-app-status-single-simulation', options);
                     return true;
                 } else {
-                    alerts.error("Save file before running application");
+                    alerts.error("运行应用之前请先保存文件");
                     return false;
                 }
             },

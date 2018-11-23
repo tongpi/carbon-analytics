@@ -30,13 +30,13 @@ define(['log', 'backbone','lodash', 'jquery'], function (log, Backbone, _, $) {
                 _.set(this, 'id', this.cid);
                 _.set(this, '_title', _.get(options, 'title'));
                 if (!_.has(options, 'template')){
-                    errMsg = 'unable to find config template ' + _.toString(options);
+                    errMsg = '未找到配置模板 ' + _.toString(options);
                     log.error(errMsg);
                     throw errMsg;
                 }
                 template = $(_.get(options, 'template'));
                 if(!template.length > 0){
-                    errMsg = 'unable to find template with id ' + _.get(options, 'template');
+                    errMsg = '未找到模板，id ' + _.get(options, 'template');
                     log.error(errMsg);
                     throw errMsg;
                 }

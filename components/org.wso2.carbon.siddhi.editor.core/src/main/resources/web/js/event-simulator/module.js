@@ -24,7 +24,7 @@ function ($, Backbone, _, log, Dialogs, singleEventSimulator, feedSimulator, Sim
             var self = this;
             this._breakPoints = {};
             if (!_.has(config, 'container')) {
-                errMsg = 'unable to find configuration for container';
+                errMsg = '未找到容器配置';
                 log.error(errMsg);
                 throw errMsg;
             }
@@ -125,7 +125,7 @@ function ($, Backbone, _, log, Dialogs, singleEventSimulator, feedSimulator, Sim
                 activateBtn.attr("title", "Event Simulator (" + _.get(self._options, 
                         'command.shortcuts.mac.label') + ") ").tooltip();
             } else {
-                activateBtn.attr("title", "Event Simulator  (" + _.get(self._options, 
+                activateBtn.attr("title", "事件仿真器  (" + _.get(self._options, 
                         'command.shortcuts.other.label') + ") ").tooltip();
             }
 

@@ -96,7 +96,7 @@ define(['require', 'log', 'jquery', 'lodash', 'formUtils', 'streamForm', 'tableF
                 var globalConsoleOptions = {};
                 var opts = {};
                 _.set(opts, '_type', "CONSOLE");
-                _.set(opts, 'title', "Console");
+                _.set(opts, 'title', "控制台");
                 _.set(opts, 'currentFocusedFile', siddhiAppName);
                 _.set(opts, 'statusForCurrentFocusedFile', "SUCCESS");
                 _.set(opts, 'message', "");

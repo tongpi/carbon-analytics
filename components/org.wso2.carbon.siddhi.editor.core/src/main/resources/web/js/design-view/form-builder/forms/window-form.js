@@ -21,24 +21,24 @@ define(['require', 'log', 'jquery', 'lodash', 'attribute', 'window', 'designView
 
         var windowSchema = {
             type: "object",
-            title: "Window",
+            title: "窗口",
             properties: {
                 annotations: {
                     propertyOrder: 1,
                     type: "array",
                     format: "table",
-                    title: "Annotations",
+                    title: "注解",
                     uniqueItems: true,
                     minItems: 1,
                     items: {
                         type: "object",
-                        title: "Annotation",
+                        title: "注解",
                         options: {
                             disable_properties: true
                         },
                         properties: {
                             annotation: {
-                                title: "Annotation",
+                                title: "注解",
                                 type: "string",
                                 minLength: 1
                             }
@@ -47,7 +47,7 @@ define(['require', 'log', 'jquery', 'lodash', 'attribute', 'window', 'designView
                 },
                 name: {
                     type: "string",
-                    title: "Name",
+                    title: "名称",
                     minLength: 1,
                     required: true,
                     propertyOrder: 2
@@ -57,20 +57,20 @@ define(['require', 'log', 'jquery', 'lodash', 'attribute', 'window', 'designView
                     propertyOrder: 3,
                     type: "array",
                     format: "table",
-                    title: "Attributes",
+                    title: "属性",
                     uniqueItems: true,
                     minItems: 1,
                     items: {
                         type: "object",
-                        title: 'Attribute',
+                        title: '属性',
                         properties: {
                             name: {
-                                title: "Name",
+                                title: "名称",
                                 type: "string",
                                 minLength: 1
                             },
                             type: {
-                                title: "Type",
+                                title: "类型",
                                 type: "string",
                                 enum: [
                                     "string",
@@ -88,7 +88,7 @@ define(['require', 'log', 'jquery', 'lodash', 'attribute', 'window', 'designView
                 },
                 functionName: {
                     type: "string",
-                    title: "Window Function Name",
+                    title: "窗口函数名",
                     minLength: 1,
                     required: true,
                     propertyOrder: 4
@@ -98,15 +98,15 @@ define(['require', 'log', 'jquery', 'lodash', 'attribute', 'window', 'designView
                     propertyOrder: 5,
                     type: "array",
                     format: "table",
-                    title: "Parameters",
+                    title: "参数",
                     uniqueItems: true,
                     minItems: 1,
                     items: {
                         type: "object",
-                        title: 'Parameter',
+                        title: '参数',
                         properties: {
                             parameterValue: {
-                                title: "Parameter",
+                                title: "参数",
                                 type: "string",
                                 minLength: 1
                             }
@@ -115,7 +115,7 @@ define(['require', 'log', 'jquery', 'lodash', 'attribute', 'window', 'designView
                 },
                 outputEventType: {
                     type: "string",
-                    title: "Output Event Type",
+                    title: "输出事件类型",
                     propertyOrder: 6,
                     enum: [
                         "current events",
@@ -152,7 +152,7 @@ define(['require', 'log', 'jquery', 'lodash', 'attribute', 'window', 'designView
          */
         WindowForm.prototype.generateDefineForm = function (i, formConsole, formContainer) {
             var self = this;
-            var propertyDiv = $('<div id="property-header"><h3>Window Configuration</h3></div>' +
+            var propertyDiv = $('<div id="property-header"><h3>窗口配置</h3></div>' +
                 '<div id="define-window" class="define-window"></div>');
             formContainer.append(propertyDiv);
 
@@ -167,7 +167,7 @@ define(['require', 'log', 'jquery', 'lodash', 'attribute', 'window', 'designView
                 no_additional_properties: true
             });
 
-            formContainer.append('<div id="submit"><button type="button" class="btn btn-default">Submit</button></div>');
+            formContainer.append('<div id="submit"><button type="button" class="btn btn-default">提交</button></div>');
 
             // 'Submit' button action
             var submitButtonElement = $(formContainer).find('#submit')[0];
@@ -180,7 +180,7 @@ define(['require', 'log', 'jquery', 'lodash', 'attribute', 'window', 'designView
                 var isWindowNameUsed = self.formUtils.isDefinitionElementNameUsed(editor.getValue().name);
                 if (isWindowNameUsed) {
                     DesignViewUtils.prototype
-                        .errorAlert("Window name \"" + editor.getValue().name + "\" is already used.");
+                        .errorAlert("窗口名称 \"" + editor.getValue().name + "\" 已被使用.");
                     return;
                 }
 
@@ -238,7 +238,7 @@ define(['require', 'log', 'jquery', 'lodash', 'attribute', 'window', 'designView
          */
         WindowForm.prototype.generatePropertiesForm = function (element, formConsole, formContainer) {
             var self = this;
-            var propertyDiv = $('<div id="property-header"><h3>Window Configuration</h3></div>' +
+            var propertyDiv = $('<div id="property-header"><h3>窗口配置</h3></div>' +
                 '<div id="define-window" class="define-window"></div>');
             formContainer.append(propertyDiv);
             self.designViewContainer.addClass('disableContainer');
@@ -248,7 +248,7 @@ define(['require', 'log', 'jquery', 'lodash', 'attribute', 'window', 'designView
             // retrieve the window information from the collection
             var clickedElement = self.configurationData.getSiddhiAppConfig().getWindow(id);
             if (!clickedElement) {
-                var errorMessage = 'unable to find clicked element';
+                var errorMessage = '未找到点击元素';
                 log.error(errorMessage);
                 throw errorMessage;
             }
@@ -322,7 +322,7 @@ define(['require', 'log', 'jquery', 'lodash', 'attribute', 'window', 'designView
                     clickedElement.getId());
                 if (isWindowNameUsed) {
                     DesignViewUtils.prototype
-                        .errorAlert("Window name \"" + editor.getValue().name + "\" is already used.");
+                        .errorAlert("窗口名称 \"" + editor.getValue().name + "\" 已被使用.");
                     return;
                 }
                 self.designViewContainer.removeClass('disableContainer');

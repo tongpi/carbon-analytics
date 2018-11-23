@@ -44,114 +44,114 @@ define(['require', 'log', 'jquery', 'backbone', 'tool_palette/tool', 'tool_palet
                     {
                         id: "stream",
                         className: "stream-drag",
-                        title: "Stream",
+                        title: "流",
                         icon: "/editor/images/streams.svg",
-                        toolGroupName: "Flow Constructs"
+                        toolGroupName: "流构件"
                     },
                     {
                         id: "source",
                         className: "source-drag",
-                        title: "Source",
+                        title: "输入",
                         icon: "/editor/images/source.svg",
                         toolGroupName: "I/O"
                     },
                     {
                         id: "sink",
                         className: "sink-drag",
-                        title: "Sink",
+                        title: "输出",
                         icon: "/editor/images/sink.svg",
                         toolGroupName: "I/O"
                     },
                     {
                         id: "table",
                         className: "table-drag",
-                        title: "Table",
+                        title: "表",
                         icon: "/editor/images/table.svg",
-                        toolGroupName: "Collections"
+                        toolGroupName: "集合"
                     },
                     {
                         id: "window",
                         className: "window-drag",
-                        title: "Window",
+                        title: "窗口",
                         icon: "/editor/images/window.svg",
-                        toolGroupName: "Collections"
+                        toolGroupName: "集合"
                     },
                     {
                         id: "trigger",
                         className: "trigger-drag",
-                        title: "Trigger",
+                        title: "触发器",
                         icon: "/editor/images/trigger.svg",
-                        toolGroupName: "Flow Constructs"
+                        toolGroupName: "流构件"
                     },
                     {
                         id: "aggregation",
                         className: "aggregation-drag",
-                        title: "Aggregation",
+                        title: "聚合",
                         icon: "/editor/images/aggregate.svg",
-                        toolGroupName: "Collections"
+                        toolGroupName: "集合"
                     },
                     {
                         id: "projection-query",
                         className: "projection-query-drag",
-                        title: "Projection",
+                        title: "投影",
                         icon: "/editor/images/query.svg",
-                        toolGroupName: "Queries"
+                        toolGroupName: "查询"
                     },
                     {
                         id: "filter-query",
                         className: "filter-query-drag",
-                        title: "Filter",
+                        title: "过滤器",
                         icon: "/editor/images/filter-query.svg",
-                        toolGroupName: "Queries"
+                        toolGroupName: "查询"
                     },
                     {
                         id: "window-query",
                         className: "window-query-drag",
-                        title: "Window",
+                        title: "窗口",
                         icon: "/editor/images/window-query.svg",
-                        toolGroupName: "Queries"
+                        toolGroupName: "查询"
                     },
                     {
                         id: "function-query",
                         className: "function-query-drag",
-                        title: "Function",
+                        title: "函数",
                         icon: "/editor/images/function-query.svg",
-                        toolGroupName: "Queries"
+                        toolGroupName: "查询"
                     },
                     {
                         id: "join-query",
                         className: "join-query-drag",
-                        title: "Join",
+                        title: "联合",
                         icon: "/editor/images/join-query.svg",
-                        toolGroupName: "Queries"
+                        toolGroupName: "查询"
                     },
                     {
                         id: "pattern-query",
                         className: "pattern-query-drag",
-                        title: "Pattern",
+                        title: "模式",
                         icon: "/editor/images/pattern-query.svg",
-                        toolGroupName: "Queries"
+                        toolGroupName: "查询"
                     },
                     {
                         id : "sequence-query",
                         className : "sequence-query-drag",
-                        title : "Sequence",
+                        title : "序列",
                         icon : "/editor/images/sequence-query.svg",
-                        toolGroupName: "Queries"
+                        toolGroupName: "查询"
                     },
                     {
                         id: "partition",
                         className: "partition-drag",
-                        title: "Partition",
+                        title: "分区",
                         icon: "/editor/images/partition.svg",
-                        toolGroupName: "Flow Constructs"
+                        toolGroupName: "流构件"
                     },
                     {
                         id: "function",
                         className: "function-drag",
-                        title: "Function",
+                        title: "函数",
                         icon: "/editor/images/function.svg",
-                        toolGroupName: "Functions"
+                        toolGroupName: "函数"
                     }
                 ];
 

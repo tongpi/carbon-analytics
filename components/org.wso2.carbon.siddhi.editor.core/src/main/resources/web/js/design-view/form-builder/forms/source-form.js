@@ -22,20 +22,20 @@ define(['require', 'log', 'jquery', 'lodash', 'sourceOrSinkAnnotation', 'mapAnno
 
         var sourceSchema = {
             type: "object",
-            title: "Source",
+            title: "输入",
             properties: {
                 annotationType: {
                     required: true,
                     propertyOrder: 1,
                     type: "object",
-                    title: "Type",
+                    title: "类型",
                     options: {
                         disable_properties: true
                     },
                     properties: {
                         name: {
                             type: "string",
-                            title: "Name",
+                            title: "名称",
                             required: true,
                             minLength: 1
                         }
@@ -45,15 +45,15 @@ define(['require', 'log', 'jquery', 'lodash', 'sourceOrSinkAnnotation', 'mapAnno
                     propertyOrder: 2,
                     type: "array",
                     format: "table",
-                    title: "Options",
+                    title: "选项",
                     uniqueItems: true,
                     minItems: 1,
                     items: {
                         type: "object",
-                        title: 'Option',
+                        title: '选项',
                         properties: {
                             optionValue: {
-                                title: 'Value',
+                                title: '值',
                                 type: "string",
                                 required: true,
                                 minLength: 1
@@ -63,21 +63,21 @@ define(['require', 'log', 'jquery', 'lodash', 'sourceOrSinkAnnotation', 'mapAnno
                 },
                 map: {
                     propertyOrder: 3,
-                    title: "Map",
+                    title: "映射",
                     type: "object",
                     properties: {
                         annotationType: {
                             required: true,
                             propertyOrder: 1,
                             type: "object",
-                            title: "Type",
+                            title: "类型",
                             options: {
                                 disable_properties: true
                             },
                             properties: {
                                 name: {
                                     type: "string",
-                                    title: "Name",
+                                    title: "名称",
                                     required: true,
                                     minLength: 1
                                 }
@@ -87,15 +87,15 @@ define(['require', 'log', 'jquery', 'lodash', 'sourceOrSinkAnnotation', 'mapAnno
                             propertyOrder: 2,
                             type: "array",
                             format: "table",
-                            title: "Options",
+                            title: "选项",
                             uniqueItems: true,
                             minItems: 1,
                             items: {
                                 type: "object",
-                                title: 'Option',
+                                title: '选项',
                                 properties: {
                                     optionValue: {
-                                        title: 'Value',
+                                        title: '值',
                                         type: "string",
                                         required: true,
                                         minLength: 1
@@ -105,15 +105,15 @@ define(['require', 'log', 'jquery', 'lodash', 'sourceOrSinkAnnotation', 'mapAnno
                         },
                         attributeValues: {
                             propertyOrder: 3,
-                            title: "Attributes Mapping",
+                            title: "属性映射",
                             oneOf: [
                                 {
                                     $ref: "#/definitions/mapValues",
-                                    title: "Enter attributes as key/value pairs"
+                                    title: "一键值对形式指定属性"
                                 },
                                 {
                                     $ref: "#/definitions/listValues",
-                                    title: "Enter attributes as a list"
+                                    title: "已列表形式输入属性"
                                 }
                             ]
                         }
@@ -125,21 +125,21 @@ define(['require', 'log', 'jquery', 'lodash', 'sourceOrSinkAnnotation', 'mapAnno
                     required: true,
                     type: "array",
                     format: "table",
-                    title: "Attributes",
+                    title: "属性",
                     uniqueItems: true,
                     minItems: 1,
                     items: {
                         type: "object",
-                        title: 'Attribute',
+                        title: '属性',
                         properties: {
                             key: {
-                                title: 'Key',
+                                title: '键',
                                 type: "string",
                                 required: true,
                                 minLength: 1
                             },
                             value: {
-                                title: 'Value',
+                                title: '值',
                                 type: "string",
                                 required: true,
                                 minLength: 1
@@ -151,15 +151,15 @@ define(['require', 'log', 'jquery', 'lodash', 'sourceOrSinkAnnotation', 'mapAnno
                     required: true,
                     type: "array",
                     format: "table",
-                    title: "Attributes",
+                    title: "属性",
                     uniqueItems: true,
                     minItems: 1,
                     items: {
                         type: "object",
-                        title: 'Attribute',
+                        title: '属性',
                         properties: {
                             value: {
-                                title: 'Value',
+                                title: '值',
                                 type: "string",
                                 required: true,
                                 minLength: 1
@@ -195,7 +195,7 @@ define(['require', 'log', 'jquery', 'lodash', 'sourceOrSinkAnnotation', 'mapAnno
          */
         SourceForm.prototype.generateDefineForm = function (i, formConsole, formContainer) {
             var self = this;
-            var propertyDiv = $('<div id="property-header"><h3>Source Configuration</h3></div>' +
+            var propertyDiv = $('<div id="property-header"><h3>输入配置</h3></div>' +
                 '<div id="define-source" class="define-source"></div>');
             formContainer.append(propertyDiv);
 
@@ -324,7 +324,7 @@ define(['require', 'log', 'jquery', 'lodash', 'sourceOrSinkAnnotation', 'mapAnno
          */
         SourceForm.prototype.generatePropertiesForm = function (element, formConsole, formContainer) {
             var self = this;
-            var propertyDiv = $('<div id="property-header"><h3>Source Configuration</h3></div>' +
+            var propertyDiv = $('<div id="property-header"><h3>输入配置</h3></div>' +
                 '<div id="define-source" class="define-source"></div>');
             formContainer.append(propertyDiv);
 
@@ -335,7 +335,7 @@ define(['require', 'log', 'jquery', 'lodash', 'sourceOrSinkAnnotation', 'mapAnno
             // retrieve the source information from the collection
             var clickedElement = self.configurationData.getSiddhiAppConfig().getSource(id);
             if (!clickedElement) {
-                var errorMessage = 'unable to find clicked element';
+                var errorMessage = '未找到点击元素';
                 log.error(errorMessage);
                 throw errorMessage;
             }

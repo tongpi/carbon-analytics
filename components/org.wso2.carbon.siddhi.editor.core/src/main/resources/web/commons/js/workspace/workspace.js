@@ -28,7 +28,7 @@ define(['ace/ace', 'jquery', 'lodash', 'log','dialogs','./service-client','welco
             this._serviceClient = new ServiceClient({application: app});
 
             if (_.isUndefined(app.commandManager)) {
-                var error = "CommandManager is not initialized.";
+                var error = "命令管理器没有初始化.";
                 log.error(error);
                 throw error;
             }
@@ -83,7 +83,7 @@ define(['ace/ace', 'jquery', 'lodash', 'log','dialogs','./service-client','welco
                 if (match && match[1]) {
                     filename = match[1].replace(/ /g, "_") + ".siddhi";
                 }
-                var filePath = prompt("Enter a directory (absolute path) to save the siddhi app : ");
+                var filePath = prompt("指定一个目录(绝对路径)来保存流应用 : ");
                 filePath = (filePath.slice(-1) === '/') ? filePath + filename : filePath + '/' + filename;
                 $.ajax({
                     type: "POST",
@@ -93,10 +93,10 @@ define(['ace/ace', 'jquery', 'lodash', 'log','dialogs','./service-client','welco
                         filePath: filePath
                     }),
                     success: function (e) {
-                        alert("file successfully saved.");
+                        alert("文件成功保存.");
                     },
                     error: function (e) {
-                        alert("failed to save file.");
+                        alert("文件保存失败.");
                     }
                 });
             };
@@ -296,7 +296,7 @@ define(['ace/ace', 'jquery', 'lodash', 'log','dialogs','./service-client','welco
                         if (fileEditor.isInSourceView()) {
                             findMenuItem.enable();
                             findAndReplaceMenuItem.enable();
-                            formatMenuItem.updateLabel("Reformat Code");
+                            formatMenuItem.updateLabel("重新格式化代码");
                             formatMenuItem.enable();
 
                             var undoManager = fileEditor.getUndoManager();
@@ -321,7 +321,7 @@ define(['ace/ace', 'jquery', 'lodash', 'log','dialogs','./service-client','welco
                             redoMenuItem.disable();
                             findMenuItem.disable();
                             findAndReplaceMenuItem.disable();
-                            formatMenuItem.updateLabel("Auto-Align");
+                            formatMenuItem.updateLabel("自动对齐");
                             formatMenuItem.enable();
                         }
                     }

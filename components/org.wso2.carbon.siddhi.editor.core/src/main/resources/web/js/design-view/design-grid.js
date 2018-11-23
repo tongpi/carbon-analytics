@@ -89,7 +89,7 @@ define(['require', 'log', 'jquery', 'backbone', 'lodash', 'designViewUtils', 'dr
             var settingsButtonId = self.currentTabId + '-appSettingsId';
             var settingsButton = $("<div id='" + settingsButtonId + "' " +
                 "class='btn app-annotations-button' " +
-                "data-placement='bottom' data-toggle='tooltip' title='App Annotations'>" +
+                "data-placement='bottom' data-toggle='tooltip' title='应用注解'>" +
                 "<i class='fw fw-settings'></i></div>");
             settingsButton.tooltip();
             self.canvas.append(settingsButton);
@@ -289,7 +289,7 @@ define(['require', 'log', 'jquery', 'backbone', 'lodash', 'designViewUtils', 'dr
                         && self.jsPlumbInstance.getGroupFor(sourceId) !== undefined) {
                         if (self.jsPlumbInstance.getGroupFor(sourceId) !== self.jsPlumbInstance.getGroupFor(targetId)) {
                             DesignViewUtils.prototype
-                                .errorAlert("Invalid Connection: Inner Streams are not exposed to outside");
+                                .errorAlert("无效连接: 内部流不能暴露到外部");
                             return connectionValidity;
                         } else {
                             return connectionValidity = true;
@@ -299,7 +299,7 @@ define(['require', 'log', 'jquery', 'backbone', 'lodash', 'designViewUtils', 'dr
                         && self.jsPlumbInstance.getGroupFor(targetId) !== undefined) {
                         if (self.jsPlumbInstance.getGroupFor(targetId) !== self.jsPlumbInstance.getGroupFor(sourceId)) {
                             DesignViewUtils.prototype
-                                .errorAlert("Invalid Connection: Inner Streams are not exposed to outside");
+                                .errorAlert("无效连接: 内部流不能暴露到外部");
                             return connectionValidity;
                         } else {
                             return connectionValidity = true;
@@ -307,7 +307,7 @@ define(['require', 'log', 'jquery', 'backbone', 'lodash', 'designViewUtils', 'dr
 
                     } else if (targetElement.hasClass(constants.PARTITION_CONNECTION_POINT)) {
                         if (!sourceElement.hasClass(constants.STREAM)) {
-                            DesignViewUtils.prototype.errorAlert("Invalid Connection: Connect an outer stream");
+                            DesignViewUtils.prototype.errorAlert("无效连接: 连接了一个外部流");
                             return connectionValidity;
                         } else {
                             var partitionId = targetElement.parent()[0].id;
@@ -317,7 +317,7 @@ define(['require', 'log', 'jquery', 'backbone', 'lodash', 'designViewUtils', 'dr
                             var isStreamConnected = partition.checkOuterStreamIsAlreadyConnected(connectedStreamName);
                             if (isStreamConnected) {
                                 DesignViewUtils.prototype
-                                    .errorAlert("Invalid Connection: Stream is already connected to the partition");
+                                    .errorAlert("无效连接: 流依据连接到分区");
                                 return connectionValidity;
                             } else {
 
@@ -374,8 +374,7 @@ define(['require', 'log', 'jquery', 'backbone', 'lodash', 'designViewUtils', 'dr
                                 });
 
                                 if (isStreamDirectlyConnectedToAQuery) {
-                                    DesignViewUtils.prototype.errorAlert("Invalid Connection: Connected stream is " +
-                                        "already directly connected to a query inside the partition.");
+                                    DesignViewUtils.prototype.errorAlert("无效连接: 已连接的流已经直接连接到了一个分区内的查询.");
                                     return connectionValidity;
                                 } else {
                                     return connectionValidity = true;
@@ -388,14 +387,14 @@ define(['require', 'log', 'jquery', 'backbone', 'lodash', 'designViewUtils', 'dr
                         // If not display a error message.
                         var sourceConnections = self.jsPlumbInstance.getConnections({target: sourceId});
                         if (sourceConnections.length === 0) {
-                            DesignViewUtils.prototype.errorAlert("Invalid Connection: Connect a outer stream first");
+                            DesignViewUtils.prototype.errorAlert("无效的连接: 首先连接到一个外部流");
                             return connectionValidity;
                         }
                         var partitionId = sourceElement.parent()[0].id;
                         if (self.jsPlumbInstance.getGroupFor(targetId)
                             !== self.jsPlumbInstance.getGroupFor(partitionId)) {
                             DesignViewUtils.prototype
-                                .errorAlert("Invalid Connection: Connect to a query input inside the partition");
+                                .errorAlert("无效的连接: 连接到分区内的一个查询输入");
                             return connectionValidity;
                         } else {
                             if (targetElement.hasClass(constants.PROJECTION)
@@ -408,14 +407,14 @@ define(['require', 'log', 'jquery', 'backbone', 'lodash', 'designViewUtils', 'dr
                                 return connectionValidity = true;
                             } else {
                                 DesignViewUtils.prototype
-                                    .errorAlert("Invalid Connection: Connect to a query input inside the partition");
+                                    .errorAlert("无效的连接: 连接到分区内的一个查询输入");
                                 return connectionValidity;
                             }
                         }
 
                     } else if (sourceElement.hasClass(constants.PARTITION)) {
                         if ($(self.jsPlumbInstance.getGroupFor(targetId)).attr('id') !== sourceId) {
-                            DesignViewUtils.prototype.errorAlert("Invalid Connection: Connect to a partition query");
+                            DesignViewUtils.prototype.errorAlert("无效的连接: 连接到一个分区查询");
                             return connectionValidity;
                         } else {
                             return connectionValidity = true;
@@ -423,7 +422,7 @@ define(['require', 'log', 'jquery', 'backbone', 'lodash', 'designViewUtils', 'dr
 
                     } else if (sourceElement.hasClass(constants.SOURCE)) {
                         if (!targetElement.hasClass(constants.STREAM)) {
-                            DesignViewUtils.prototype.errorAlert("Invalid Connection: Connect to a stream");
+                            DesignViewUtils.prototype.errorAlert("无效的连接: 连接到一个流");
                             return connectionValidity;
                         } else {
                             return connectionValidity = true;
@@ -432,7 +431,7 @@ define(['require', 'log', 'jquery', 'backbone', 'lodash', 'designViewUtils', 'dr
                     } else if (targetElement.hasClass(constants.SINK)) {
                         if (!sourceElement.hasClass(constants.STREAM)) {
                             DesignViewUtils.prototype
-                                .errorAlert("Invalid Connection: Sink input source should be a stream");
+                                .errorAlert("无效的连接: 输入输出应该是个流");
                             return connectionValidity;
                         } else {
                             return connectionValidity = true;
@@ -441,7 +440,7 @@ define(['require', 'log', 'jquery', 'backbone', 'lodash', 'designViewUtils', 'dr
                     } else if (targetElement.hasClass(constants.AGGREGATION)) {
                         if (!(sourceElement.hasClass(constants.STREAM) || sourceElement.hasClass(constants.TRIGGER))) {
                             DesignViewUtils.prototype
-                                .errorAlert("Invalid Connection: Aggregation input should be a stream or a trigger");
+                                .errorAlert("无效的连接: 聚合输入应该是流或触发器");
                             return connectionValidity;
                         } else {
                             return connectionValidity = true;
@@ -466,14 +465,14 @@ define(['require', 'log', 'jquery', 'backbone', 'lodash', 'designViewUtils', 'dr
                             var isStreamConnected = partition.checkOuterStreamIsAlreadyConnected(connectedStreamName);
                             if (isStreamConnected) {
                                 DesignViewUtils.prototype
-                                    .errorAlert("Invalid Connection: Stream is already connected to the partition");
+                                    .errorAlert("无效的连接: 流已经连接到了分区");
                                 return connectionValidity;
                             }
                         }
                     }
                     if (targetElement.hasClass(constants.PATTERN) || targetElement.hasClass(constants.SEQUENCE)) {
                         if (!(sourceElement.hasClass(constants.STREAM) || sourceElement.hasClass(constants.TRIGGER))) {
-                            DesignViewUtils.prototype.errorAlert("Invalid Connection");
+                            DesignViewUtils.prototype.errorAlert("无效连接");
                             return connectionValidity;
                         } else {
                             return connectionValidity = true;
@@ -484,7 +483,7 @@ define(['require', 'log', 'jquery', 'backbone', 'lodash', 'designViewUtils', 'dr
                         || targetElement.hasClass(constants.FUNCTION_QUERY)) {
                         if (!(sourceElement.hasClass(constants.STREAM) || sourceElement.hasClass(constants.WINDOW)
                             || sourceElement.hasClass(constants.TRIGGER))) {
-                            DesignViewUtils.prototype.errorAlert("Invalid Connection");
+                            DesignViewUtils.prototype.errorAlert("无效连接");
                             return connectionValidity;
                         } else {
                             return connectionValidity = true;
@@ -495,7 +494,7 @@ define(['require', 'log', 'jquery', 'backbone', 'lodash', 'designViewUtils', 'dr
                             || sourceElement.hasClass(constants.AGGREGATION)
                             || sourceElement.hasClass(constants.TRIGGER)
                             || sourceElement.hasClass(constants.WINDOW))) {
-                            DesignViewUtils.prototype.errorAlert("Invalid Connection");
+                            DesignViewUtils.prototype.errorAlert("无效连接");
                             return connectionValidity;
                         } else {
                             var sourceElementObject =
@@ -517,8 +516,7 @@ define(['require', 'log', 'jquery', 'backbone', 'lodash', 'designViewUtils', 'dr
                                 } else if (firstConnectedElement !== undefined
                                     && secondConnectedElement !== undefined) {
                                     DesignViewUtils.prototype
-                                        .errorAlert("Invalid Connection: Only two input elements are allowed to " +
-                                            "connect in join query!");
+                                        .errorAlert("无效连接: 只能有两个输入元素被连接到联合查询!");
                                     return connectionValidity = false;
                                 } else if (firstConnectedElement !== undefined
                                     && !secondConnectedElement) {
@@ -532,8 +530,8 @@ define(['require', 'log', 'jquery', 'backbone', 'lodash', 'designViewUtils', 'dr
                                         return connectionValidity = true;
                                     } else {
                                         DesignViewUtils.prototype
-                                            .errorAlert("Invalid Connection: At least one connected input element in " +
-                                                "join query should be a stream or a trigger or a window!");
+                                            .errorAlert("无效的连接: 至少要有一个连接输入元素。 " +
+                                                "联合查询应该是一个流、触发器或窗口!");
                                         return connectionValidity = false;
                                     }
                                 } else if (!firstConnectedElement && secondConnectedElement !== undefined) {
@@ -547,8 +545,8 @@ define(['require', 'log', 'jquery', 'backbone', 'lodash', 'designViewUtils', 'dr
                                         return connectionValidity = true;
                                     } else {
                                         DesignViewUtils.prototype
-                                            .errorAlert("Invalid Connection: At least one connected input element in " +
-                                                "join query should be a stream or a trigger or a window!");
+                                            .errorAlert("无效的连接: 至少要有一个连接输入元素。 " +
+                                                "联合查询应该是一个流、触发器或窗口!");
                                         return connectionValidity = false;
                                     }
                                 }
@@ -561,14 +559,14 @@ define(['require', 'log', 'jquery', 'backbone', 'lodash', 'designViewUtils', 'dr
                         || sourceElement.hasClass(constants.FUNCTION_QUERY)) {
                         if (!(targetElement.hasClass(constants.STREAM) || targetElement.hasClass(constants.TABLE)
                             || targetElement.hasClass(constants.WINDOW))) {
-                            DesignViewUtils.prototype.errorAlert("Invalid Connection");
+                            DesignViewUtils.prototype.errorAlert("无效的连接");
                             return connectionValidity;
                         } else {
                             return connectionValidity = true;
                         }
                     }
                     if (!connectionValidity) {
-                        DesignViewUtils.prototype.errorAlert("Invalid Connection");
+                        DesignViewUtils.prototype.errorAlert("无效的连接");
                     }
                     return connectionValidity;
                 });
@@ -1246,8 +1244,7 @@ define(['require', 'log', 'jquery', 'backbone', 'lodash', 'designViewUtils', 'dr
                                         .validateInnerStream(streamObjectCopy, self.jsPlumbInstance, true);
                                 } else {
                                     isGroupMemberValid = false;
-                                    errorMessage = ' An inner stream with the same name is already added to the ' +
-                                        'partition.';
+                                    errorMessage = ' 同名的内部流已被添加到分区.';
                                 }
                             } else if ($(event.el).hasClass(constants.PROJECTION)) {
                                 var projectionQueryObject = self.configurationData.getSiddhiAppConfig()
@@ -1308,7 +1305,7 @@ define(['require', 'log', 'jquery', 'backbone', 'lodash', 'designViewUtils', 'dr
 
                     if (!isGroupMemberValid) {
                         DesignViewUtils.prototype
-                            .warnAlert('This element cannot be added to partition.' + errorMessage);
+                            .warnAlert('该元素不能被添加到分区.' + errorMessage);
                         self.jsPlumbInstance.removeFromGroup(event.group, event.el, false);
                         var elementClientX = $(event.el).attr('data-x');
                         var elementClientY = $(event.el).attr('data-y');

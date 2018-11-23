@@ -19,11 +19,11 @@
 define(([],function (){
     var RunMenu = {
         id: "run",
-        label: "Run",
+        label: "运行",
         items: [
             {
                 id: "run",
-                label: "Run",
+                label: "运行",
                 command: {
                     id: "run",
                     shortcuts: {
@@ -41,7 +41,7 @@ define(([],function (){
             },
              {
                  id: "debug",
-                 label: "Debug",
+                 label: "调试",
                  command: {
                      id: "debug",
                      shortcuts: {
@@ -59,7 +59,7 @@ define(([],function (){
              },
             {
                id: "stop",
-               label: "Stop",
+               label: "停止",
                command: {
                    id: "stop",
                    shortcuts: {

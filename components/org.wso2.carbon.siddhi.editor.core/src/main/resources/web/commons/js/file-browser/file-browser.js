@@ -23,21 +23,21 @@ define(['jquery', 'backbone', 'lodash', 'log', /** void module - jquery plugin *
         initialize: function (config) {
             var errMsg;
             if (!_.has(config, 'container')) {
-                errMsg = 'unable to find configuration for container';
+                errMsg = '未找到容器的配置';
                 log.error(errMsg);
                 throw errMsg;
             }
             var container = $(_.get(config, 'container'));
             // check whether container element exists in dom
             if (!container.length > 0) {
-                errMsg = 'unable to find container for file browser with selector: ' + _.get(config, 'container');
+                errMsg = '未找到文件浏览器的容器。选择器: ' + _.get(config, 'container');
                 log.error(errMsg);
                 throw errMsg;
             }
             this._$parent_el = container;
 
             if (!_.has(config, 'application')) {
-                log.error('Cannot init file browser. config: application not found.')
+                log.error('不能初始化文件浏览器. 配置: 应用未找到.')
             }
 
             this.application = _.get(config, 'application');

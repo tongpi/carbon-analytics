@@ -67,18 +67,18 @@ define(["./constants"], function (constants) {
                 metaData.description ? "<p>" + metaData.description + "</p>" : "<br>";
         }
         if (metaData.parameters) {
-            description += "Parameters - " + generateAttributeListDescription(metaData.parameters);
+            description += "参数 - " + generateAttributeListDescription(metaData.parameters);
         }
         if (metaData.returnAttributes) {
-            description += "Return Attributes - " + generateAttributeListDescription(metaData.returnAttributes);
+            description += "返回属性 - " + generateAttributeListDescription(metaData.returnAttributes);
         }
         if (metaData.returnEvent) {
-            description += (metaData.returnEvent.length > 0 ? "Additional Attributes in " : "") +
-                "Return Event" +
+            description += (metaData.returnEvent.length > 0 ? "附加属性 " : "") +
+                "返回事件" +
                 (metaData.returnEvent.length > 0 ? generateAttributeListDescription(metaData.returnEvent) : "");
         }
         if (metaData.example) {
-            description += "Example - <br><br>" +
+            description += "示例 - <br><br>" +
                 "<span style='margin-left: 1em'>" + self.wordWrap(metaData.example) + "</span>";
         }
         description += "</div>";
@@ -94,7 +94,7 @@ define(["./constants"], function (constants) {
      * @return {string} html string of the description generated from the meta data provided
      */
     self.generateDescriptionForEvalScript = function (evalScriptName, metaData) {
-        return "<div><strong>Eval Script</strong> - " + evalScriptName + "<br><ul>" +
+        return "<div><strong>执行脚本</strong> - " + evalScriptName + "<br><ul>" +
             "<li>Language - " + metaData.language + "</li>" +
             "<li>Return Type - " + metaData.returnType.toUpperCase() + "</li>" +
             "<li>Function Body -" + "<br><br>" + metaData.functionBody + "</li>" +
@@ -140,7 +140,7 @@ define(["./constants"], function (constants) {
      * @return {string} html string of the description generated from the meta data provided
      */
     self.generateDescriptionForAggregation = function (aggregationName, attributes) {
-        var description = "<div><strong>Aggregation</strong> - " + aggregationName + "<br>";
+        var description = "<div><strong>聚合</strong> - " + aggregationName + "<br>";
         if (attributes && Object.keys(attributes).length > 0) {
             description += "<ul>";
             for (var attribute in attributes) {
@@ -169,7 +169,7 @@ define(["./constants"], function (constants) {
      * @return {string} html string of the description generated from the meta data provided
      */
     self.generateDescriptionForTrigger = function (triggerName, metaData) {
-        return "<div><strong>Trigger</strong> - " + triggerName + "<br><br>" +
+        return "<div><strong>触发器</strong> - " + triggerName + "<br><br>" +
             metaData.type + " - " + metaData.time + "</div>";
     };
 
@@ -183,9 +183,9 @@ define(["./constants"], function (constants) {
      * @return {string} html string of the description generated from the meta data provided
      */
     self.generateDescriptionForWindow = function (windowName, metaData, functionOperationSnippets) {
-        var description = "<div><strong>Window</strong> - " + windowName + "<br><br>";
+        var description = "<div><strong>窗口</strong> - " + windowName + "<br><br>";
         if (metaData.attributes && Object.keys(metaData.attributes).length > 0) {
-            description += "Attributes -<ul>";
+            description += "属性 -<ul>";
             for (var attribute in metaData.attributes) {
                 if (metaData.attributes.hasOwnProperty(attribute)) {
                     description += "<li>" +
@@ -197,17 +197,17 @@ define(["./constants"], function (constants) {
             description += "</ul>";
         }
         if (metaData.functionOperation) {
-            description += "Window - " + metaData.functionOperation + "<br><br>";
+            description += "窗口 - " + metaData.functionOperation + "<br><br>";
         }
         if (metaData.output) {
-            description += "Output - " + metaData.output + "<br><br>";
+            description += "输出 - " + metaData.output + "<br><br>";
         }
         if (metaData.functionOperation && functionOperationSnippets &&
             functionOperationSnippets.inBuilt.windowProcessors) {
             var window =
                 functionOperationSnippets.inBuilt.windowProcessors[windowName];
             if (window) {
-                description += "Description of the window used - <br><br>" +
+                description += "窗口的说明 - <br><br>" +
                     "<div style='margin-left: 25px;'>" + window.description + "</div>";
             }
         }

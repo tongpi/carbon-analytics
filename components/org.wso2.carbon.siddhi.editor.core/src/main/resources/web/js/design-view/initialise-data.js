@@ -233,7 +233,7 @@ define(['require', 'log', 'lodash', 'jquery', 'configurationData', 'appData', 'p
                 // select section in the aggregation definition is compulsory. If that is not found there is a error in
                 // backend.
                 if (!aggregation.select) {
-                    var errMsg = 'Cannot find select section for the aggregation definition:' + aggregation;
+                    var errMsg = '找不到聚合定义的选择部分:' + aggregation;
                     log.error(errMsg);
                     DesignViewUtils.prototype.errorAlert(errMsg);
                     throw errMsg;
@@ -268,7 +268,7 @@ define(['require', 'log', 'lodash', 'jquery', 'configurationData', 'appData', 'p
                 // queryInput section in the query is compulsory. If that is not found there is a error in backend.
                 if (!windowFilterProjectionQuery.queryInput) {
                     var errMsg
-                        = 'Cannot find query input section for the windowFilterProjection query:'
+                        = '找不到窗口过滤投影查询的查询输入部分:'
                         + windowFilterProjectionQuery;
                     log.error(errMsg);
                     DesignViewUtils.prototype.errorAlert(errMsg);
@@ -294,7 +294,7 @@ define(['require', 'log', 'lodash', 'jquery', 'configurationData', 'appData', 'p
 
                 // queryInput section in the query is compulsory. If that is not found there is a error in backend.
                 if (!patternQuery.queryInput) {
-                    var errMsg = 'Cannot find query input section for the pattern query:' + patternQuery;
+                    var errMsg = '找不到模式查询的查询输入部分:' + patternQuery;
                     log.error(errMsg);
                     DesignViewUtils.prototype.errorAlert(errMsg);
                     throw errMsg;
@@ -322,7 +322,7 @@ define(['require', 'log', 'lodash', 'jquery', 'configurationData', 'appData', 'p
 
                 // queryInput section in the query is compulsory. If that is not found there is a error in backend.
                 if (!sequenceQuery.queryInput) {
-                    var errMsg = 'Cannot find query input section for the sequence query:' + sequenceQuery;
+                    var errMsg = '找不到序列查询的查询输入部分:' + sequenceQuery;
                     log.error(errMsg);
                     DesignViewUtils.prototype.errorAlert(errMsg);
                     throw errMsg;
@@ -351,7 +351,7 @@ define(['require', 'log', 'lodash', 'jquery', 'configurationData', 'appData', 'p
                 var errMsg;
                 // queryInput section in the query is compulsory. If that is not found there is a error in backend.
                 if (!joinQuery.queryInput) {
-                    errMsg = 'Cannot find query input section for the join query:' + joinQuery;
+                    errMsg = '找不到联合查询的查询输入部分:' + joinQuery;
                     log.error(errMsg);
                     DesignViewUtils.prototype.errorAlert(errMsg);
                     throw errMsg;
@@ -361,7 +361,7 @@ define(['require', 'log', 'lodash', 'jquery', 'configurationData', 'appData', 'p
 
                 // leftStream section in the join query is compulsory. If that is not found there is a error in backend.
                 if (!joinQuery.queryInput.left) {
-                    errMsg = 'Cannot find left source for join query:' + joinQuery;
+                    errMsg = '找不到联合查询的左输入部分:' + joinQuery;
                     log.error(errMsg);
                     DesignViewUtils.prototype.errorAlert(errMsg);
                     throw errMsg;
@@ -372,7 +372,7 @@ define(['require', 'log', 'lodash', 'jquery', 'configurationData', 'appData', 'p
 
                 // rightStream section in the join query is compulsory. If that is not found there is a error in backend.
                 if (!joinQuery.queryInput.right) {
-                    errMsg = 'Cannot find right source for join query:' + joinQuery;
+                    errMsg = '找不到联合查询的右输入部分:' + joinQuery;
                     log.error(errMsg);
                     DesignViewUtils.prototype.errorAlert(errMsg);
                     throw errMsg;
@@ -477,7 +477,7 @@ define(['require', 'log', 'lodash', 'jquery', 'configurationData', 'appData', 'p
         function setSelectForQuery(query, querySelect) {
             // select section in the query/aggregation is compulsory. If that is not found there is a error in backend.
             if (!querySelect) {
-                var errMsg = 'Cannot find select section for element:' + query;
+                var errMsg = '未找到元素的选择部分:' + query;
                 log.error(errMsg);
                 DesignViewUtils.prototype.errorAlert(errMsg);
                 throw errMsg;
@@ -500,7 +500,7 @@ define(['require', 'log', 'lodash', 'jquery', 'configurationData', 'appData', 'p
             // queryOutput section in the query/aggregation is compulsory. If that is not found there is a error in
             // backend.
             if (!queryOutput) {
-                var errMsg = 'Cannot find query output section for query:' + query;
+                var errMsg = '找不到查询的查询输出部分:' + query;
                 log.error(errMsg);
                 DesignViewUtils.prototype.errorAlert(errMsg);
                 throw errMsg;

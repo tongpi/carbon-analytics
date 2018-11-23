@@ -44,7 +44,7 @@ define(['require', 'lodash', 'jquery', 'log', 'backbone', 'file_browser', 'works
                     var notification_container = this.notification_container;
                     var ImportLink = document.createElement("input");
                     ImportLink.type = "file";
-                    ImportLink.name = "File";
+                    ImportLink.name = "文件";
                     ImportLink.accept = ".siddhi";
                     ImportLink.click();
                     ImportLink.onchange = handleFiles;
@@ -69,13 +69,13 @@ define(['require', 'lodash', 'jquery', 'log', 'backbone', 'file_browser', 'works
 
                         if (existsResponse.error === undefined) {
                             if (existsResponse.exists) {
-                                alertError("A file already exist in workspace with selected name.");
+                                alertError("与选中名字相同的文件在工作空间已存在.");
                                 return;
                             } else {
                                 reader.readAsText(file);
                             }
                         } else {
-                            alertError("Error in reading the file.");
+                            alertError("读文件失败.");
                         }
 
                         reader.onload = (function (reader) {
@@ -167,7 +167,7 @@ define(['require', 'lodash', 'jquery', 'log', 'backbone', 'file_browser', 'works
                     var successNotification = $(
                         "<div style='z-index: 9999;' style='line-height: 20%;' class='alert alert-success' " +
                         "id='success-alert'><span class='notification'>" +
-                        "Siddhi file is successfully imported to workspace." +
+                        "流应用文件成功导入到工作空间." +
                         "</span>" +
                         "</div>");
 
@@ -187,7 +187,7 @@ define(['require', 'lodash', 'jquery', 'log', 'backbone', 'file_browser', 'works
                     }
 
                     function getErrorNotification(detailedErrorMsg) {
-                        var errorMsg = "Error while importing file";
+                        var errorMsg = "导入文件出错";
                         if (!_.isEmpty(detailedErrorMsg)) {
                             errorMsg = (detailedErrorMsg);
                         }

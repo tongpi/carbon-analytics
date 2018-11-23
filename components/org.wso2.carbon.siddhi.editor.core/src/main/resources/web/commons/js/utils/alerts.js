@@ -32,7 +32,7 @@ define(['log', 'jquery', 'lodash'], function (log, $, _) {
     AlertsManager.success = function (args) {
         var message = typeof args === "string" ? args : _.get(args, "message");
         var timeout = _.get(args, "timeout", 5000);
-        var boldMessage = _.get(args, "boldMessage", "Success!");
+        var boldMessage = _.get(args, "boldMessage", "成功!");
 
         var notificationContainer = $("#notification-container");
         var successAlertWrapper = $("#alert-manager-success").finish();
@@ -79,7 +79,7 @@ define(['log', 'jquery', 'lodash'], function (log, $, _) {
     AlertsManager.info = function (args) {
         var message = typeof args === "string" ? args : _.get(args, "message");
         var timeout = _.get(args, "timeout", 5000);
-        var boldMessage = _.get(args, "boldMessage", "Info!");
+        var boldMessage = _.get(args, "boldMessage", "提示!");
 
         var notificationContainer = $("#notification-container");
         var infoAlertWrapper = $("#alert-manager-info").finish();
@@ -126,7 +126,7 @@ define(['log', 'jquery', 'lodash'], function (log, $, _) {
     AlertsManager.warn = function (args) {
         var message = typeof args === "string" ? args : _.get(args, "message");
         var timeout = _.get(args, "timeout", 5000);
-        var boldMessage = _.get(args, "boldMessage", "Warning!");
+        var boldMessage = _.get(args, "boldMessage", "警告!");
 
         var notificationContainer = $("#notification-container");
         var warningAlertWrapper = $("#alert-manager-warning").finish();
@@ -173,7 +173,7 @@ define(['log', 'jquery', 'lodash'], function (log, $, _) {
     AlertsManager.error = function (args) {
         var message = typeof args === "string" ? args : _.get(args, "message");
         var timeout = _.get(args, "timeout", 5000);
-        var boldMessage = _.get(args, "boldMessage", "Error!");
+        var boldMessage = _.get(args, "boldMessage", "错误!");
 
         var notificationContainer = $("#notification-container");
         var errorAlertWrapper = $("#alert-manager-error").finish();

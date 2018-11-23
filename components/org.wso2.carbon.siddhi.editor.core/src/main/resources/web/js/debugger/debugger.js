@@ -33,7 +33,7 @@ define(['jquery', 'backbone', 'log', 'lodash', 'ace/range', 'render_json'], func
                             self._breakpoints[row] = true;
                             e.editor.session.setBreakpoint(row);
                         }
-                        console.info("Acquire Breakpoint " +
+                        console.info("获得断点 " +
                             JSON.stringify(self._validBreakpoints[row]));
                     } else {
                         if (self._debugStarted) {
@@ -45,7 +45,7 @@ define(['jquery', 'backbone', 'log', 'lodash', 'ace/range', 'render_json'], func
                             self._breakpoints[row] = undefined;
                             e.editor.session.clearBreakpoint(row);
                         }
-                        console.info("Release Breakpoint " +
+                        console.info("放开断点 " +
                             JSON.stringify(self._validBreakpoints[row]));
                     }
                 } else if (breakpoints[row] === "ace_breakpoint") {
@@ -59,8 +59,8 @@ define(['jquery', 'backbone', 'log', 'lodash', 'ace/range', 'render_json'], func
                             e.editor.session.clearBreakpoint(row);
                         }
                 } else {
-                    var warningMessage = "Break points can only be applied for <i><b>from</b></i> or " +
-                        "<i><b>query output(insert, delete, update, update or insert into)</b></i>" + " statements";
+                    var warningMessage = "断点只能被应用到 <i><b>from</b></i> 或 " +
+                        "<i><b>query output(insert, delete, update, update or insert into)</b></i>" + " 语句";
                     var warningNotification = self.getWarningNotification(warningMessage);
                     $("#notification-container").append(warningNotification);
                     warningNotification.fadeTo(2000, 200).slideUp(1000, function () {
@@ -251,7 +251,7 @@ define(['jquery', 'backbone', 'log', 'lodash', 'ace/range', 'render_json'], func
             for (var i = 0; i < self._breakpoints.length; i++) {
                 if (self._breakpoints[i] && i in self._validBreakpoints) {
                     self._debugger.acquire(i);
-                    console.info("Acquire Breakpoint " + JSON.stringify(self._validBreakpoints[i]));
+                    console.info("获得断点 " + JSON.stringify(self._validBreakpoints[i]));
                 }
             }
         },
@@ -308,11 +308,11 @@ define(['jquery', 'backbone', 'log', 'lodash', 'ace/range', 'render_json'], func
                         activeTab.getFile().setDebugStatus(false);
                         activeTab.setNonRunningMode();
                         activeTab.getFile().save();
-                        msg = "" + siddhiAppName + ".siddhi - Stopped Debug mode Successfully!";
+                        msg = "" + siddhiAppName + ".siddhi - 停止调试成功!";
                     } else if (activeTab.getFile().getRunStatus()) {
                         activeTab.getFile().setRunStatus(false);
                         activeTab.getFile().save();
-                        msg = "" + siddhiAppName + ".siddhi - Stopped Successfully!"
+                        msg = "" + siddhiAppName + ".siddhi - 停止成功!"
                     }
                     var message = {
                         "type": "INFO",
@@ -324,9 +324,9 @@ define(['jquery', 'backbone', 'log', 'lodash', 'ace/range', 'render_json'], func
                 },
                 function (error) {
                     if (activeTab.getFile().getDebugStatus()) {
-                        msg = "" + siddhiAppName + ".siddhi - Error in Stopping Debug mode !";
+                        msg = "" + siddhiAppName + ".siddhi - 停止调试出错 !";
                     } else if (activeTab.getFile().getRunStatus()) {
-                        msg = "" + siddhiAppName + ".siddhi - Error in Stopping."
+                        msg = "" + siddhiAppName + ".siddhi - 停止出错."
                     }
                     var message = {
                         "type": "ERROR",

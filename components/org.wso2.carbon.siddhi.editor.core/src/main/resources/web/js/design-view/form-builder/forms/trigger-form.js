@@ -21,24 +21,24 @@ define(['require', 'log', 'jquery', 'lodash', 'trigger', 'designViewUtils'],
 
         var triggerSchema = {
             type: "object",
-            title: "Trigger",
+            title: "触发器",
             properties: {
                 annotations: {
                     propertyOrder: 1,
                     type: "array",
                     format: "table",
-                    title: "Annotations",
+                    title: "注解",
                     uniqueItems: true,
                     minItems: 1,
                     items: {
                         type: "object",
-                        title: "Annotation",
+                        title: "注解",
                         options: {
                             disable_properties: true
                         },
                         properties: {
                             annotation: {
-                                title: "Annotation",
+                                title: "注解",
                                 type: "string",
                                 minLength: 1
                             }
@@ -47,14 +47,14 @@ define(['require', 'log', 'jquery', 'lodash', 'trigger', 'designViewUtils'],
                 },
                 name: {
                     type: "string",
-                    title: "Name",
+                    title: "名称",
                     minLength: 1,
                     required: true,
                     propertyOrder: 2
                 },
                 at: {
                     type: "string",
-                    title: "At",
+                    title: "在",
                     minLength: 1,
                     required: true,
                     propertyOrder: 3
@@ -87,7 +87,7 @@ define(['require', 'log', 'jquery', 'lodash', 'trigger', 'designViewUtils'],
          */
         TriggerForm.prototype.generateDefineForm = function (i, formConsole, formContainer) {
             var self = this;
-            var propertyDiv = $('<div id="property-header"><h3>Trigger Configuration</h3></div>' +
+            var propertyDiv = $('<div id="property-header"><h3>触发器配置</h3></div>' +
                 '<div id="define-trigger" class="define-trigger"></div>');
             formContainer.append(propertyDiv);
 
@@ -102,7 +102,7 @@ define(['require', 'log', 'jquery', 'lodash', 'trigger', 'designViewUtils'],
                 no_additional_properties: true
             });
 
-            formContainer.append('<div id="submit"><button type="button" class="btn btn-default">Submit</button></div>');
+            formContainer.append('<div id="submit"><button type="button" class="btn btn-default">提交</button></div>');
 
             // 'Submit' button action
             var submitButtonElement = $(formContainer).find('#submit')[0];
@@ -115,7 +115,7 @@ define(['require', 'log', 'jquery', 'lodash', 'trigger', 'designViewUtils'],
                 var isTriggerNameUsed = self.formUtils.isDefinitionElementNameUsed(editor.getValue().name);
                 if (isTriggerNameUsed) {
                     DesignViewUtils.prototype
-                        .errorAlert("Trigger name \"" + editor.getValue().name + "\" is already used.");
+                        .errorAlert("触发器名称 \"" + editor.getValue().name + "\" 已被使用.");
                     return;
                 }
 
@@ -153,7 +153,7 @@ define(['require', 'log', 'jquery', 'lodash', 'trigger', 'designViewUtils'],
          */
         TriggerForm.prototype.generatePropertiesForm = function (element, formConsole, formContainer) {
             var self = this;
-            var propertyDiv = $('<div id="property-header"><h3>Trigger Configuration</h3></div>' +
+            var propertyDiv = $('<div id="property-header"><h3>触发器配置</h3></div>' +
                 '<div id="define-trigger" class="define-trigger"></div>');
             formContainer.append(propertyDiv);
             self.designViewContainer.addClass('disableContainer');
@@ -163,7 +163,7 @@ define(['require', 'log', 'jquery', 'lodash', 'trigger', 'designViewUtils'],
             // retrieve the trigger information from the collection
             var clickedElement = self.configurationData.getSiddhiAppConfig().getTrigger(id);
             if (!clickedElement) {
-                var errorMessage = 'unable to find clicked element';
+                var errorMessage = '未找到点击元素';
                 log.error(errorMessage);
                 throw errorMessage;
             }
@@ -204,7 +204,7 @@ define(['require', 'log', 'jquery', 'lodash', 'trigger', 'designViewUtils'],
                     clickedElement.getId());
                 if (isTriggerNameUsed) {
                     DesignViewUtils.prototype
-                        .errorAlert("Trigger name \"" + editor.getValue().name + "\" is already used.");
+                        .errorAlert("触发器名称 \"" + editor.getValue().name + "\" 已被使用.");
                     return;
                 }
                 self.designViewContainer.removeClass('disableContainer');

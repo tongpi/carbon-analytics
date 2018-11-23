@@ -172,9 +172,9 @@ define(['require', 'lodash'],
          */
         FormUtils.prototype.buildFormButtons = function (includeCancel) {
             var html = '<div class="query-form-actions">' +
-                '<button type="button" id="btn-submit" class="btn btn-primary">Save</button>';
+                '<button type="button" id="btn-submit" class="btn btn-primary">保存</button>';
             if (includeCancel) {
-                html += '<button type="button" id="btn-cancel" class="btn btn-default">Cancel</button>';
+                html += '<button type="button" id="btn-cancel" class="btn btn-default">取消</button>';
             }
             html += '</div>';
             return html;

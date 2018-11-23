@@ -64,14 +64,14 @@ define(['require', 'lodash','jquery', 'log', 'backbone', 'file_browser', 'worksp
                     "<button type='button' class='close' data-dismiss='modal' aria-label='Close'>" +
                     "<span aria-hidden='true'>&times;</span>" +
                     "</button>" +
-                    "<h4 class='modal-title file-dialog-title'>Import Sample</h4>" +
+                    "<h4 class='modal-title file-dialog-title'>导入例子</h4>" +
                     "<hr class='style1'>"+
                     "</div>" +
                     "<div class='modal-body'>" +
                     "<div class='container-fluid'>" +
                     "<form class='form-horizontal' onsubmit='return false'>" +
                     "<div class='form-group'>" +
-                    "<label for='location' class='col-sm-2 file-dialog-label'>Sample Name :</label>" +
+                    "<label for='location' class='col-sm-2 file-dialog-label'>例子名称 :</label>" +
                     "<div class='col-sm-9'>" +
                     "<input type='text' class='file-dialog-form-control' id='location' readonly>" +
                     "</div>" +
@@ -86,15 +86,15 @@ define(['require', 'lodash','jquery', 'log', 'backbone', 'file_browser', 'worksp
                     "</div>" +
                     "<div class='form-group'>" +
                     "<div class='file-dialog-form-btn'>" +
-                    "<button id='openButton' disabled type='button' class='btn btn-primary'>open" +
+                    "<button id='openButton' disabled type='button' class='btn btn-primary'>打开" +
                     "</button>" +
                     "<div class='divider'/>" +
-                    "<button type='button' class='btn btn-default' data-dismiss='modal'>cancel</button>" +
+                    "<button type='button' class='btn btn-default' data-dismiss='modal'>取消</button>" +
                     "</div>" +
                     "</div>" +
                     "</form>" +
                     "<div id='openFileWizardError' class='alert alert-danger'>" +
-                    "<strong>Error!</strong> Something went wrong." +
+                    "<strong>错误!</strong> 发生了一些错误." +
                     "</div>" +
                     "</div>" +
                     "</div>" +
@@ -107,12 +107,12 @@ define(['require', 'lodash','jquery', 'log', 'backbone', 'file_browser', 'worksp
                     "<div style='z-index: 9999;' style='line-height: 20%;' class='alert alert-success' " +
                     "id='success-alert'>" +
                     "<span class='notification'>" +
-                    "Configuration opened successfully !" +
+                    "配置打开成功 !" +
                     "</span>" +
                     "</div>");
 
                 function getErrorNotification(detailedErrorMsg) {
-                    var errorMsg = "Error while opening configuration";
+                    var errorMsg = "打开配置出错";
                     if (!_.isEmpty(detailedErrorMsg)){
                         errorMsg += (" : " + detailedErrorMsg);
                     }
@@ -160,7 +160,7 @@ define(['require', 'lodash','jquery', 'log', 'backbone', 'file_browser', 'worksp
 
                     var _location = location.val();
                     if (_.isEmpty(_location)) {
-                        openFileWizardError.text("Invalid Value for Location.");
+                        openFileWizardError.text("无效的位置.");
                         openFileWizardError.show();
                         return;
                     }

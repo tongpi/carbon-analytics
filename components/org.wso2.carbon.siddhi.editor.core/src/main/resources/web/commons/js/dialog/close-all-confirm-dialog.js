@@ -33,9 +33,9 @@ define(['jquery', './modal-dialog'], function ($, ModalDialog) {
         }
 
         var close = $("<button type='button' class='btn btn-default" +
-                            " close-all-file-confirm-dialog-btn'>Close</button>");
+                            " close-all-file-confirm-dialog-btn'>关闭</button>");
         var cancelBtn = $("<button type='button' class='btn btn-default'" +
-                          " data-dismiss='modal'>Cancel</button>");
+                          " data-dismiss='modal'>取消</button>");
         this._close = close;
 
         this.getFooter().empty();
@@ -49,12 +49,12 @@ define(['jquery', './modal-dialog'], function ($, ModalDialog) {
     CloseAllConfirmDialog.prototype.askConfirmation = function (options) {
         var self = this;
         this.init();
-        this.setTitle("Close All Unsaved Files?");
+        this.setTitle("确信要关闭全部未保存的文件吗?");
 
         var body = this.getBody();
         body.empty();
-        body.append($("<p><br>Files contains changes, do you want to close them ? Your changes will " +
-         "be lost if you close all without saving.</p>"))
+        body.append($("<p><br>文件有更改, 你真的要关闭吗 ? 如果你不保存，你所做的更改 " +
+         "会丢失.</p>"))
 
         this._close.unbind('click');
 

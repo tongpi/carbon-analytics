@@ -87,28 +87,28 @@ define(['require', 'lodash', 'jquery', 'log', 'backbone', 'file_browser', 'boots
                     "<button type='button' class='close' data-dismiss='modal' aria-label='Close'>" +
                     "<span aria-hidden='true'>&times;</span>" +
                     "</button>" +
-                    "<h4 class='modal-title file-dialog-title' id='newConfigModalLabel'>Save To Workspace</h4>" +
+                    "<h4 class='modal-title file-dialog-title' id='newConfigModalLabel'>保存到工作空间</h4>" +
                     "<hr class='style1'>"+
                     "</div>" +
                     "<div class='modal-body'>" +
                     "<div class='container-fluid'>" +
                     "<form class='form-horizontal' onsubmit='return false'>" +
                     "<div class='form-group'>" +
-                    "<label for='configName' class='col-sm-2 file-dialog-label'>File Name :</label>" +
+                    "<label for='configName' class='col-sm-2 file-dialog-label'>文件名称 :</label>" +
                     "<div class='col-sm-9'>" +
                     "<input class='file-dialog-form-control' id='configName' placeholder='"+ providedFileName +"'>" +
                     "</div>" +
                     "</div>" +
                     "<div class='form-group'>" +
                     "<div class='file-dialog-form-btn'>" +
-                    "<button id='saveButton' type='button' class='btn btn-primary'>save" +
+                    "<button id='saveButton' type='button' class='btn btn-primary'>保存" +
                     "</button>" +
                     "<div class='divider'/>" +
-                    "<button type='cancelButton' class='btn btn-default' data-dismiss='modal'>cancel</button>" +
+                    "<button type='cancelButton' class='btn btn-default' data-dismiss='modal'>取消</button>" +
                     "</div>" +
                     "</form>" +
                     "<div id='saveWizardError' class='alert alert-danger'>" +
-                    "<strong>Error!</strong> Something went wrong." +
+                    "<strong>错误!</strong> 发生了一些错误." +
                     "</div>" +
                     "</div>" +
                     "</div>" +
@@ -120,12 +120,12 @@ define(['require', 'lodash', 'jquery', 'log', 'backbone', 'file_browser', 'boots
                 var successNotification = $(
                     "<div style='z-index: 9999;' style='line-height: 20%;' class='alert alert-success' id='success-alert'>"+
                     "<span class='notification'>"+
-                    "Configuration saved successfully !"+
+                    "配置保存成功 !"+
                     "</span>"+
                     "</div>");
 
                 function getErrorNotification(detailedErrorMsg) {
-                    var errorMsg = "Error while saving configuration";
+                    var errorMsg = "保存配置出错";
                     if (!_.isEmpty(detailedErrorMsg)){
                         errorMsg += (" : " + detailedErrorMsg);
                     }
@@ -202,7 +202,7 @@ define(['require', 'lodash', 'jquery', 'log', 'backbone', 'file_browser', 'boots
                                 replaceContent, oldAppName: providedFileName}, callback, tabInstance);
                         }
                     }else {
-                        saveWizardError.text("Error in reading the file location "+_location);
+                        saveWizardError.text("读取文件位置出错： "+_location);
                         saveWizardError.show();
                     }
 
@@ -322,7 +322,7 @@ define(['require', 'lodash', 'jquery', 'log', 'backbone', 'file_browser', 'boots
                                 }
                                 app.commandManager.dispatch('remove-unwanted-streams-single-simulation',
                                     trimmedSiddhiAppName);
-                                log.debug('file saved successfully');
+                                log.debug('文件保存成功');
                                 siddhiFileEditor.setContent(config);
                                 callback(true);
                             } else {

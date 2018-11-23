@@ -21,24 +21,24 @@ define(['require', 'log', 'jquery', 'lodash', 'attribute', 'table', 'storeAnnota
 
         var tableSchema = {
             type: "object",
-            title: "Table",
+            title: "表",
             properties: {
                 annotations: {
                     propertyOrder: 1,
                     type: "array",
                     format: "table",
-                    title: "Annotations",
+                    title: "注解",
                     uniqueItems: true,
                     minItems: 1,
                     items: {
                         type: "object",
-                        title: "Annotation",
+                        title: "注解",
                         options: {
                             disable_properties: true
                         },
                         properties: {
                             annotation: {
-                                title: "Annotation",
+                                title: "注解",
                                 type: "string",
                                 minLength: 1
                             }
@@ -47,7 +47,7 @@ define(['require', 'log', 'jquery', 'lodash', 'attribute', 'table', 'storeAnnota
                 },
                 storeAnnotation: {
                     propertyOrder: 2,
-                    title: "Store Annotation",
+                    title: "保存注解",
                     type: "object",
                     options: {
                         disable_properties: true
@@ -56,7 +56,7 @@ define(['require', 'log', 'jquery', 'lodash', 'attribute', 'table', 'storeAnnota
                         annotationType: {
                             propertyOrder: 1,
                             required: true,
-                            title: "Type",
+                            title: "类型",
                             type: "string",
                             minLength: 1
                         },
@@ -65,25 +65,25 @@ define(['require', 'log', 'jquery', 'lodash', 'attribute', 'table', 'storeAnnota
                             required: true,
                             type: "array",
                             format: "table",
-                            title: "Options",
+                            title: "选项",
                             uniqueItems: true,
                             minItems: 1,
                             items: {
                                 type: "object",
-                                title: "Option",
+                                title: "选项",
                                 options: {
                                     disable_properties: true
                                 },
                                 properties: {
                                     key: {
                                         required: true,
-                                        title: "Key",
+                                        title: "键",
                                         type: "string",
                                         minLength: 1
                                     },
                                     value: {
                                         required: true,
-                                        title: "value",
+                                        title: "值",
                                         type: "string",
                                         minLength: 1
                                     }
@@ -94,7 +94,7 @@ define(['require', 'log', 'jquery', 'lodash', 'attribute', 'table', 'storeAnnota
                 },
                 name: {
                     type: "string",
-                    title: "Name",
+                    title: "名称",
                     minLength: 1,
                     required: true,
                     propertyOrder: 3
@@ -104,20 +104,20 @@ define(['require', 'log', 'jquery', 'lodash', 'attribute', 'table', 'storeAnnota
                     propertyOrder: 4,
                     type: "array",
                     format: "table",
-                    title: "Attributes",
+                    title: "属性",
                     uniqueItems: true,
                     minItems: 1,
                     items: {
                         type: "object",
-                        title: 'Attribute',
+                        title: '属性',
                         properties: {
                             name: {
-                                title: "Name",
+                                title: "名称",
                                 type: "string",
                                 minLength: 1
                             },
                             type: {
-                                title: "Type",
+                                title: "类型",
                                 type: "string",
                                 enum: [
                                     "string",
@@ -161,7 +161,7 @@ define(['require', 'log', 'jquery', 'lodash', 'attribute', 'table', 'storeAnnota
          */
         TableForm.prototype.generateDefineForm = function (i, formConsole, formContainer) {
             var self = this;
-            var propertyDiv = $('<div id="property-header"><h3>Table Configuration</h3></div>' +
+            var propertyDiv = $('<div id="property-header"><h3>表配置</h3></div>' +
                 '<div id="define-table" class="define-table"></div>');
             formContainer.append(propertyDiv);
 
@@ -176,7 +176,7 @@ define(['require', 'log', 'jquery', 'lodash', 'attribute', 'table', 'storeAnnota
                 no_additional_properties: true
             });
 
-            formContainer.append('<div id="submit"><button type="button" class="btn btn-default">Submit</button></div>');
+            formContainer.append('<div id="submit"><button type="button" class="btn btn-default">提交</button></div>');
 
             // 'Submit' button action
             var submitButtonElement = $(formContainer).find('#submit')[0];
@@ -189,7 +189,7 @@ define(['require', 'log', 'jquery', 'lodash', 'attribute', 'table', 'storeAnnota
                 var isTableNameUsed = self.formUtils.isDefinitionElementNameUsed(editor.getValue().name);
                 if (isTableNameUsed) {
                     DesignViewUtils.prototype
-                        .errorAlert("Table name \"" + editor.getValue().name + "\" is already used.");
+                        .errorAlert("表名 \"" + editor.getValue().name + "\" 已被使用.");
                     return;
                 }
 
@@ -250,7 +250,7 @@ define(['require', 'log', 'jquery', 'lodash', 'attribute', 'table', 'storeAnnota
          */
         TableForm.prototype.generatePropertiesForm = function (element, formConsole, formContainer) {
             var self = this;
-            var propertyDiv = $('<div id="property-header"><h3>Table Configuration</h3></div>' +
+            var propertyDiv = $('<div id="property-header"><h3>表配置</h3></div>' +
                 '<div id="define-table" class="define-table"></div>');
             formContainer.append(propertyDiv);
             self.designViewContainer.addClass('disableContainer');
@@ -260,7 +260,7 @@ define(['require', 'log', 'jquery', 'lodash', 'attribute', 'table', 'storeAnnota
             // retrieve the table information from the collection
             var clickedElement = self.configurationData.getSiddhiAppConfig().getTable(id);
             if (!clickedElement) {
-                var errorMessage = 'unable to find clicked element';
+                var errorMessage = '未找到点击元素';
                 log.error(errorMessage);
                 throw errorMessage;
             }
@@ -330,7 +330,7 @@ define(['require', 'log', 'jquery', 'lodash', 'attribute', 'table', 'storeAnnota
                     clickedElement.getId());
                 if (isTableNameUsed) {
                     DesignViewUtils.prototype
-                        .errorAlert("Table name \"" + editor.getValue().name + "\" is already used.");
+                        .errorAlert("表名 \"" + editor.getValue().name + "\" 已被使用.");
                     return;
                 }
                 self.designViewContainer.removeClass('disableContainer');

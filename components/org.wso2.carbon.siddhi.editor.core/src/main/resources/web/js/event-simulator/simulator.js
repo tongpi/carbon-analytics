@@ -39,9 +39,9 @@ define(['jquery', 'log', './simulator-rest-client', 'lodash', './open-siddhi-app
         self.app = _.get(config, 'application');
         self.baseUrl = config.application.config.baseUrl;
         self.workspace = self.app.workspaceManager;
-        self.SiddhiAppStatus = "Siddhi App Status : ";
-        self.startAndSendLabel = "Start and Send";
-        self.sendLabel = "Send";
+        self.SiddhiAppStatus = "流应用状态 : ";
+        self.startAndSendLabel = "启动并发送";
+        self.sendLabel = "发送";
         var consoleListManager = self.app.outputController;
         self.console = consoleListManager.getGlobalConsole();
 
@@ -49,12 +49,12 @@ define(['jquery', 'log', './simulator-rest-client', 'lodash', './open-siddhi-app
         $.validator.addMethod("validateIntOrLong", function (value, element) {
             return this
                     .optional(element) || /^[-+]?[0-9]+$/.test(value);
-        }, "Please provide a valid numerical value.");
+        }, "请指定一个有效的数字.");
 
         $.validator.addMethod("validateFloatOrDouble", function (value, element) {
             return this
                     .optional(element) || /^[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)?$/.test(value);
-        }, "Please provide a valid numerical value.");
+        }, "请指定一个有效的数字.");
 
         // add the first single event form and disable the delete button
         self.addSingleEventConfigForm(null, self.$addSingleEventForm);
@@ -120,11 +120,11 @@ define(['jquery', 'log', './simulator-rest-client', 'lodash', './open-siddhi-app
                             $sendButton.text(self.startAndSendLabel);
                             $form
                                 .find('label[data-name="siddhi-app-start-msg"]')
-                                .html('starting mode for siddhi app');
+                                .html('流应用的启动方式');
                         } else {
                             $nitificationBox.addClass("alert-success");
                             $nitificationBox.removeClass("alert-warning");
-                            $sendButton.text("Send");
+                            $sendButton.text("发送");
                         }
                     }
                 },
@@ -217,21 +217,21 @@ define(['jquery', 'log', './simulator-rest-client', 'lodash', './open-siddhi-app
 
 
             if (!_.has(formDataMap, 'siddhiAppName')) {
-                log.error("Siddhi app name is required for single event simulation.");
+                log.error("对于单个事件仿真，流应用不能为空.");
             }
             if (!_.has(formDataMap, 'streamName')) {
-                log.error("Stream name is required for single event simulation.");
+                log.error("对于单个事件仿真，流不能为空.");
             }
             if (_.has(formDataMap, 'timestamp') && parseInt(_.get(formDataMap, 'timestamp')) < 0) {
-                log.error("Timestamp value must be a positive integer for single event simulation.");
+                log.error("对于单个事件仿真，时间戳必须是正整数.");
             }
             if (attributes.length === 0) {
-                log.error("Attribute values are required for single event simulation.");
+                log.error("对于单个事件仿真，属性值不能为空.");
             }
             var started = true;
             if (self.siddhiAppDetailsMap[_.get(formDataMap, 'siddhiAppName')] == "STOP") {
                 started = self.startInactiveSiddhiApp($form);
-                log.info(_.get(formDataMap, 'siddhiAppName') + " is stopped");
+                log.info(_.get(formDataMap, 'siddhiAppName') + " 已停止");
             }
 
             if (started) {
@@ -420,19 +420,19 @@ define(['jquery', 'log', './simulator-rest-client', 'lodash', './open-siddhi-app
         $form.find('[name="single-event-siddhi-app-name"]').rules('add', {
             required: true,
             messages: {
-                required: "Please select an siddhi app name."
+                required: "请选择一个流应用."
             }
         });
         $form.find('[name="stream-name"]').rules('add', {
             required: true,
             messages: {
-                required: "Please select a stream name."
+                required: "请选择一个流名称."
             }
         });
         $form.find('[name="sim-timestamp"]').rules('add', {
             digits: true,
             messages: {
-                digits: "Timestamp value must be a positive integer."
+                digits: "时间戳必须是正整数."
             }
         });
     };
@@ -446,9 +446,9 @@ define(['jquery', 'log', './simulator-rest-client', 'lodash', './open-siddhi-app
             '</div>'+
             '<div class="switch-toggle switch-ios col-md-6">' +
                 '<input id="run" name="run-debug" checked type="radio" value="run">' +
-                '<label for="run" onclick="">Run</label>' +
+                '<label for="run" onclick="">运行</label>' +
                 '<input id="debug" name="run-debug" type="radio" value="debug">' +
-                '<label for="debug" onclick="">Debug</label>' +
+                '<label for="debug" onclick="">调试</label>' +
                 '<a></a>' +
             '</div>';
         return runDebugButtons;
@@ -462,13 +462,14 @@ define(['jquery', 'log', './simulator-rest-client', 'lodash', './open-siddhi-app
             var thisSiddhiAppName = $form.find('select[name="single-event-siddhi-app-name"]').val();
             if (thisSiddhiAppName !== null && thisSiddhiAppName === siddhiAppName) {
                 var mode = self.siddhiAppDetailsMap[siddhiAppName];
+				mode = (mode=="RUN"?"运行":(mode=="DEBUG"?"调试":"停止"));
                 $form
                     .find('div[data-name="siddhi-app-name-mode"]')
                     .html(self.SiddhiAppStatus + mode);
                 $form
                     .find('label[data-name="siddhi-app-start-msg"]')
-                    .html('Started siddhi app \'' +
-                        siddhiAppName + '\' in \'' + mode + '\' mode.');
+                    .html('启动流应用 \'' +
+                        siddhiAppName + '\' 于 \'' + mode + '\' 模式.');
                 self.disableRunDebugButtonSection($form);
                 $form
                     .find('button[type="submit"][name="send"]')
@@ -584,9 +585,9 @@ define(['jquery', 'log', './simulator-rest-client', 'lodash', './open-siddhi-app
     self.refreshSiddhiAppList = function ($siddhiAppSelect, siddhiAppNames) {
         var initialOptionValue = "";
         if(siddhiAppNames.length == 0){
-            initialOptionValue += '<option value = "-1" disabled>-- No saved Siddhi Apps available. --</option>';
+            initialOptionValue += '<option value = "-1" disabled>-- 无流应用可用. --</option>';
         } else{
-            initialOptionValue = '<option value = "-1" disabled>-- Please Select a Siddhi App --</option>';
+            initialOptionValue = '<option value = "-1" disabled>-- 请选择一个流应用 --</option>';
         }
 
         var newSiddhiApps = self.generateOptions(siddhiAppNames,initialOptionValue);
@@ -632,7 +633,7 @@ define(['jquery', 'log', './simulator-rest-client', 'lodash', './open-siddhi-app
 // create the stream name drop down
     self.refreshStreamList = function ($streamNameSelect, streamNames) {
         $streamNameSelect.children().first().remove();
-        var initialOptionValue = '<option value = "-1" disabled>-- Please Select a Stream Name --</option>';
+        var initialOptionValue = '<option value = "-1" disabled>-- 请选择一个流 --</option>';
         var newStreamOptions = self.generateOptions(streamNames,initialOptionValue);
         $streamNameSelect.html(newStreamOptions);
         $streamNameSelect.find('option[value="-1"]').attr("selected",true);
@@ -665,12 +666,12 @@ define(['jquery', 'log', './simulator-rest-client', 'lodash', './open-siddhi-app
             '    <tr>' +
             '       <th width="90%">' +
             '           <label>' +
-            '               Attributes<span class="requiredAstrix"> *</span>' +
+            '               属性<span class="requiredAstrix"> *</span>' +
             '           </label> ' +
             '       </th>' +
             '       <th width="10%">' +
             '           <label>' +
-            '            Is Null' +
+            '            置空' +
             '           </label>' +
             '       </th>' +
             '    </tr>' +
@@ -693,14 +694,14 @@ define(['jquery', 'log', './simulator-rest-client', 'lodash', './open-siddhi-app
                 $form.find('select[name="'+streamAttributes[i]['name']+'-attr"]').rules('add', {
                     required: true,
                     messages: {
-                        required: "Please select a value."
+                        required: "请选择一个值."
                     }
                 });
             } else {
                 $form.find('input[name="'+streamAttributes[i]['name']+'-attr"]').rules('add', {
                     required: true,
                     messages: {
-                        digits: "Please enter a value."
+                        digits: "请输入一个值."
                     }
                 });
             }
@@ -779,7 +780,7 @@ define(['jquery', 'log', './simulator-rest-client', 'lodash', './open-siddhi-app
                 $(ctx).rules('add', {
                     required: true,
                     messages: {
-                        required: "Please specify an attribute value."
+                        required: "请指定一个属性值."
                     }
                 });
                 break;
@@ -789,8 +790,8 @@ define(['jquery', 'log', './simulator-rest-client', 'lodash', './open-siddhi-app
                     required: true,
                     validateIntOrLong: true,
                     messages: {
-                        required: "Please specify an attribute value.",
-                        validateIntOrLong: "Please specify a valid " + type.toLowerCase() + " value."
+                        required: "请指定属性值.",
+                        validateIntOrLong: "请指定一个有效的 " + type.toLowerCase() + " 值."
                     }
                 });
                 break;
@@ -800,8 +801,8 @@ define(['jquery', 'log', './simulator-rest-client', 'lodash', './open-siddhi-app
                     required: true,
                     validateFloatOrDouble: true,
                     messages: {
-                        required: "Please specify an attribute value.",
-                        validateFloatOrDouble: "Please specify a valid " + type.toLowerCase() + " value."
+                        required: "请指定属性值.",
+                        validateFloatOrDouble: "请指定一个有效的 " + type.toLowerCase() + " 值."
                     }
                 });
                 break;
@@ -862,7 +863,8 @@ define(['jquery', 'log', './simulator-rest-client', 'lodash', './open-siddhi-app
             if (siddhiAppName == currentSiddhiAppName) {
                 var $notificationBox = $singleEventConfig.find(".alert");
                 self.siddhiAppDetailsMap[siddhiAppName] = status;
-                $singleEventConfig.find('div[data-name="siddhi-app-name-mode"]').html(self.SiddhiAppStatus + status);
+				var displayStatus=(status=="RUN"?"运行":(status=="DEBUG"?"调试":"停止"));
+                $singleEventConfig.find('div[data-name="siddhi-app-name-mode"]').html(self.SiddhiAppStatus + displayStatus);
                 if (status == "RUN" || status == "DEBUG") {
                     $notificationBox.addClass("alert-success");
                     $notificationBox.removeClass("alert-warning");
@@ -960,7 +962,7 @@ define(['jquery', 'log', './simulator-rest-client', 'lodash', './open-siddhi-app
         if (!valueFound) {
             if (1 === siddhiAppNames.find("option").length) {
                 siddhiAppNames.find("option").remove();
-                siddhiAppNames.append($("<option value = \"-1\" disabled></option>").text("-- Please Select a Siddhi App --"));
+                siddhiAppNames.append($("<option value = \"-1\" disabled></option>").text("-- 请选择一个流应用 --"));
                 siddhiAppNames.find('option[value="-1"]').attr("selected",true);
             }
             siddhiAppNames.append($("<option></option>").attr("value", changedSiddhiAppName).text(changedSiddhiAppName));
@@ -1024,7 +1026,7 @@ define(['jquery', 'log', './simulator-rest-client', 'lodash', './open-siddhi-app
                     }
                     if (1 === siddhiAppNames.find("option").length) {
                         siddhiAppNames.find("option").remove();
-                        siddhiAppNames.append($("<option value = \"-1\" disabled></option>").text("-- No saved Siddhi Apps available. --"));
+                        siddhiAppNames.append($("<option value = \"-1\" disabled></option>").text("-- 无可用的流应用. --"));
                         siddhiAppNames.find('option[value="-1"]').attr("selected",true);
                     }
                 }

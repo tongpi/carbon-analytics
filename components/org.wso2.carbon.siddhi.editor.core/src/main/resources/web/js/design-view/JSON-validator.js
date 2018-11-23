@@ -36,7 +36,7 @@ define(['require', 'log', 'jquery', 'lodash', 'designViewUtils'],
         JSONValidator.prototype.validate = function (JSON, jsPlumbInstance) {
             var self = this;
             var isValid = true;
-            var commonErrorMessage = 'Siddhi app design contains errors';
+            var commonErrorMessage = '流应用设计包含错误';
             _.forEach(JSON.sourceList, function (source) {
                 isValid = self.validateSourceOrSinkAnnotation(source, 'Source', true);
                 if (!isValid) {
@@ -165,7 +165,7 @@ define(['require', 'log', 'jquery', 'lodash', 'designViewUtils'],
             // check whether it has a connection in because there cannot be a inner stream without a 'connection-in'
             var inConnections = jsPlumbInstance.getConnections({target: innerStream.id + '-in'});
             if (inConnections.length === 0) {
-                errorMessage = 'Inner stream does not contain a connection input from an inner query';
+                errorMessage = '内部流不包含一个来自内部查询的连接输入';
                 highlightErrorElement(innerStream.id, errorMessage);
                 if (!doNotShowErrorMessages) {
                     DesignViewUtils.prototype.errorAlert(errorMessage);
@@ -189,7 +189,7 @@ define(['require', 'log', 'jquery', 'lodash', 'designViewUtils'],
             var errorMessage;
             removeTooltipErrorMessage(annotation.id);
             if (!annotation.connectedElementName) {
-                errorMessage = type + ' annotation does not contain a connected stream';
+                errorMessage = type + ' 注解不包含一个连接流';
                 highlightErrorElement(annotation.id, errorMessage);
                 if (!doNotShowErrorMessages) {
                     DesignViewUtils.prototype.errorAlert(errorMessage);
@@ -214,7 +214,7 @@ define(['require', 'log', 'jquery', 'lodash', 'designViewUtils'],
             var isValid;
             removeTooltipErrorMessage(aggregation.id);
             if (!aggregation.from) {
-                errorMessage = 'Aggregation element does not contain a connected input';
+                errorMessage = '聚合元素不包含一个连接输入';
                 highlightErrorElement(aggregation.id, errorMessage);
                 if (!doNotShowErrorMessages) {
                     DesignViewUtils.prototype.errorAlert(errorMessage);
@@ -222,7 +222,7 @@ define(['require', 'log', 'jquery', 'lodash', 'designViewUtils'],
                 return false;
 
             } else if (!aggregation.name) {
-                errorMessage = 'Name field of Aggregation element form cannot be blank';
+                errorMessage = '聚合元素的名称字段不能为空';
                 highlightErrorElement(aggregation.id, errorMessage);
                 if (!doNotShowErrorMessages) {
                     DesignViewUtils.prototype.errorAlert(errorMessage);
@@ -252,7 +252,7 @@ define(['require', 'log', 'jquery', 'lodash', 'designViewUtils'],
             var errorMessage;
             removeTooltipErrorMessage(query.id);
             if (!query.queryInput) {
-                errorMessage = 'Query does not contain a connected input';
+                errorMessage = '查询不不包含一个连接输入';
                 highlightErrorElement(query.id, errorMessage);
                 if (!doNotShowErrorMessages) {
                     DesignViewUtils.prototype.errorAlert(errorMessage);
@@ -260,7 +260,7 @@ define(['require', 'log', 'jquery', 'lodash', 'designViewUtils'],
                 return false;
 
             } else if (!query.queryInput.from) {
-                errorMessage = 'Query does not contain a connected input';
+                errorMessage = '查询不不包含一个连接输入';
                 highlightErrorElement(query.id, errorMessage);
                 if (!doNotShowErrorMessages) {
                     DesignViewUtils.prototype.errorAlert(errorMessage);
@@ -295,21 +295,21 @@ define(['require', 'log', 'jquery', 'lodash', 'designViewUtils'],
             var errorMessage;
             removeTooltipErrorMessage(query.id);
             if (!query.queryInput) {
-                errorMessage = 'Join query does not contain two connected inputs';
+                errorMessage = '联合查询不包含两个连接输入';
                 highlightErrorElement(query.id, errorMessage);
                 if (!doNotShowErrorMessages) {
                     DesignViewUtils.prototype.errorAlert(errorMessage);
                 }
                 return false;
             } else if (!query.queryInput.firstConnectedElement && !query.queryInput.secondConnectedElement) {
-                errorMessage = 'Join query does not contain two connected inputs';
+                errorMessage = '联合查询不包含两个连接输入';
                 highlightErrorElement(query.id, errorMessage);
                 if (!doNotShowErrorMessages) {
                     DesignViewUtils.prototype.errorAlert(errorMessage);
                 }
                 return false;
             } else if (!query.queryInput.firstConnectedElement || !query.queryInput.secondConnectedElement) {
-                errorMessage = 'Only one element is connected to Join query';
+                errorMessage = '只有一个元素连接到联合查询';
                 highlightErrorElement(query.id, errorMessage);
                 if (!doNotShowErrorMessages) {
                     DesignViewUtils.prototype.errorAlert(errorMessage);
@@ -324,21 +324,21 @@ define(['require', 'log', 'jquery', 'lodash', 'designViewUtils'],
             }
 
             if (!query.queryInput.left) {
-                errorMessage = 'Left source of Join query is not defined';
+                errorMessage = '联合查询的左输入未定义';
                 highlightErrorElement(query.id, errorMessage);
                 if (!doNotShowErrorMessages) {
                     DesignViewUtils.prototype.errorAlert(errorMessage);
                 }
                 return false;
             } else if (!query.queryInput.right) {
-                errorMessage = 'Right source of Join query is not defined';
+                errorMessage = '联合查询的右输入未定义';
                 highlightErrorElement(query.i, errorMessage);
                 if (!doNotShowErrorMessages) {
                     DesignViewUtils.prototype.errorAlert(errorMessage);
                 }
                 return false;
             } else if (!query.queryInput.joinWith || !query.queryInput.joinType) {
-                errorMessage = 'Join query form is not filled';
+                errorMessage = '联合查询不满足要求';
                 highlightErrorElement(query.id, errorMessage);
                 if (!doNotShowErrorMessages) {
                     DesignViewUtils.prototype.errorAlert(errorMessage);
@@ -368,7 +368,7 @@ define(['require', 'log', 'jquery', 'lodash', 'designViewUtils'],
             var errorMessage;
             removeTooltipErrorMessage(query.id);
             if (!query.queryInput) {
-                errorMessage = type + ' does not contain a input';
+                errorMessage = type + ' 不包含输入';
                 highlightErrorElement(query.id, errorMessage);
                 if (!doNotShowErrorMessages) {
                     DesignViewUtils.prototype.errorAlert(errorMessage);
@@ -377,7 +377,7 @@ define(['require', 'log', 'jquery', 'lodash', 'designViewUtils'],
 
             } else if (query.queryInput.connectedElementNameList !== undefined
                 && query.queryInput.connectedElementNameList.length === 0) {
-                errorMessage = type + ' does not contain a input';
+                errorMessage = type + ' 不包含输入';
                 highlightErrorElement(query.id, errorMessage);
                 if (!doNotShowErrorMessages) {
                     DesignViewUtils.prototype.errorAlert(errorMessage);
@@ -392,14 +392,14 @@ define(['require', 'log', 'jquery', 'lodash', 'designViewUtils'],
             }
 
             if (!query.queryInput.logic) {
-                errorMessage = 'Logic section in query input of ' + type + ' form cannot be blank';
+                errorMessage = '查询输入 ' + type + ' 的逻辑部分不能为空';
                 highlightErrorElement(query.id, errorMessage);
                 if (!doNotShowErrorMessages) {
                     DesignViewUtils.prototype.errorAlert(errorMessage);
                 }
                 return false;
             } else if (query.queryInput.conditionList.length === 0){
-                errorMessage = 'Condition list in query input of ' + type + ' form cannot be blank';
+                errorMessage = '查询输入 ' + type + ' 添加列表不能为空';
                 highlightErrorElement(query.id, errorMessage);
                 if (!doNotShowErrorMessages) {
                     DesignViewUtils.prototype.errorAlert(errorMessage);
@@ -430,7 +430,7 @@ define(['require', 'log', 'jquery', 'lodash', 'designViewUtils'],
             var errorMessage;
             if (!select) {
                 isValid = false;
-                errorMessage = 'Select section of ' + type + ' form cannot be blank';
+                errorMessage = ' ' + type + ' 的选择部分不能为空';
                 highlightErrorElement(elementId, errorMessage);
                 if (!doNotShowErrorMessages) {
                     DesignViewUtils.prototype.errorAlert(errorMessage);
@@ -439,7 +439,7 @@ define(['require', 'log', 'jquery', 'lodash', 'designViewUtils'],
                 _.forEach(select.value, function (value) {
                     if (!value.expression || value.expression === '') {
                         isValid = false;
-                        errorMessage = 'Select section of ' + type + ' form cannot be blank';
+                        errorMessage = ' ' + type + ' 的选择部分部分为空';
                         highlightErrorElement(elementId, errorMessage);
                         if (!doNotShowErrorMessages) {
                             DesignViewUtils.prototype.errorAlert(errorMessage);
@@ -467,21 +467,21 @@ define(['require', 'log', 'jquery', 'lodash', 'designViewUtils'],
             var errorMessage;
             if (!output) {
                 isValid = false;
-                errorMessage = type + ' does not contain a connected output element';
+                errorMessage = type + ' 不包含到输出元素的连接';
                 highlightErrorElement(elementId, errorMessage);
                 if (!doNotShowErrorMessages) {
                     DesignViewUtils.prototype.errorAlert(errorMessage);
                 }
             } else if (!output.target) {
                 isValid = false;
-                errorMessage = type + ' does not contain a connected output element';
+                errorMessage = type + ' 不包含到输出元素的连接';
                 highlightErrorElement(elementId, errorMessage);
                 if (!doNotShowErrorMessages) {
                     DesignViewUtils.prototype.errorAlert(errorMessage);
                 }
             } else if(!output.type || !output.output) {
                 isValid = false;
-                errorMessage = 'Output section of ' + type + ' form is not filled';
+                errorMessage = ' ' + type + ' 的输出部分未指定';
                 highlightErrorElement(elementId, errorMessage);
                 if (!doNotShowErrorMessages) {
                     DesignViewUtils.prototype.errorAlert(errorMessage);
@@ -504,7 +504,7 @@ define(['require', 'log', 'jquery', 'lodash', 'designViewUtils'],
             var errorMessage;
             removeTooltipErrorMessage(partition.id);
             if (partition.partitionWith.length === 0) {
-                errorMessage = 'Partition does not contain a connected outer stream';
+                errorMessage = '分区不包含到外部流的连接';
                 highlightErrorElement(partition.id, errorMessage);
                 if (!doNotShowErrorMessages) {
                     DesignViewUtils.prototype.errorAlert(errorMessage);
@@ -514,7 +514,7 @@ define(['require', 'log', 'jquery', 'lodash', 'designViewUtils'],
                 _.forEach(partition.partitionWith, function (partitionWithAttribute) {
                     if (!partitionWithAttribute.expression || partitionWithAttribute.expression === ''
                         || !partitionWithAttribute.streamName) {
-                        errorMessage = 'Partition by section of partition form is not filled';
+                        errorMessage = '分区的选择部分未指定';
                         highlightErrorElement(partition.id, errorMessage);
                         if (!doNotShowErrorMessages) {
                             DesignViewUtils.prototype.errorAlert(errorMessage);

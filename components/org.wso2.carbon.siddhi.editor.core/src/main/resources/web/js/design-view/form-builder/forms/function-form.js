@@ -21,11 +21,11 @@ define(['require', 'log', 'jquery', 'lodash', 'functionDefinition', 'designViewU
 
         var functionSchema = {
             type: "object",
-            title: "Function",
+            title: "函数",
             properties: {
                 name: {
                     type: "string",
-                    title: "Name",
+                    title: "名称",
                     minLength: 1,
                     required: true,
                     propertyOrder: 1
@@ -34,7 +34,7 @@ define(['require', 'log', 'jquery', 'lodash', 'functionDefinition', 'designViewU
                     propertyOrder: 2,
                     required: true,
                     type: "string",
-                    title: "Script Type",
+                    title: "脚本类型",
                     enum: [
                         "Javascript",
                         "R",
@@ -46,7 +46,7 @@ define(['require', 'log', 'jquery', 'lodash', 'functionDefinition', 'designViewU
                     propertyOrder: 3,
                     required: true,
                     type: "string",
-                    title: "Return Type",
+                    title: "返回值类型",
                     enum: [
                         "int",
                         "long",
@@ -62,7 +62,7 @@ define(['require', 'log', 'jquery', 'lodash', 'functionDefinition', 'designViewU
                     propertyOrder: 4,
                     required: true,
                     type: "string",
-                    title: "Script Body",
+                    title: "脚本",
                     format: "textarea",
                     minLength: 1
                 }
@@ -94,7 +94,7 @@ define(['require', 'log', 'jquery', 'lodash', 'functionDefinition', 'designViewU
          */
         FunctionForm.prototype.generateDefineForm = function (i, formConsole, formContainer) {
             var self = this;
-            var propertyDiv = $('<div id="property-header"><h3>Function Configuration</h3></div>' +
+            var propertyDiv = $('<div id="property-header"><h3>函数配置</h3></div>' +
                 '<div id="define-function" class="define-function"></div>');
             formContainer.append(propertyDiv);
 
@@ -107,7 +107,7 @@ define(['require', 'log', 'jquery', 'lodash', 'functionDefinition', 'designViewU
                 no_additional_properties: true
             });
 
-            formContainer.append('<div id="submit"><button type="button" class="btn btn-default">Submit</button></div>');
+            formContainer.append('<div id="submit"><button type="button" class="btn btn-default">提交</button></div>');
 
             // 'Submit' button action
             var submitButtonElement = $(formContainer).find('#submit')[0];
@@ -120,7 +120,7 @@ define(['require', 'log', 'jquery', 'lodash', 'functionDefinition', 'designViewU
                 var isFunctionNameUsed = self.formUtils.isFunctionDefinitionElementNameUsed(editor.getValue().name);
                 if (isFunctionNameUsed) {
                     DesignViewUtils.prototype
-                        .errorAlert("Function name \"" + editor.getValue().name + "\" is already used.");
+                        .errorAlert("函数名称 \"" + editor.getValue().name + "\" 已被使用.");
                     return;
                 }
 
@@ -157,7 +157,7 @@ define(['require', 'log', 'jquery', 'lodash', 'functionDefinition', 'designViewU
          */
         FunctionForm.prototype.generatePropertiesForm = function (element, formConsole, formContainer) {
             var self = this;
-            var propertyDiv = $('<div id="property-header"><h3>Function Configuration</h3></div>' +
+            var propertyDiv = $('<div id="property-header"><h3>函数配置</h3></div>' +
                 '<div id="define-function" class="define-function"></div>');
             formContainer.append(propertyDiv);
 
@@ -168,7 +168,7 @@ define(['require', 'log', 'jquery', 'lodash', 'functionDefinition', 'designViewU
             // retrieve the function information from the collection
             var clickedElement = self.configurationData.getSiddhiAppConfig().getFunction(id);
             if (!clickedElement) {
-                var errorMessage = 'unable to find clicked element';
+                var errorMessage = '未找到点击元素';
                 log.error(errorMessage);
                 throw errorMessage;
             }
@@ -181,7 +181,7 @@ define(['require', 'log', 'jquery', 'lodash', 'functionDefinition', 'designViewU
             } else if (scriptType === "scala") {
                 scriptType = 'Scala';
             } else {
-                console.log("Unknown script type received!")
+                console.log("不支持的脚本类型!")
             }
             var returnType = (clickedElement.getReturnType()).toLowerCase();
             var body = clickedElement.getBody();
@@ -215,7 +215,7 @@ define(['require', 'log', 'jquery', 'lodash', 'functionDefinition', 'designViewU
                     clickedElement.getId());
                 if (isFunctionNameUsed) {
                     DesignViewUtils.prototype
-                        .errorAlert("Function name \"" + editor.getValue().name + "\" is already used.");
+                        .errorAlert("函数名 \"" + editor.getValue().name + "\" 已被使用.");
                     return;
                 }
                 self.designViewContainer.removeClass('disableContainer');

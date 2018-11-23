@@ -45,7 +45,7 @@ define(['require', 'log', 'jquery', 'lodash', 'partitionWith', 'designViewUtils'
          */
         PartitionForm.prototype.generatePropertiesForm = function (element, formConsole, formContainer) {
             var self = this;
-            var propertyDiv = $('<div id="property-header"><h3>Partition Configuration</h3></div>' +
+            var propertyDiv = $('<div id="property-header"><h3>分区配置</h3></div>' +
                 '<div id="define-partition" class="define-partition"></div>');
             formContainer.append(propertyDiv);
 
@@ -58,7 +58,7 @@ define(['require', 'log', 'jquery', 'lodash', 'partitionWith', 'designViewUtils'
             var partitionWithList = partitionElement.getPartitionWith();
 
             if (!partitionWithList || partitionWithList.length === 0) {
-                DesignViewUtils.prototype.warnAlert('Connect a stream for partitioning');
+                DesignViewUtils.prototype.warnAlert('先连接一个流');
                 // design view container and toggle view button are enabled
                 self.designViewContainer.removeClass('disableContainer');
                 self.toggleViewButton.removeClass('disableContainer');
@@ -90,7 +90,7 @@ define(['require', 'log', 'jquery', 'lodash', 'partitionWith', 'designViewUtils'
                 var editor = new JSONEditor($(formContainer).find('#define-partition')[0], {
                     schema: {
                         type: "object",
-                        title: "Partition",
+                        title: "分区",
                         options: {
                             disable_properties: false
                         },
@@ -99,18 +99,18 @@ define(['require', 'log', 'jquery', 'lodash', 'partitionWith', 'designViewUtils'
                                 propertyOrder: 1,
                                 type: "array",
                                 format: "table",
-                                title: "Annotations",
+                                title: "注解",
                                 uniqueItems: true,
                                 minItems: 1,
                                 items: {
                                     type: "object",
-                                    title: "Annotation",
+                                    title: "注解",
                                     options: {
                                         disable_properties: true
                                     },
                                     properties: {
                                         annotation: {
-                                            title: "Annotation",
+                                            title: "注解",
                                             type: "string",
                                             minLength: 1
                                         }
@@ -122,7 +122,7 @@ define(['require', 'log', 'jquery', 'lodash', 'partitionWith', 'designViewUtils'
                                 propertyOrder: 2,
                                 type: "array",
                                 format: "table",
-                                title: "Partition By",
+                                title: "分区基于",
                                 options: {
                                     disable_array_add: true,
                                     disable_array_delete: true
@@ -131,19 +131,19 @@ define(['require', 'log', 'jquery', 'lodash', 'partitionWith', 'designViewUtils'
                                 minItems: 1,
                                 items: {
                                     type: "object",
-                                    title: 'Partition Key',
+                                    title: '分区键',
                                     options: {
                                         disable_properties: true
                                     },
                                     properties: {
                                         expression: {
-                                            title: 'Expression',
+                                            title: '表达式',
                                             type: "string",
                                             minLength: 1,
                                             required: true
                                         },
                                         streamName: {
-                                            title: 'Stream Name',
+                                            title: '流名称',
                                             type: "string",
                                             minLength: 1,
                                             required: true

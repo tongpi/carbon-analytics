@@ -74,7 +74,7 @@ define(['require', 'jquery', 'log', 'backbone', 'file_browser', 'bootstrap'], fu
                 openFolderModal.find("button").filter(_.get(options, 'submit_button')).click(function () {
                     var path = location.val();
                     if (_.isEmpty(path)) {
-                        errorsContainer.text("Invalid value for location.");
+                        errorsContainer.text("无效的文件位置.");
                         errorsContainer.show();
                         return;
                     }

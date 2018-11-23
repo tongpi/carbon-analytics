@@ -50,7 +50,7 @@
     <!-- CSS For The Design View -->
     <link rel="stylesheet" type="text/css" href="/editor/commons/lib/overlay_scroll/css/OverlayScrollbars.min.css"/>
 
-    <title>Stream Processor Studio</title>
+    <title>天融流计算中心</title>
 </head>
 
 <body class="sticky-footer">
@@ -61,24 +61,24 @@
     <div id="header-container" class="container-fluid">
         <div class="pull-left brand float-remove-xs text-center-xs">
             <a href="#">
-                <img src="/editor/commons/lib/theme-wso2-2.0.0/images/logo-inverse.svg" alt="WSO2" title="WSO2"
+                <img src="/editor/commons/lib/theme-wso2-2.0.0/images/logo-inverse.svg" alt="天融" title="天融流计算中心"
                      class="logo">
-                <h1>Stream Processor Studio</h1>
+                <h1>天融流计算中心</h1>
             </a>
         </div>
         <div id="menu-bar-container" class="menu-bar pull-left">
         </div>
         <div id="tool-bar-container" class="tool-bar pull-left">
-            <a href="#" data-placement="bottom" data-toggle="tooltip" title="Start" class="run_btn">
+            <a href="#" data-placement="bottom" data-toggle="tooltip" title="启动" class="run_btn">
                 <i class="fw fw-start"></i>
             </a>
-            <a href="#" data-placement="bottom" data-toggle="tooltip" title="Debug" class="debug_btn">
+            <a href="#" data-placement="bottom" data-toggle="tooltip" title="调试" class="debug_btn">
                 <i class="fw fw-bug"></i>
             </a>
-            <a href="#" data-placement="bottom" data-toggle="tooltip" title="Stop" class="stop_btn">
+            <a href="#" data-placement="bottom" data-toggle="tooltip" title="停止" class="stop_btn">
                 <i class="fw fw-stop"></i>
             </a>
-            <a href="#" data-placement="bottom" data-toggle="tooltip" title="Revert Changes" class="revert_btn">
+            <a href="#" data-placement="bottom" data-toggle="tooltip" title="撤销更改" class="revert_btn">
                 <i class="fw fw-undo"></i>
             </a>
         </div>
@@ -153,7 +153,7 @@
                         <div class="output-console-content-wrapper nano-content">
                             <div class="consoleToolbar">
                                 <a href="#" class="clear-console-btn" data-placement="right" data-toggle="tooltip"
-                                   title="Clear">
+                                   title="清除">
                                     <i class="fw fw-clear"></i>
                                 </a>
                             </div>
@@ -195,16 +195,16 @@
             <div class="debuggerToolbar">
                 <span class="appName hidden"></span>
                 <span class="debuggerTools">
-                    <a class="debugger-resume-btn" title="Resume">
+                    <a class="debugger-resume-btn" title="恢复">
                         <i class="fw fw-resume"></i>
                     </a>
                     <a class="debugger-stepover-btn"
-                       title="StepOver"><i class="fw fw-stepover"></i></a>
+                       title="步进"><i class="fw fw-stepover"></i></a>
                 </span>
             </div>
             <div class="debuggerContent">
                 <div class="col-md-6 event-state">
-                    <h4>Event State</h4>
+                    <h4>事件状态</h4>
                     <div class="panel-body panel-state-body">
                         <div class="nano">
                             <div class="nano-content" id="event-state">
@@ -213,7 +213,7 @@
                     </div>
                 </div>
                 <div class="col-md-6 query-state">
-                    <h4>Query State</h4>
+                    <h4>查询状态</h4>
                     <div class="panel-body panel-state-body">
                         <div class="nano">
                             <div class="nano-content" id="query-state">
@@ -261,7 +261,7 @@
         <div class="toggle-controls-container">
             <div class="btn toggle-view-button">
                 <i class="fw fw-design-view fw-rotate-90"></i>
-                <span class="toggle-button-text">Design View</span>
+                <span class="toggle-button-text">设计视图</span>
             </div>
         </div>
         <!-- End: Toggle Controls Container  -->
@@ -274,19 +274,19 @@
         <div class="siddhi_app_mode_config clearfix">
             <div class="clearfix">
                 <div class="col-md-6">
-                    <h5>Siddhi Apps</h5>
+                    <h5>流应用</h5>
                 </div>
                 <div class="col-md-6">
-                    <h5>Run/Debug Mode</h5>
+                    <h5>运行/调式 方式</h5>
                 </div>
             </div>
             <div class="clearfix">
-                <label class="siddhi_app_name col-md-6">SmartHomePlan</label>
+                <label class="siddhi_app_name col-md-6">智能家居</label>
                 <div class="switch-toggle switch-ios col-md-6">
                     <input id="week11" name="view10" checked="" type="radio">
-                    <label for="week11" onclick="">Run</label>
+                    <label for="week11" onclick="">运行</label>
                     <input id="month13" name="view10" type="radio">
-                    <label for="month13" onclick="">Debug</label>
+                    <label for="month13" onclick="">调式</label>
                     <a></a>
                 </div>
             </div>
@@ -302,7 +302,7 @@
                 <button type="button" class="close" onclick="onFileBrowserClose();" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
-                <h4 class="modal-title">Select root folder</h4>
+                <h4 class="modal-title">选择根文件夹</h4>
             </div>
             <div class="modal-body">
                 <div class="container-fluid  .file-browser-container">
@@ -312,8 +312,8 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" id="cancelBtn">Cancel</button>
-                <button type="button" class="btn btn-primary" id="selectBtn">Select</button>
+                <button type="button" class="btn btn-default" id="cancelBtn">取消</button>
+                <button type="button" class="btn btn-primary" id="selectBtn">选择</button>
             </div>
         </div>
     </div>
@@ -327,10 +327,10 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title" style="color:lightgoldenrodyellow">Warning!</h4>
+                <h4 class="modal-title" style="color:lightgoldenrodyellow">警告!</h4>
             </div>
             <div class="modal-body">
-                <p>Only one endpoint per resource is supported in this version.</p>
+                <p>该版本只支持每个资源一个端点.</p>
             </div>
         </div>
     </div>
@@ -345,38 +345,38 @@
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
-                <h4 class="modal-title" id="newConfigModalLabel">Stream Processor Configuration Wizard</h4>
+                <h4 class="modal-title" id="newConfigModalLabel">流处理配置向导</h4>
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
                     <form class="form-horizontal">
                         <div class="form-group">
-                            <label for="location" class="control-label col-sm-2">Location</label>
+                            <label for="location" class="control-label col-sm-2">位置</label>
                             <div class="col-sm-8">
                                 <input type="text" class="form-control" id="location"
-                                       placeholder="eg: /home/user/wso2-integration-server/siddhi-configs">
+                                       placeholder="例如: /home/user/gds-integration-server/stream-configs">
                             </div>
                             <div class="col-sm-2" style="float: right">
-                                <button type="button" class="btn btn-primary" id="openFileBrowserBtn">Select Folder
+                                <button type="button" class="btn btn-primary" id="openFileBrowserBtn">西安文件夹
                                 </button>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="configName" class="control-label col-sm-2">File Name</label>
+                            <label for="configName" class="control-label col-sm-2">文件名</label>
                             <div class="col-sm-10">
-                                <input class="form-control" id="configName" placeholder="eg: hotel-check-in.xyz">
+                                <input class="form-control" id="configName" placeholder="例如: hotel-check-in.xyz">
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-sm-offset-2 col-sm-10">
-                                <button type="button" class="btn btn-primary" id="createBtn">create
+                                <button type="button" class="btn btn-primary" id="createBtn">创建
                                 </button>
-                                <button type="button" class="btn btn-primary" data-dismiss="modal">cancel</button>
+                                <button type="button" class="btn btn-primary" data-dismiss="modal">取消</button>
                             </div>
                         </div>
                     </form>
                     <div id="newWizardError" class="alert alert-danger">
-                        <strong>Error!</strong> Something went wrong.
+                        <strong>错误!</strong> 发生了一些错误.
                     </div>
                 </div>
             </div>
@@ -392,12 +392,12 @@
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                         aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">Set Service Parameters</h4>
+                <h4 class="modal-title">设置服务参数</h4>
             </div>
             <div class="modal-body">
                 <form class="form-horizontal" role="form" style="margin-top: 25px">
                     <div class="form-group">
-                        <label class="col-md-4 control-label" for="basePath">Base Path</label>
+                        <label class="col-md-4 control-label" for="basePath">基本路径</label>
                         <div class="col-md-8">
                             <input id="basePath" name="basePath" type="text" placeholder="/basepath"
                                    class="form-control input-md">
@@ -405,7 +405,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="col-md-4 control-label" for="produces">Produces</label>
+                        <label class="col-md-4 control-label" for="produces">内容类型</label>
                         <div class="col-md-8">
                             <input id="produces" name="produces" type="text" placeholder="MediaType.APPLICATION_JSON"
                                    class="form-control input-md">
@@ -414,7 +414,7 @@
 
                     <!-- Text input-->
                     <div class="form-group">
-                        <label class="col-md-4 control-label" for="packageName">Package Name</label>
+                        <label class="col-md-4 control-label" for="packageName">包名</label>
                         <div class="col-md-8">
                             <input id="packageName" name="packageName" type="text" placeholder="com.sample"
                                    class="form-control input-md">
@@ -423,16 +423,16 @@
 
                     <!-- Textarea -->
                     <div class="form-group">
-                        <label class="col-md-4 control-label" for="description">Description</label>
+                        <label class="col-md-4 control-label" for="description">说明</label>
                         <div class="col-md-8">
-                            <input id="description" name="description" type="text" placeholder="Your Description Here"
+                            <input id="description" name="description" type="text" placeholder="填写一些说明"
                                    class="form-control input-md">
                         </div>
                     </div>
 
                     <!-- Textarea -->
                     <div class="form-group">
-                        <label class="col-md-4 control-label" for="tags">Tags</label>
+                        <label class="col-md-4 control-label" for="tags">标签</label>
                         <div class="col-md-8">
                             <input id="tags" name="tags" type="text" placeholder="tag1,tag2"
                                    class="form-control input-md">
@@ -441,8 +441,8 @@
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary" onclick="saveServiceProperties()">Save</button>
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" onclick="saveServiceProperties()">保存</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
             </div>
         </div>
     </div>
@@ -456,12 +456,12 @@
         <ul class="nav nav-tabs" role="tablist">
             <li role="presentation" class="active">
                 <a href="#single-event-configs" aria-controls="single-event-configs" role="tab" data-toggle="tab">
-                    Single Simulation
+                    单个事件仿真
                 </a>
             </li>
             <li role="presentation">
                 <a href="#event-feed-configs" aria-controls="event-feed-configs" role="tab" data-toggle="tab">
-                    Feed Simulation
+                    连续事件仿真
                 </a>
             </li>
         </ul>
@@ -471,7 +471,13 @@
                 <div class="content">
                     <ul id="single-event-config-tab" class="nav nav-tabs configs" role="tablist">
                         <li id="add-single-event-form" role="presentation">
-                            <a>+</a>
+                            <!-- <a>+</a> -->
+                            <a>
+                                <span class="icon fw-stack fw-lg">
+                                  <i class="fw fw-circle-outline fw-stack-2x"></i>
+                                  <i class="fw fw-add fw-stack-1x"></i>
+                                </span>
+                            </a>
                         </li>
                     </ul>
                     <div class="nano">
@@ -487,19 +493,19 @@
                         <span class="icon fw-stack fw-lg">
                           <i class="fw fw-circle-outline fw-stack-2x"></i>
                           <i class="fw fw-add fw-stack-1x"></i>
-                        </span> Create
+                        </span> 创建
                     </button>
                     <div class="notifications" id="createFeedSimulationNotification"
-                         style="display: none;">No Saved Siddhi Apps Available!
+                         style="display: none;">无可用的流应用!
                     </div>
                     <div class="nano">
                         <div class="simulation-list nano-content">
                             <div id="active-simulation-list" class="nano-content" style="display: none;">
-                                <h5>Active Feed Simulations</h5>
+                                <h5>进行中的仿真</h5>
                             </div>
                             <div id="inactive-simulation-list" class="nano-content inactive-simulation-list"
                                  style="display: none;">
-                                <h5>Inactive Feed Simulations</h5>
+                                <h5>已停止的仿真</h5>
                             </div>
                         </div>
                     </div>
@@ -517,22 +523,22 @@
               data-loading-style="overlay" data-loading-text="Sending event">
             <div class="form-group">
                 <label>
-                    Siddhi App Name
+                    流应用
                 </label>
                 <select name="single-event-siddhi-app-name" class="form-control">
                 </select>
             </div>
             <div class="form-group">
                 <label>
-                    Stream Name
+                    流
                 </label>
                 <select name="stream-name" class="form-control">
                 </select>
             </div>
             <div class="form-group">
                 <label>
-                    Timestamp(ms)<span class="optional"> - optional</span></label>
-                <input type="text" class="form-control" name="sim-timestamp" placeholder="Current System Time">
+                    时间戳(毫秒)<span class="optional"> - 可选项</span></label>
+                <input type="text" class="form-control" name="sim-timestamp" placeholder="当前系统时间">
             </div>
             <div class="form-group" data-name="attributes">
             </div>
@@ -544,7 +550,7 @@
             </div>
             <div class="form-group">
                 <button type="submit" class="btn btn-primary" name="send">
-                    Send
+                    发送
                 </button>
             </div>
         </form>
@@ -567,13 +573,13 @@
                           data-loading-style="overlay" data-loading-text="Sending event">
                         <div class="form-group">
                             <label>
-                                Simulation Name
+                                仿真名称
                             </label>
                             <input type="text" class="form-control" name="simulation-name">
                         </div>
                         <div class="form-group">
                             <label>
-                                Description
+                                说明
                             </label>
                             <textarea class="form-control" rows="2" name="feed-description"></textarea>
                         </div>
@@ -581,7 +587,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>
-                                        Time Interval(ms)
+                                        时间间隔(毫秒)
                                     </label>
                                     <input type="text" class="form-control" id="timeInterval" name="time-interval">
                                 </div>
@@ -590,21 +596,21 @@
 
                         <div class="clearfix">
                             <a href="#" class="advanceConfigs pull-right"
-                               id="feedAdvanceConfigToggle">Advanced Configurations</a>
+                               id="feedAdvanceConfigToggle">高级配置</a>
                         </div>
                         <div class="feedAdvanceContent" id="feedAdvanceContent" style="display: none;">
                             <div class="form-group">
                                 <label>
-                                    Event's Timestamp
+                                    事件时间戳
                                 </label>
                                 <div class="row">
                                     <div class="col-md-6">
                                         <input type="text" class="form-control" name="start-timestamp">
-                                        <span class="dark text-muted">Starting</span>
+                                        <span class="dark text-muted">开始</span>
                                     </div>
                                     <div class="col-md-6">
                                         <input type="text" class="form-control" name="end-timestamp">
-                                        <span class="dark text-muted">Ending</span>
+                                        <span class="dark text-muted">结束</span>
                                     </div>
                                 </div>
                             </div>
@@ -612,7 +618,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>
-                                            No. of Events
+                                            事件数
                                         </label>
                                         <input type="text" class="form-control col-md-6" id="noOfEvents"
                                                name="no-of-events">
@@ -630,25 +636,25 @@
                         <div class="form-inline">
                             <div class="form-group">
                                 <label>
-                                    Simulation Source
+                                    仿真数据源
                                 </label>
                                 <select class="form-control sources" name="sources">
-                                    <option value="Random">Random</option>
-                                    <option value="CSV file">CSV file</option>
-                                    <option value="Database">Database</option>
+                                    <option value="Random">随机</option>
+                                    <option value="CSV file">CSV 文件</option>
+                                    <option value="Database">数据库</option>
                                 </select>
                             </div>
                             <div class="form-group">
-                                <button type="button" class="btn btn-link addNewSource">Add Simulation Source</button>
+                                <button type="button" class="btn btn-link addNewSource">添加仿真数据源</button>
                             </div>
                         </div>
-                        <div id="addNewSourceError" class="hidden">Please Add a Simulation Source</div>
+                        <div id="addNewSourceError" class="hidden">请添加一个仿真数据源</div>
 
                         <hr>
                         <div class="form-group feed-btn-panel" id="buttons">
-                            <button type="submit" class="btn btn-primary" name="save">Save</button>
+                            <button type="submit" class="btn btn-primary" name="save">保存</button>
                             <button type="button" class="btn btn-default" name="cancel" data-handle="close"
-                                    rel="createPage">Cancel
+                                    rel="createPage">取消
                             </button>
                         </div>
                     </form>
@@ -665,7 +671,7 @@
      style="display:none;">
     <div class="form-group">
         <label>
-            Siddhi App Name<span class="required_astrix"> *</span>
+            流应用<span class="required_astrix"> *</span>
         </label>
         <select id="siddhi-app-name_{{dynamicId}}" name="siddhi-app-name" class="form-control">
         </select>
@@ -676,7 +682,7 @@
     <div class="dynamicToggleFormContent" style="display: none;">
         <div class="form-group">
             <label>
-                Stream Name<span class="required_astrix"> *</span>
+                流<span class="required_astrix"> *</span>
             </label>
             <select name="stream-name" class="form-control">
             </select>
@@ -684,30 +690,29 @@
 
         <div class="form-group">
             <label>
-                CSV file<span class="required_astrix"> *</span>
+                CSV 文件<span class="required_astrix"> *</span>
             </label>
             <select id="file-name_{{dynamicId}}" name="file-name" class="form-control"></select>
             <button type="button" class="btn btn-secondary" id="upload-csv-file_{{dynamicId}}" name="upload-csv-file">
-                Upload
+                上传
             </button>
         </div>
 
         <div class="form-group">
-            <label>Delimiter<span class="required_astrix"> *</span>
+            <label>分隔符<span class="required_astrix"> *</span>
                 <input type="text" value="," class="form-control" name="delimiter">
             </label>
         </div>
 
         <div class="clearfix">
-            <a href="#" class="advanceConfigs pull-right" id="csvAdvanceConfigToggle_{{dynamicId}}">Advance
-                Configuration</a>
+            <a href="#" class="advanceConfigs pull-right" id="csvAdvanceConfigToggle_{{dynamicId}}">高级配置</a>
         </div>
         <div class="feedAdvanceContent clearfix" id="csvAdvanceContent_{{dynamicId}}" style="display: none;">
             <div class="form-inline clearfix">
                 <div class="form-group col-md-6">
                     <label class="custom-radio two-line-radio">
                         <input type="radio" name="timestamp-option" value="attribute">
-                        <span class="helper">CSV event record timestamp index</span>
+                        <span class="helper">CSV 事件记录时间戳索引</span>
                         <!--<select name="timestamp-attribute" class="form-control" disabled></select>-->
                     </label>
                     <input type="text" class="form-control" name="timestamp-attribute" style="width: 100%" disabled>
@@ -715,22 +720,22 @@
                 <div class="form-group col-md-6">
                     <label class="custom-radio two-line-radio">
                         <input type="radio" name="timestamp-option" value="interval" checked>
-                        <span class="helper">Increment event time by(ms)</span>
+                        <span class="helper">时间间隔(毫秒)</span>
                     </label>
                     <input class="form-control" name="timestamp-interval" value="1000" style="width: 100%">
                 </div>
             </div>
 
             <div class="form-group col-md-12 add-margin-top-3x">
-                <label>CSV file is ordered by timestamp</label>
+                <label>CSV 文件是按时间戳排序的吗？</label>
                 <div class="form-group">
                     <label class="custom-radio">
                         <input type="radio" name="ordered" value="ordered" checked disabled>
-                        <span class="helper">Yes</span>
+                        <span class="helper">是</span>
                     </label>
                     <label class="custom-radio">
                         <input type="radio" name="ordered" value="not-ordered" disabled>
-                        <span class="helper">No</span>
+                        <span class="helper">否</span>
                     </label>
                 </div>
             </div>
@@ -745,7 +750,7 @@
 
     <div class="form-group">
         <label>
-            Siddhi App Name<span class="required_astrix"> *</span>
+            流应用<span class="required_astrix"> *</span>
         </label>
         <select id="siddhi-app-name_{{dynamicId}}" name="siddhi-app-name" class="form-control">
         </select>
@@ -755,7 +760,7 @@
 
     <div class="form-group">
         <label>
-            Stream Name<span class="required_astrix"> *</span>
+            流<span class="required_astrix"> *</span>
 
         </label>
         <select name="stream-name" class="form-control">
@@ -764,7 +769,7 @@
     <!--todo remove the values of dataSourceLocation, driver, username, password-->
     <div class="form-group">
         <label>
-            Data Source<span class="required_astrix"> *</span>
+            数据源<span class="required_astrix"> *</span>
         </label>
         <input type="text" class="form-control required-for-db-connection" id="dataSourceLocation_{{dynamicId}}"
                name="data-source-location"
@@ -773,7 +778,7 @@
 
     <div class="form-group">
         <label>
-            Driver Class<span class="required_astrix"> *</span>
+            驱动类<span class="required_astrix"> *</span>
         </label>
         <input type="text" class="form-control required-for-db-connection"
                name="driver-class" value="com.mysql.jdbc.Driver">
@@ -781,7 +786,7 @@
 
     <div class="form-group">
         <label>
-            Username<span class="required_astrix"> *</span>
+            用户名<span class="required_astrix"> *</span>
         </label>
         <input type="text" class="form-control required-for-db-connection"
                name="username" value="root">
@@ -789,7 +794,7 @@
 
     <div class="form-group">
         <label>
-            Password<span class="required_astrix"> *</span>
+            密码<span class="required_astrix"> *</span>
         </label>
         <input type="password" class="form-control required-for-db-connection"
                name="password" value="root">
@@ -797,14 +802,14 @@
 
     <div class="form-group">
         <button type="button" class="btn btn-secondary" name="loadDbConnection">
-            Connect to database
+            连接数据库
         </button>
         <span class="helper connectionSuccessMsg"></span>
     </div>
 
     <div class="form-group">
         <label>
-            Table name<span class="required_astrix"> *</span>
+            表名<span class="required_astrix"> *</span>
         </label>
         <select name="table-name" class="form-control">
         </select>
@@ -815,7 +820,7 @@
         <div class="form-group">
             <label class="custom-radio">
                 <input type="radio" name="timestamp-option" value="attribute">
-                <span class="helper">Timestamp Attribute</span>
+                <span class="helper">时间戳属性</span>
                 <select name="timestamp-attribute" class="form-control feed-attribute-db" disabled></select>
                 <!--<input type="text" class="form-control" name="timestamp-attribute" disabled>-->
             </label>
@@ -823,7 +828,7 @@
         <div class="form-group">
             <label class="custom-radio">
                 <input type="radio" name="timestamp-option" value="interval" checked>
-                <span class="helper">Timestamp Interval</span>
+                <span class="helper">时间戳间隔</span>
                 <input class="form-control" name="timestamp-interval" value="1000">
             </label>
         </div>
@@ -838,7 +843,7 @@
     <div class="sourceConfigForm" id="randomSourceConfig_dynamicId" data-type="random" data-uuid="{{dynamicId}}">
         <div class="form-group">
             <label>
-                Siddhi App Name<span class="required_astrix"> *</span>
+                流应用<span class="required_astrix"> *</span>
             </label>
             <select id="siddhi-app-name_{{dynamicId}}" name="siddhi-app-name" class="form-control">
             </select>
@@ -849,19 +854,19 @@
         <div class="dynamicToggleFormContent" style="display: none;">
             <div class="form-group">
                 <label>
-                    Stream Name<span class="required_astrix"> *</span>
+                    流<span class="required_astrix"> *</span>
                 </label>
                 <select name="stream-name" class="form-control">
                 </select>
             </div>
             <div class="clearfix">
                 <a href="#" class="advanceConfigs pull-right"
-                   id="randomAdvanceConfigToggle_{{dynamicId}}">Advanced Configurations</a>
+                   id="randomAdvanceConfigToggle_{{dynamicId}}">高级配置</a>
             </div>
             <div class="feedAdvanceContent" id="randomAdvanceContent_dynamicId" style="display: none;">
                 <div class="form-group">
                     <label>
-                        Increment Event’s Timestamp by(ms)
+                        时间间隔(毫秒)
                     </label>
                     <input type="text" class="form-control" name="timestamp-interval"
                            value="1000">
@@ -880,7 +885,7 @@
 
         <div class="form-group">
             <label for="single_executionPlanName_{{dynamicId}}">
-                Siddhi App Name
+                流应用
                 <span class="required_astrix"> *</span></label>
             <select id="single_executionPlanName_{{dynamicId}}" name="single_executionPlanName_{{dynamicId}}"
                     class="form-control">
@@ -889,7 +894,7 @@
 
         <div class="form-group">
             <label for="single_streamName_{{dynamicId}}">
-                Stream Name
+                流
                 <span class="required_astrix"> *</span>
             </label>
             <select id="single_streamName_{{dynamicId}}" name="single_streamName_{{dynamicId}}" class="form-control">
@@ -898,8 +903,8 @@
 
         <div class="form-group">
             <label for="single_timestamp_{{dynamicId}}">
-                Timestamp
-                <span class="optional"> - optional</span>
+                时间戳
+                <span class="optional"> - 可选项</span>
             </label>
             <input type="text" class="form-control" id="single_timestamp_{{dynamicId}}"
                    name="single_timestamp_{{dynamicId}}">
@@ -914,7 +919,7 @@
 
         <div class="form-group">
             <button type="submit" class="btn btn-default" id="send_singleEvent_{{dynamicId}}" name="send">
-                Send
+                发送
             </button>
         </div>
     </div>
@@ -928,7 +933,7 @@
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title">Upload CSV</h4>
+                    <h4 class="modal-title">上传 CSV 文件</h4>
                 </div>
                 <div class="modal-body">
 
@@ -951,14 +956,14 @@
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">Warning</h4>
+                <h4 class="modal-title">警告</h4>
             </div>
             <div class="modal-body">
-                <p>The entered values will be discarded. Are you sure?&hellip;</p>
+                <p>输入值会被丢弃. 确认要这么做吗?&hellip;</p>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-dismiss="modal" name="confirm">Confirm</button>
-                <button type="button" class="btn btn-default" data-dismiss="modal" name="cancel">Cancel</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" name="confirm">确认</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal" name="cancel">取消</button>
             </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
@@ -970,14 +975,14 @@
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">Warning</h4>
+                <h4 class="modal-title">警告</h4>
             </div>
             <div class="modal-body">
-                <p>The entered values will be discarded. Are you sure?&hellip;</p>
+                <p>输入值会被丢弃. 确认要这么做吗?&hellip;</p>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-dismiss="modal" name="confirm">Confirm</button>
-                <button type="button" class="btn btn-default" data-dismiss="modal" name="cancel">Cancel</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" name="confirm">确认</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal" name="cancel">取消</button>
             </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
@@ -990,23 +995,23 @@
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">Run or Debug</h4>
+                <h4 class="modal-title">运行或调试</h4>
             </div>
             <div class="modal-body">
-                <p>Please select the mode to deploy the Siddhi Apps to simulate.&hellip;</p>
+                <p>请选择一种模式来部署流应用并仿真.&hellip;</p>
                 <div class="siddhi-app-list"></div>
             </div>
             <div class="modal-footer" style="clear:both;">
-                <button type="button" class="btn btn-primary" data-dismiss="modal" name="confirm">Start Simulation
+                <button type="button" class="btn btn-primary" data-dismiss="modal" name="confirm">启动仿真
                 </button>
-                <button type="button" class="btn btn-default" data-dismiss="modal" name="cancel">Cancel</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal" name="cancel">取消</button>
             </div>
         </div>
     </div>
 </div>
 
 <script id="attribute-form-template" type="text/x-handlebars-template">
-    <h3>Attributes</h3>
+    <h3>属性</h3>
     <ul>
         <div id="attribute-div">
             {{#each this}}
@@ -1015,12 +1020,12 @@
                     <input type="text" value="{{name}}" class="attr-name"/> &nbsp;
                     <select class="attr-type">
                         <option value="string">string</option>
-                        <option value="int">int</option>
-                        <option value="long">long</option>
-                        <option value="float">float</option>
-                        <option value="double">double</option>
-                        <option value="bool">bool</option>
-                        <option value="object">object</option>
+                        <option value="int">整数</option>
+                        <option value="long">长整数</option>
+                        <option value="float">浮点数</option>
+                        <option value="double">双精度浮点数</option>
+                        <option value="bool">布尔值</option>
+                        <option value="object">对象</option>
                     </select>
                 </div>
                 <div class="attr-nav"></div>
@@ -1033,7 +1038,7 @@
 </script>
 
 <script id="annotation-form-template" type="text/x-handlebars-template">
-    <h3>Annotations</h3>
+    <h3>注解</h3>
     <div id="annotation-div">
         {{#if this}}
         <ul>
@@ -1044,9 +1049,9 @@
         {{/if}}
     </div>
     <br>
-    <button id="btn-add-annotation" class="btn btn-default"> + Annotation</button>
-    <button id="btn-add-key-val" class="btn btn-default" style="display: none"> + Property</button>
-    <button id="btn-del-annotation" class="btn btn-default" style="display: none"> Delete</button>
+    <button id="btn-add-annotation" class="btn btn-default"> + 注解</button>
+    <button id="btn-add-key-val" class="btn btn-default" style="display: none"> + 属性</button>
+    <button id="btn-del-annotation" class="btn btn-default" style="display: none"> 删除</button>
     <br>
 </script>
 
@@ -1093,16 +1098,16 @@
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <i class="fw fw-cancel  about-dialog-close"></i></button>
-                <h3 class="modal-title" id="aboutSettingsLabel">Settings</h3>
+                <h3 class="modal-title" id="aboutSettingsLabel">设置</h3>
             </div>
             <div class="modal-body add-margin-top-2x add-margin-bottom-2x">
                 <form>
-                    <h4>Source View</h4>
+                    <h4>代码视图</h4>
                     <hr/>
                     <div class="form-group">
-                        <label for="sourceViewTheme">Theme</label>
+                        <label for="sourceViewTheme">主题</label>
                         <select class="form-control" id="sourceViewTheme">
-                            <optgroup label="Bright">
+                            <optgroup label="亮色主题">
                                 <option value="ace/theme/chrome">Chrome</option>
                                 <option value="ace/theme/clouds">Clouds</option>
                                 <option value="ace/theme/crimson_editor">Crimson Editor</option>
@@ -1119,7 +1124,7 @@
                                 <option value="ace/theme/katzenmilch">KatzenMilch</option>
                                 <option value="ace/theme/sqlserver">SQL Server</option>
                             </optgroup>
-                            <optgroup label="Dark">
+                            <optgroup label="暗色主题">
                                 <option value="ace/theme/ambiance">Ambiance</option>
                                 <option value="ace/theme/chaos">Chaos</option>
                                 <option value="ace/theme/clouds_midnight">Clouds Midnight</option>
@@ -1143,7 +1148,7 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="sourceViewFontSize">Font Size(px)</label>
+                        <label for="sourceViewFontSize">字体大小(像素)</label>
                         <select class="form-control" id="sourceViewFontSize">
                             <option value="10px">10</option>
                             <option value="11px">11</option>
@@ -1165,7 +1170,7 @@
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal" id="saveSettingsButton">OK</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal" id="saveSettingsButton">确定</button>
             </div>
         </div>
     </div>

@@ -231,7 +231,7 @@ define(['log', 'lodash', 'jquery', 'event_channel', './file'],
                     file.setDirty(false)
                         .setLastPersisted(_.now())
                         .save();
-                    log.debug("File " + file.getName() + ' saved successfully at '+ file.getPath());
+                    log.debug("文件 " + file.getName() + ' 成功保存到 '+ file.getPath());
                 },
                 error: function(xhr, textStatus, errorThrown){
                     data = getErrorFromResponse(xhr, textStatus, errorThrown);

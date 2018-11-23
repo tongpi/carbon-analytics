@@ -130,28 +130,28 @@ define(['jquery', 'log', './simulator-rest-client', 'lodash', './open-siddhi-app
                     }
               },
             messages: {
-                required: "Please enter an simulation name."
+                required: "请指定仿真名称."
             }
         });
 
         $form.find('input[name="start-timestamp"]').rules('add', {
             digits: true,
             messages: {
-                digits: "Start timestamp attribute must be a positive integer."
+                digits: "开始时间必须是大于0的整数."
             }
         });
 
         $form.find('input[name="end-timestamp"]').rules('add', {
             digits: true,
             messages: {
-                digits: "End timestamp attribute must be a positive integer."
+                digits: "结束时间必须是大于0的整数."
             }
         });
 
         $form.find('input[name="no-of-events"]').rules('add', {
             digits: true,
             messages: {
-                digits: "No of events should be a positive integer."
+                digits: "事件数必须是大于0的整数."
             }
         });
 
@@ -315,8 +315,8 @@ define(['jquery', 'log', './simulator-rest-client', 'lodash', './open-siddhi-app
                             self.clearEventFeedForm();
                             $.sidebar_toggle('hide', '#left-sidebar-sub', '.simulation-list');
                             self.alertSuccess(
-                                "'" + simulation.properties.simulationName + "' feed updated. Please wait until feed" +
-                                " list updated.");
+                                "'" + simulation.properties.simulationName + "' 已更新. 请等待直到仿真列表" +
+                                " 更新.");
                             $("#create-simulation-modal-backdrop").remove();
                             log.info(data);
                         },
@@ -333,8 +333,8 @@ define(['jquery', 'log', './simulator-rest-client', 'lodash', './open-siddhi-app
                             self.clearEventFeedForm();
                             $.sidebar_toggle('hide', '#left-sidebar-sub', '.simulation-list');
                             self.alertSuccess(
-                                "'" + simulation.properties.simulationName + "' feed saved. Please wait until feed" +
-                                " list updated.");
+                                "'" + simulation.properties.simulationName + "' 仿真已保存. 请等待直到" +
+                                " 列表更新.");
                             $("#create-simulation-modal-backdrop").remove();
                             log.info(data);
                         },
@@ -434,9 +434,9 @@ define(['jquery', 'log', './simulator-rest-client', 'lodash', './open-siddhi-app
             var appName = "";
             var runDebugModalInitialContent = "<div class='clearfix'>" +
                                                "<div class='col-md-6'>" +
-                                               "<h5>Siddhi Apps</h5></div>" +
+                                               "<h5>流应用</h5></div>" +
                                                "<div class='col-md-6'>" +
-                                               "<h5>Run/Debug Mode</h5>" +
+                                               "<h5>运行/调试 方式</h5>" +
                                                "</div></div>";
             var dynamicRunDebugContent = "";
             var $siddhiAppList = $runDebugAppModal.find("div.siddhi-app-list");
@@ -475,7 +475,7 @@ define(['jquery', 'log', './simulator-rest-client', 'lodash', './open-siddhi-app
                     if(!isValidApp){
                         var message = {
                             "type" : "ERROR",
-                            "message": "Cannot Simulate Siddhi App \"" + appName + "\" as its in Faulty state."
+                            "message": "不能仿真流应用 \"" + appName + "\" ，其中存在错误."
                         };
                         var consoleListManager = self.app.outputController;
                         var console = consoleListManager.getGlobalConsole();
@@ -603,11 +603,10 @@ define(['jquery', 'log', './simulator-rest-client', 'lodash', './open-siddhi-app
                     simulationName,
                     function (data) {
                         self.simulationDeleteModal.modal('hide');
-                        self.alertSuccess("Simulation '" + simulationName + "' deleted. Please wait until feed list" +
-                            " updated");
+                        self.alertSuccess("仿真 '" + simulationName + "' 已删除. 请等待列表更新");
                     },
                     function (data) {
-                        deleteWizardError.text("Simulation '" + simulationName + "' deletion unsuccessful. " 
+                        deleteWizardError.text("仿真 '" + simulationName + "' 删除失败. " 
                             + data.message);
                         deleteWizardError.show();
                     }
@@ -973,7 +972,7 @@ define(['jquery', 'log', './simulator-rest-client', 'lodash', './open-siddhi-app
     };
     // create the siddhi app name drop down
     self.refreshSiddhiAppList = function ($siddhiAppSelect, siddhiAppNames) {
-        var initialOptionValue = '<option value = "-1" disabled>-- Please Select a Siddhi App --</option>';
+        var initialOptionValue = '<option value = "-1" disabled>-- 请选择流应用 --</option>';
         var newSiddhiApps = self.generateOptions(siddhiAppNames,initialOptionValue);
         $siddhiAppSelect.html(newSiddhiApps);
         $siddhiAppSelect.find('option[value="-1"]').attr("selected",true);
@@ -1034,7 +1033,7 @@ define(['jquery', 'log', './simulator-rest-client', 'lodash', './open-siddhi-app
         $form.find('[name="simulation-name"]').rules('add', {
             required: true,
             messages: {
-                required: "Please enter a simulation name."
+                required: "请指定仿真名称."
             }
         });
     };
@@ -1125,7 +1124,7 @@ define(['jquery', 'log', './simulator-rest-client', 'lodash', './open-siddhi-app
             'aria-controls="source_{{dataCollapseNum}}">' +
             '<i class="fw fw-down pull-right"></i> <i class="fw fw-up pull-right"></i>' +
             '<button type = "button" class = "close pull-right delete-source"><i class="fw fw-delete"></i></button>' +
-            '<span class="simulationHeader">{{sourceType}} Source {{totalSourceNum}}</span>' +
+            '<span class="simulationHeader">{{sourceType}} 代码 {{totalSourceNum}}</span>' +
             '</a>' +
             '</h4>' +
             '</div>' +
@@ -1606,7 +1605,7 @@ define(['jquery', 'log', './simulator-rest-client', 'lodash', './open-siddhi-app
         var isNotUploaded = false;
         if(csvFileNames.length == 0){
             isNotUploaded = true;
-            options += '<option value = "-1" disabled>No Uploaded CSV file available</option>';
+            options += '<option value = "-1" disabled>没有上传 CSV 文件</option>';
         }
         $csvFileSelect.html(options);
         if(isNotUploaded){
@@ -1617,7 +1616,7 @@ define(['jquery', 'log', './simulator-rest-client', 'lodash', './open-siddhi-app
     };
 
     self.refreshStreamList = function ($streamNameSelect, streamNames) {
-        var initialOptionValue = '<option value = "-1" disabled>-- Please Select a Stream --</option>';
+        var initialOptionValue = '<option value = "-1" disabled>-- 请选择一个流 --</option>';
         var newStreamOptions = self.generateOptions(streamNames,initialOptionValue);
         $streamNameSelect.html(newStreamOptions);
         $streamNameSelect.find('option[value="-1"]').attr("selected",true);
@@ -1626,21 +1625,21 @@ define(['jquery', 'log', './simulator-rest-client', 'lodash', './open-siddhi-app
     self.generateConnectionMessage = function (status) {
         var connectingMsg =
             '<div id="connectionSuccessMsg" class="text-muted">' +
-            '<label>Attempting to connect to datasource...</label>' +
+            '<label>尝试连接数据源...</label>' +
             '</div>';
         var successMsg =
             '<div id="connectionSuccessMsg" class="text-success">' +
-            '<label>Successfully connected</label>' +
+            '<label>连接成功</label>' +
             '</div>';
 
         var failureMsg =
             '<div id="connectionSuccessMsg" class="text-danger">' +
-            '<label>Connection failed. Edit latter part of config after successful connection</label>' +
+            '<label>连接失败. 编辑连接信息</label>' +
             '</div>';
 
         var editFailureMsg =
             '<div id="connectionSuccessMsg" class="text-danger">' +
-            '<label>Connection failed. Edit latter part of config after successful connection</label>' +
+            '<label>连接失败. 编辑连接信息</label>' +
             '</div>';
 
         switch (status) {
@@ -1681,7 +1680,7 @@ define(['jquery', 'log', './simulator-rest-client', 'lodash', './open-siddhi-app
         $sourceConfigForm.find('select[name="stream-name"]').rules('add', {
             required: true,
             messages: {
-                required: "Please select a stream name."
+                required: "请选择一个流."
             }
         });
        switch (sourceType) {
@@ -1701,27 +1700,27 @@ define(['jquery', 'log', './simulator-rest-client', 'lodash', './open-siddhi-app
         $sourceConfigForm.find('select[name="file-name"]').rules('add', {
             required: true,
             messages: {
-                required: "Please select a CSV file."
+                required: "请选择一个 CSV 文件."
             }
         });
         $sourceConfigForm.find('input[name="timestamp-attribute"]').rules('add', {
             required: true,
             digits: true,
             messages: {
-                digits: "Timestamp index must be a positive integer."
+                digits: "时间必须是正整数."
             }
         });
         $sourceConfigForm.find('input[name="timestamp-interval"]').rules('add', {
             required: true,
             digits: true,
             messages: {
-                digits: "Timestamp index must be a positive integer."
+                digits: "时间必须是正整数."
             }
         });
         $sourceConfigForm.find('input[name="delimiter"]').rules('add', {
             required: true,
             messages: {
-                required: "Please specify a delimiter."
+                required: "请指定一个分隔符."
             }
         });
     };
@@ -1731,31 +1730,31 @@ define(['jquery', 'log', './simulator-rest-client', 'lodash', './open-siddhi-app
         $sourceConfigForm.find('input[name="data-source-location"]').rules('add', {
             required: true,
             messages: {
-                required: "Please specify a datasource location."
+                required: "请指定数据源位置."
             }
         });
         $sourceConfigForm.find('input[name="driver-class"]').rules('add', {
             required: true,
             messages: {
-                required: "Please specify a driver class. eg: com.mysql.jdbc.Driver"
+                required: "请指定驱动类. 如: com.mysql.jdbc.Driver"
             }
         });
         $sourceConfigForm.find('input[name="username"]').rules('add', {
             required: true,
             messages: {
-                required: "Please specify a username."
+                required: "请指定用户名."
             }
         });
         $sourceConfigForm.find('input[name="password"]').rules('add', {
             required: true,
             messages: {
-                required: "Please specify a password."
+                required: "请指定密码."
             }
         });
         $sourceConfigForm.find('select[name="table-name"]').rules('add', {
             required: true,
             messages: {
-                required: "Please select a table name."
+                required: "请指定表名."
             }
         });
     };
@@ -1765,7 +1764,7 @@ define(['jquery', 'log', './simulator-rest-client', 'lodash', './open-siddhi-app
             $(this).rules('add', {
                 required: true,
                 messages: {
-                    required: "This field can not be empty"
+                    required: "该字段不能为空"
                 }
             });
         });
@@ -1776,7 +1775,7 @@ define(['jquery', 'log', './simulator-rest-client', 'lodash', './open-siddhi-app
             $(this).rules('add', {
                 required: true,
                 messages: {
-                    required: "This field can not be empty"
+                    required: "该字段不能为空"
                 }
             });
         });
@@ -1838,7 +1837,7 @@ define(['jquery', 'log', './simulator-rest-client', 'lodash', './open-siddhi-app
                         required: attributesFilled,
                         digits: true,
                         messages: {
-                            required: "Please enter an index number to match the attribute."
+                            required: "请指定匹配该属性的索引号."
                         }
                     });
                 }
@@ -1849,7 +1848,7 @@ define(['jquery', 'log', './simulator-rest-client', 'lodash', './open-siddhi-app
                     $(this).rules('add', {
                         required: attributesFilled,
                         messages: {
-                            required: "Please enter table column name to match the attribute."
+                            required: "请指定匹配该属性的列名."
                         }
                     });
                 }
@@ -1862,19 +1861,19 @@ define(['jquery', 'log', './simulator-rest-client', 'lodash', './open-siddhi-app
     self.generateAttributesDivForSource = function (dataType) {
         var csv =
             '<div class="form-group">' +
-            '   <label>Indices</label>' +
+            '   <label>索引</label>' +
             '   <div id="attributes">' +
             '   </div> ' +
             '</div>';
         var db =
             '<div class="form-group">' +
-            '   <label>Columns List</label>' +
+            '   <label>列清单</label>' +
             '   <div id="attributes">' +
             '   </div> ' +
             '</div>';
         var random =
             '<div class="form-group">' +
-            '   <label>Attribute Configuration</label>' +
+            '   <label>属性配置</label>' +
             '   <div id="attributes">' +
             '   </div>' +
             '</div>';
@@ -1921,11 +1920,11 @@ define(['jquery', 'log', './simulator-rest-client', 'lodash', './open-siddhi-app
             '           name="attributes_{{attributeName}}" ' +
             '           class="feed-attribute-random form-control"' +
             '           data-type ="{{attributeType}}"> ' +
-            '              <option disabled selected value> -- select an configuration type -- </option>' +
-            '              <option value="custom">Static value</option>' +
-            '              <option value="primitive">Primitive based</option>' +
-            '              <option value="property">Property based </option>' +
-            '              <option value="regex">Regex based</option>' +
+            '              <option disabled selected value> -- 选择配置类型 -- </option>' +
+            '              <option value="custom">静态值</option>' +
+            '              <option value="primitive">基于原型</option>' +
+            '              <option value="property">基于属性 </option>' +
+            '              <option value="regex">基于正则表达式</option>' +
             '           </select>' +
             '   <div class ="attributes_{{attributeName}}_config">' +
             '   </div> ' +
@@ -1933,7 +1932,7 @@ define(['jquery', 'log', './simulator-rest-client', 'lodash', './open-siddhi-app
 
         var result = "";
         if(dataType == "csv"){
-            result = '<span class="helper">Column Index mapping</span>';
+            result = '<span class="helper">列索引映射</span>';
         }
 
         for (var i = 0; i < attributes.length; i++) {
@@ -2059,7 +2058,7 @@ define(['jquery', 'log', './simulator-rest-client', 'lodash', './open-siddhi-app
         var custom =
             '<div class="add-margin-top-1x">' +
             '<label>' +
-            'Data' +
+            '数据' +
             '</label>' +
             '<input type="text" class="form-control" value="'+staticValue+'" name="' + parentId + '_custom"' +
             'data-type ="custom">' +
@@ -2074,7 +2073,7 @@ define(['jquery', 'log', './simulator-rest-client', 'lodash', './open-siddhi-app
         var bool =
             '<div>' +
             '<span class="helper color-grey" id="{{parentId}}_primitive_bool">' +
-            'No primitive based configuration required for attribute type \'BOOL\'.' +
+            '\'BOOL\'数据类型没有原型基于的配置.' +
             '</span>' +
             '</div>';
 
@@ -2083,7 +2082,7 @@ define(['jquery', 'log', './simulator-rest-client', 'lodash', './open-siddhi-app
             '<div class="row">' +
             '<div class="col-md-6">' +
             '<label>' +
-                    'String Length' +
+                    '字符串长度' +
             '</label>' +
                     '<input type="text" class="form-control" value="5" name="{{parentId}}_primitive_length" ' +
                             'data-type="numeric">' +
@@ -2096,7 +2095,7 @@ define(['jquery', 'log', './simulator-rest-client', 'lodash', './open-siddhi-app
             '<div class="row">' +
             '<div class="col-md-6">' +
             '<label>' +
-                    'From' +
+                    '从' +
             '</label>' +
                     '<input type="text" class="form-control" value="0" name="{{parentId}}_primitive_min" ' +
                             'data-type="{{attributeType}}">' +
@@ -2105,7 +2104,7 @@ define(['jquery', 'log', './simulator-rest-client', 'lodash', './open-siddhi-app
         var max =
             '<div class="col-md-6">' +
             '<label>' +
-                    'Less than' +
+                    '小于' +
             '</label>' +
                     '<input type="text" class="form-control" value="999" name="{{parentId}}_primitive_max" ' +
                             'data-type="{{attributeType}}">' +
@@ -2118,7 +2117,7 @@ define(['jquery', 'log', './simulator-rest-client', 'lodash', './open-siddhi-app
             '<div class="row">' +
             '<div class="col-md-6">' +
             '<label>' +
-            'Number of Decimals' +
+            '保留小数位数' +
             '</label>' +
             '<input type="text" class="form-control" value ="2" name="{{parentId}}_primitive_precision" ' +
             'data-type="numeric">' +
@@ -2156,7 +2155,7 @@ define(['jquery', 'log', './simulator-rest-client', 'lodash', './open-siddhi-app
         var propertyStartingTag =
             '<div class="add-margin-top-1x">' +
             '<label>' +
-            'Type' +
+            '类型' +
             '</label>' +
             '<select name="{{parentId}}_property" class="feed-attribute-random-property form-control" ' +
             'data-type="property"> ';
@@ -2233,7 +2232,7 @@ define(['jquery', 'log', './simulator-rest-client', 'lodash', './open-siddhi-app
         var temp =
             '<div class="add-margin-top-1x">' +
             '<label>' +
-            'Pattern' +
+            '正则表达式' +
             '</label>' +
             '<input type="text" class="form-control" value="'+defaultValue+'" name="{{parentId}}_regex"' +
             'data-type="regex">' +
@@ -2324,23 +2323,23 @@ define(['jquery', 'log', './simulator-rest-client', 'lodash', './open-siddhi-app
                 '<span class="form-control">' +
                 '<span class="simulation-name">' + simulation.properties.simulationName + '</span>' +
                 '<span class="simulator-tools pull-right">' +
-                '<a title="Start"><i class="fw fw-start"></i></a>' +
-                '<a class="hidden" title="Resume"><i class="fw fw-resume"></i></a>' +
-                '<a class="hidden" title="Pause"><i class="fw fw-assign fw-rotate-90"></i></a>' +
-                '<a class="hidden" title="Stop"><i class="fw fw-stop"></i></a>' +
+                '<a title="启动"><i class="fw fw-start"></i></a>' +
+                '<a class="hidden" title="恢复"><i class="fw fw-resume"></i></a>' +
+                '<a class="hidden" title="暂停"><i class="fw fw-assign fw-rotate-90"></i></a>' +
+                '<a class="hidden" title="停止"><i class="fw fw-stop"></i></a>' +
                 '</span>' +
                 '</span>' +
                 '<div class="input-group-btn">' +
                 '<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"' +
                 ' aria-haspopup="true" aria-expanded="false">' +
                 '<i class="fw fw-ellipsis fw-rotate-90"></i>' +
-                '<span class="sr-only">Toggle Dropdown Menu</span>' +
+                '<span class="sr-only">切换下拉菜单</span>' +
                 '</button>' +
                 '<ul class="dropdown-menu dropdown-menu-right">' +
                 '<li><a name="edit-source">' +
-                'Edit</a>' +
+                '编辑</a>' +
                 '</li>' +
-                '<li><a name="delete-source">Delete</a></li>' +
+                '<li><a name="delete-source">删除</a></li>' +
                 '</ul>' +
                 '</div>' +
                 '</div>';
@@ -2377,14 +2376,14 @@ define(['jquery', 'log', './simulator-rest-client', 'lodash', './open-siddhi-app
                 '<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"' +
                 ' aria-haspopup="true" aria-expanded="false">' +
                 '<i class="fw fw-ellipsis fw-rotate-90"></i>' +
-                '<span class="sr-only">Toggle Dropdown Menu</span>' +
+                '<span class="sr-only">切换下拉菜单</span>' +
                 '</button>' +
                 '<ul class="dropdown-menu dropdown-menu-right">' +
                 '<li><a name="edit-source" data-toggle="sidebar" data-target="#left-sidebar-sub" ' +
                 'aria-expanded="false">' +
-                'Edit</a>' +
+                '编辑</a>' +
                 '</li>' +
-                '<li><a name="delete-source">Delete</a></li>' +
+                '<li><a name="delete-source">删除</a></li>' +
                 '</ul>' +
                 '</div>' +
                 '</div>';
@@ -2408,7 +2407,7 @@ define(['jquery', 'log', './simulator-rest-client', 'lodash', './open-siddhi-app
                         self.activeSimulationList[simulationName].status = "STOP";
                         var message = {
                             "type" : "INFO",
-                            "message": "Event Simulation finished for \"" + simulationName + "\"."
+                            "message": "事件仿真结束： \"" + simulationName + "\"."
                         };
                         self.console.println(message);
                 } else if (!("STOP" === status && "STOP" === self.activeSimulationList[simulationName].status)) {
@@ -2597,11 +2596,11 @@ define(['jquery', 'log', './simulator-rest-client', 'lodash', './open-siddhi-app
                 var activeSimulations = simulations.activeSimulations.length;
                 var inactiveSimulations = simulations.inActiveSimulations.length;
                 self.numOfFeedSimulations = activeSimulations + inactiveSimulations;
-                self.form.find('input[name="simulation-name"]').val("Feed Simulation " + ++self.numOfFeedSimulations);
+                self.form.find('input[name="simulation-name"]').val("连续仿真 " + ++self.numOfFeedSimulations);
                 self.form.find('input[name="time-interval"]').val(1000);
             },
             function (data) {
-                log.info("Error retrieving data from backend " + data);
+                log.info("获取后端数据出错 " + data);
             }
         );
     };
@@ -2614,9 +2613,9 @@ define(['jquery', 'log', './simulator-rest-client', 'lodash', './open-siddhi-app
              '<div class="switch-toggle switch-ios col-md-6">' +
              '<input id="run'+ siddhiAppName +'" name="run-debug'+ siddhiAppName +'" value="run" checked="" ' +
             'type="radio">' +
-             '<label for="run'+ siddhiAppName +'" onclick="">Run</label>' +
+             '<label for="run'+ siddhiAppName +'" onclick="">运行</label>' +
              '<input id="debug'+ siddhiAppName +'" name="run-debug'+ siddhiAppName +'" value="debug" type="radio">' +
-             '<label for="debug'+ siddhiAppName +'" onclick="">Debug</label>' +
+             '<label for="debug'+ siddhiAppName +'" onclick="">调试</label>' +
              '<a></a>' +
              '</div></div></div>';
         return runDebugButtons;
@@ -2637,13 +2636,13 @@ define(['jquery', 'log', './simulator-rest-client', 'lodash', './open-siddhi-app
                 var console = consoleListManager.getGlobalConsole();
                 var message = {
                     "type" : "INFO",
-                    "message": "" + simulationName + " simulation started Successfully!"
+                    "message": "" + simulationName + " 仿真启动成功!"
                 };
                 if(self.console == undefined && console == undefined){
                     var consoleOptions = {};
                     var options = {};
                     _.set(options, '_type', "CONSOLE");
-                    _.set(options, 'title', "Console");
+                    _.set(options, 'title', "控制台");
                     _.set(options, 'statusForCurrentFocusedFile', "simulation");
                     _.set(options, 'message', message);
                     _.set(consoleOptions, 'consoleOptions', options);
@@ -2652,7 +2651,7 @@ define(['jquery', 'log', './simulator-rest-client', 'lodash', './open-siddhi-app
                     console.println(message);
                 }
                 self.console = console;
-                self.alertSuccess(simulationName + " simulation started Successfully!");
+                self.alertSuccess(simulationName + " 仿真启动成功!");
                 self.checkSimulationStatus($panel, simulationName,true);
             },
             function (data) {
@@ -2667,7 +2666,7 @@ define(['jquery', 'log', './simulator-rest-client', 'lodash', './open-siddhi-app
                     var consoleOptions = {};
                     var options = {};
                     _.set(options, '_type', "CONSOLE");
-                    _.set(options, 'title', "Console");
+                    _.set(options, 'title', "控制台");
                     _.set(options, 'statusForCurrentFocusedFile', "simulation");
                     _.set(options, 'message', message);
                     _.set(consoleOptions, 'consoleOptions', options);
@@ -2755,12 +2754,12 @@ define(['jquery', 'log', './simulator-rest-client', 'lodash', './open-siddhi-app
                             simulationName,
                             "stop",
                             function (data) {
-                                self.alertWarning("'" + simulationName + "' simulation stopped due to termination of" +
-                                    " Siddhi app: " + siddhiApp);
+                                self.alertWarning("'" + simulationName + "' 仿真已停止。" +
+                                    " 流应用中断: " + siddhiApp);
                             },
                             function (data) {
-                                self.alertError("'" + simulationName + "' simulation could not stopped when stopping" +
-                                    " Siddhi app: '" + siddhiApp + "'. Reason: " + data);
+                                self.alertError("'" + simulationName + "' 仿真不能被停止。" +
+                                    " 流应用: '" + siddhiApp + "'. 原因: " + data);
                             },
                             false
                         );
@@ -2783,7 +2782,7 @@ define(['jquery', 'log', './simulator-rest-client', 'lodash', './open-siddhi-app
                 }
             },
             function (data) {
-                log.error("Error in retrieving back end data " + data);
+                log.error("获取后端数据出错： " + data);
             }
         );
 
@@ -2825,7 +2824,7 @@ define(['jquery', 'log', './simulator-rest-client', 'lodash', './open-siddhi-app
             "<button type='button' class='close' data-dismiss='modal' aria-label='Close'>" +
             "<span aria-hidden='true'>&times;</span>" +
             "</button>" +
-            "<h4 class='modal-title file-dialog-title' id='newConfigModalLabel'>Delete simulation config<" +
+            "<h4 class='modal-title file-dialog-title' id='newConfigModalLabel'>删除仿真配置<" +
             "/h4>" +
             "<hr class='style1'>" +
             "</div>" +
@@ -2834,19 +2833,19 @@ define(['jquery', 'log', './simulator-rest-client', 'lodash', './open-siddhi-app
             "<form class='form-horizontal' onsubmit='return false'>" +
             "<div class='form-group'>" +
             "<label for='configName' class='col-sm-9 file-dialog-label'>" +
-            "Are you sure to delete Simulation Configuration: " + simulationName + "" +
+            "你确信要删除仿真配置: " + simulationName + "" +
             "</label>" +
             "</div>" +
             "<div class='form-group'>" +
             "<div class='file-dialog-form-btn'>" +
-            "<button id='deleteButton' type='button' class='btn btn-primary'>delete" +
+            "<button id='deleteButton' type='button' class='btn btn-primary'>删除" +
             "</button>" +
             "<div class='divider'/>" +
-            "<button type='cancelButton' class='btn btn-default' data-dismiss='modal'>cancel</button>" +
+            "<button type='cancelButton' class='btn btn-default' data-dismiss='modal'>取消</button>" +
             "</div>" +
             "</form>" +
             "<div id='deleteWizardError' class='alert alert-danger'>" +
-            "<strong>Error!</strong> Something went wrong." +
+            "<strong>错误!</strong> 发生了一些错误." +
             "</div>" +
             "</div>" +
             "</div>" +

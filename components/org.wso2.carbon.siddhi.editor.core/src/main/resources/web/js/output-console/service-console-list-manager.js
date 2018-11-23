@@ -47,7 +47,7 @@ define(['log', 'jquery', 'lodash', 'output_console_list', 'workspace', 'service_
                     if (this.application.isRunningOnMacOS()) {
                         this._activateBtn.attr("title", "Output Console (" + _.get(self._options, 'command.shortcuts.mac.label') + ") ").tooltip();
                     } else {
-                        this._activateBtn.attr("title", "Output Console  (" + _.get(self._options, 'command.shortcuts.other.label') + ") ").tooltip();
+                        this._activateBtn.attr("title", "输出控制台  (" + _.get(self._options, 'command.shortcuts.other.label') + ") ").tooltip();
                     }
                     // register command
                     this.application.commandManager.registerCommand(options.command.id, {shortcuts: options.command.shortcuts});
@@ -173,7 +173,7 @@ define(['log', 'jquery', 'lodash', 'output_console_list', 'workspace', 'service_
                             var consoleOptions = {};
                             var options = {};
                             _.set(options, '_type', "CONSOLE");
-                            _.set(options, 'title', "Console");
+                            _.set(options, 'title', "控制台");
                             _.set(options, 'statusForCurrentFocusedFile', "LOGGER");
                             _.set(options, 'currentFocusedFile', undefined);
                             _.set(consoleOptions, 'consoleOptions', options);

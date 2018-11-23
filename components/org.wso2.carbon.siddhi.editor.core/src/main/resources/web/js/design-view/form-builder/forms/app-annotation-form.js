@@ -70,7 +70,7 @@ define(['require', 'log', 'jquery', 'lodash'],
             var editor = new JSONEditor(div[0], {
                 schema: {
                     type: "object",
-                    title: "Siddhi App Configurations",
+                    title: "流应用配置",
                     options: {
                         disable_properties: false
                     },
@@ -78,18 +78,18 @@ define(['require', 'log', 'jquery', 'lodash'],
                         siddhiApp: {
                             propertyOrder: 1,
                             type: "object",
-                            title: "Siddhi App",
+                            title: "流应用",
                             required: true,
                             properties: {
                                 name: {
                                     required: true,
-                                    title: "Name",
+                                    title: "名称",
                                     type: "string",
                                     minLength: 1
                                 },
                                 description: {
                                     required: true,
-                                    title: "Description",
+                                    title: "描述",
                                     type: "string",
                                     minLength: 1
 
@@ -100,15 +100,15 @@ define(['require', 'log', 'jquery', 'lodash'],
                             propertyOrder: 2,
                             type: "array",
                             format: "table",
-                            title: "App Annotations",
+                            title: "应用注解",
                             uniqueItems: true,
                             minItems: 1,
                             items: {
                                 type: "object",
-                                title: "App Annotation",
+                                title: "应用注解",
                                 properties: {
                                     annotation: {
-                                        title: "App Annotation",
+                                        title: "应用注解",
                                         type: "string",
                                         minLength: 1
                                     }

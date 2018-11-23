@@ -22,7 +22,7 @@ define(['require', 'log', 'jquery', 'lodash', 'event_channel', 'menu_definitions
         var MenuBar = function (options) {
             var errMsg;
             if(!_.has(options, 'container')){
-                errMsg = 'Unable to find configuration for container';
+                errMsg = '为找到容器配置';
                 log.error(errMsg);
                 throw errMsg;
             }

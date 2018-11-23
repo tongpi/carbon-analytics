@@ -85,7 +85,7 @@ define(['require', 'jquery', 'backbone', 'lodash', 'event_channel', 'console' ],
                         var msg = "";
                         activeTab.getFile().setRunStatus(false);
                         activeTab.getFile().save();
-                        msg = "" + siddhiAppName + ".siddhi - Stopped Successfully!"
+                        msg = "" + siddhiAppName + ".siddhi - 停止成功!"
                         var message = {
                             "type" : "INFO",
                             "message": msg
@@ -102,7 +102,7 @@ define(['require', 'jquery', 'backbone', 'lodash', 'event_channel', 'console' ],
                 },
                 error: function (msg) {
                     if(console != undefined){
-                        msg = ""+siddhiAppName+".siddhi - Error in Stopping."
+                        msg = ""+siddhiAppName+".siddhi - 停止出错."
                         var message = {
                             "type" : "ERROR",
                             "message": msg
@@ -138,16 +138,16 @@ define(['require', 'jquery', 'backbone', 'lodash', 'event_channel', 'console' ],
                     var globalConsoleOptions = {};
                     var opts = {};
                     _.set(opts, '_type', "CONSOLE");
-                    _.set(opts, 'title', "Console");
+                    _.set(opts, 'title', "控制台");
                     _.set(opts, 'currentFocusedFile', siddhiAppName);
                     _.set(opts, 'statusForCurrentFocusedFile', "SUCCESS");
-                    _.set(opts, 'message', " - Started in Debug mode Successfully!");
+                    _.set(opts, 'message', " - 调试模式已启动!");
                     _.set(globalConsoleOptions, 'consoleOptions', opts);
                     console = consoleListManager.newConsole(globalConsoleOptions);
                 }else {
                     var message = {
                         "type" : "INFO",
-                        "message": "" + siddhiAppName + ".siddhi - Started in Debug mode Successfully!"
+                        "message": "" + siddhiAppName + ".siddhi - 调试模式已启动!"
                     };
                     console.println(message);
                 }
@@ -167,7 +167,7 @@ define(['require', 'jquery', 'backbone', 'lodash', 'event_channel', 'console' ],
                 var globalConsoleOptions = {};
                     var opts = {};
                     _.set(opts, '_type', "CONSOLE");
-                    _.set(opts, 'title', "Console");
+                    _.set(opts, 'title', "控制台");
                     _.set(opts, 'currentFocusedFile', siddhiAppName);
                     _.set(opts, 'statusForCurrentFocusedFile', (JSON.parse(msg.responseText)).status);
                     _.set(opts, 'message', (JSON.parse(msg.responseText)).message);
@@ -176,8 +176,7 @@ define(['require', 'jquery', 'backbone', 'lodash', 'event_channel', 'console' ],
                 }else {
                     var message = {
                         "type" : "ERROR",
-                        "message": "" + siddhiAppName + ".siddhi - Could not start in debug mode.Siddhi App is in" +
-                         " faulty state."
+                        "message": "" + siddhiAppName + ".siddhi - 不能启动流应用到调试模式.因为存在一些故障."
                     };
                     console.println(message);
                 }

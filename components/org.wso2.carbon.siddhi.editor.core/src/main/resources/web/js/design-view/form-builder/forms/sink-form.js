@@ -22,20 +22,20 @@ define(['require', 'log', 'jquery', 'lodash', 'sourceOrSinkAnnotation', 'mapAnno
 
         var sinkSchema = {
             type: "object",
-            title: "Sink",
+            title: "输出",
             properties: {
                 annotationType: {
                     required: true,
                     propertyOrder: 1,
                     type: "object",
-                    title: "Type",
+                    title: "类型",
                     options: {
                         disable_properties: true
                     },
                     properties: {
                         name: {
                             type: "string",
-                            title: "Name",
+                            title: "名称",
                             required: true,
                             minLength: 1
                         }
@@ -45,15 +45,15 @@ define(['require', 'log', 'jquery', 'lodash', 'sourceOrSinkAnnotation', 'mapAnno
                     propertyOrder: 2,
                     type: "array",
                     format: "table",
-                    title: "Options",
+                    title: "选项",
                     uniqueItems: true,
                     minItems: 1,
                     items: {
                         type: "object",
-                        title: 'Option',
+                        title: '选项',
                         properties: {
                             optionValue: {
-                                title: 'Value',
+                                title: '值',
                                 type: "string",
                                 required: true,
                                 minLength: 1
@@ -63,21 +63,21 @@ define(['require', 'log', 'jquery', 'lodash', 'sourceOrSinkAnnotation', 'mapAnno
                 },
                 map: {
                     propertyOrder: 3,
-                    title: "Map",
+                    title: "映射",
                     type: "object",
                     properties: {
                         annotationType: {
                             required: true,
                             propertyOrder: 1,
                             type: "object",
-                            title: "Type",
+                            title: "类型",
                             options: {
                                 disable_properties: true
                             },
                             properties: {
                                 name: {
                                     type: "string",
-                                    title: "Name",
+                                    title: "名称",
                                     required: true,
                                     minLength: 1
                                 }
@@ -87,15 +87,15 @@ define(['require', 'log', 'jquery', 'lodash', 'sourceOrSinkAnnotation', 'mapAnno
                             propertyOrder: 2,
                             type: "array",
                             format: "table",
-                            title: "Options",
+                            title: "选项",
                             uniqueItems: true,
                             minItems: 1,
                             items: {
                                 type: "object",
-                                title: 'Option',
+                                title: '选项',
                                 properties: {
                                     optionValue: {
-                                        title: 'Value',
+                                        title: '值',
                                         type: "string",
                                         required: true,
                                         minLength: 1
@@ -105,23 +105,23 @@ define(['require', 'log', 'jquery', 'lodash', 'sourceOrSinkAnnotation', 'mapAnno
                         },
                         attributeOrPayloadValues: {
                             propertyOrder: 3,
-                            title: "Payload or attribute Mapping",
+                            title: "有效载荷或属性映射",
                             oneOf: [
                                 {
                                     $ref: "#/definitions/payloadMapValues",
-                                    title: "Enter payload as key/value pairs"
+                                    title: "请以键值对输入有效载荷"
                                 },
                                 {
                                     $ref: "#/definitions/payloadSingleValue",
-                                    title: "Enter a single payload attribute"
+                                    title: "请输入一个单个的有效载荷属性"
                                 },
                                 {
                                     $ref: "#/definitions/attributeMapValues",
-                                    title: "Enter attributes as key/value pairs"
+                                    title: "请以键值对显示输入属性"
                                 },
                                 {
                                     $ref: "#/definitions/attributeListValues",
-                                    title: "Enter attributes as a list"
+                                    title: "输入属性列表"
                                 }
                             ]
                         }
@@ -133,21 +133,21 @@ define(['require', 'log', 'jquery', 'lodash', 'sourceOrSinkAnnotation', 'mapAnno
                     required: true,
                     type: "array",
                     format: "table",
-                    title: "Payload Attributes",
+                    title: "有效载荷属性",
                     uniqueItems: true,
                     minItems: 1,
                     items: {
                         type: "object",
-                        title: 'Attribute',
+                        title: '属性',
                         properties: {
                             payloadMapKey: {
-                                title: 'Key',
+                                title: '键',
                                 type: "string",
                                 required: true,
                                 minLength: 1
                             },
                             payloadMapValue: {
-                                title: 'Value',
+                                title: '值',
                                 type: "string",
                                 required: true,
                                 minLength: 1
@@ -158,10 +158,10 @@ define(['require', 'log', 'jquery', 'lodash', 'sourceOrSinkAnnotation', 'mapAnno
                 payloadSingleValue: {
                     required: true,
                     type: "object",
-                    title: " Payload Attribute",
+                    title: " 有效载荷属性",
                     properties: {
                         singleValue: {
-                            title: 'Value',
+                            title: '值',
                             type: "string",
                             required: true,
                             minLength: 1
@@ -172,21 +172,21 @@ define(['require', 'log', 'jquery', 'lodash', 'sourceOrSinkAnnotation', 'mapAnno
                     required: true,
                     type: "array",
                     format: "table",
-                    title: "Attributes",
+                    title: "属性",
                     uniqueItems: true,
                     minItems: 1,
                     items: {
                         type: "object",
-                        title: 'Attribute',
+                        title: '属性',
                         properties: {
                             attributeMapKey: {
-                                title: 'Key',
+                                title: '键',
                                 type: "string",
                                 required: true,
                                 minLength: 1
                             },
                             attributeMapValue: {
-                                title: 'Value',
+                                title: '值',
                                 type: "string",
                                 required: true,
                                 minLength: 1
@@ -198,15 +198,15 @@ define(['require', 'log', 'jquery', 'lodash', 'sourceOrSinkAnnotation', 'mapAnno
                     required: true,
                     type: "array",
                     format: "table",
-                    title: "Attributes",
+                    title: "属性",
                     uniqueItems: true,
                     minItems: 1,
                     items: {
                         type: "object",
-                        title: 'Attribute',
+                        title: '属性',
                         properties: {
                             attributeListValue: {
-                                title: 'Value',
+                                title: '值',
                                 type: "string",
                                 required: true,
                                 minLength: 1
@@ -242,7 +242,7 @@ define(['require', 'log', 'jquery', 'lodash', 'sourceOrSinkAnnotation', 'mapAnno
          */
         SinkForm.prototype.generateDefineForm = function (i, formConsole, formContainer) {
             var self = this;
-            var propertyDiv = $('<div id="property-header"><h3>Sink Configuration</h3></div>' +
+            var propertyDiv = $('<div id="property-header"><h3>输出配置</h3></div>' +
                 '<div id="define-sink" class="define-sink"></div>');
             formContainer.append(propertyDiv);
 
@@ -397,7 +397,7 @@ define(['require', 'log', 'jquery', 'lodash', 'sourceOrSinkAnnotation', 'mapAnno
          */
         SinkForm.prototype.generatePropertiesForm = function (element, formConsole, formContainer) {
             var self = this;
-            var propertyDiv = $('<div id="property-header"><h3>Sink Configuration</h3></div>' +
+            var propertyDiv = $('<div id="property-header"><h3>输出配置</h3></div>' +
                 '<div id="define-sink" class="define-sink"></div>');
             formContainer.append(propertyDiv);
 
@@ -408,7 +408,7 @@ define(['require', 'log', 'jquery', 'lodash', 'sourceOrSinkAnnotation', 'mapAnno
             // retrieve the sink information from the collection
             var clickedElement = self.configurationData.getSiddhiAppConfig().getSink(id);
             if (!clickedElement) {
-                var errorMessage = 'unable to find clicked element';
+                var errorMessage = '未找到点击元素';
                 log.error(errorMessage);
                 throw errorMessage;
             }

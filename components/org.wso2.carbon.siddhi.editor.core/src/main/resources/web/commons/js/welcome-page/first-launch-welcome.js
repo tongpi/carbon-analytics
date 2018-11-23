@@ -22,7 +22,7 @@ define(['require', 'lodash', 'log', 'jquery', 'backbone', 'command', 'sample_pre
             initialize: function (options) {
                 var errMsg;
                 if (!_.has(options, 'tab')) {
-                    errMsg = 'unable to find a reference for editor tab';
+                    errMsg = '未找到编辑器选项卡的引用';
                     log.error(errMsg);
                     throw errMsg;
                 }
@@ -32,7 +32,7 @@ define(['require', 'lodash', 'log', 'jquery', 'backbone', 'command', 'sample_pre
                 container.empty();
                 // check whether container element exists in dom
                 if (!container.length > 0) {
-                    errMsg = 'unable to find container for welcome screen with selector: ' +
+                    errMsg = '未找到欢迎页容器，选择器: ' +
                         _.get(options, 'container');
                     log.error(errMsg);
                     throw errMsg;
@@ -81,13 +81,13 @@ define(['require', 'lodash', 'log', 'jquery', 'backbone', 'command', 'sample_pre
                 samplesPane.addClass(_.get(this._options, 'cssClass.samplesPane'));
                 quickLinksPane.addClass(_.get(this._options, 'cssClass.quickLinksPane'));
 
-                newButton.text("New");
-                openButton.text("Open");
+                newButton.text("新建");
+                openButton.text("打开");
                 buttonWrap.append(newButton);
                 buttonWrap.append(openButton);
 
                 var productNameWrapHeader = $('<h2><img src="/editor/commons/images/wso2-logo.svg">' +
-                    '<h1>Stream Processor Studio</h1></h2>');
+                    '<h1>天融流计算中心，欢迎您.</h1></h2>');
                 productNameWrap.append(productNameWrapHeader);
 
 
@@ -96,14 +96,14 @@ define(['require', 'lodash', 'log', 'jquery', 'backbone', 'command', 'sample_pre
 
                 mainWelcomeDiv.append(leftPane);
 
-                var recentFilesHeader = $('<h4>Recently opened</h4>');
+                var recentFilesHeader = $('<h4>最近打开过的</h4>');
                 recentFilesPane.append(recentFilesHeader);
 
-                var samplesHeader = $('<h4 class="margin-top-60">Try out samples</h4>');
+                var samplesHeader = $('<h4 class="margin-top-60">示例应用</h4>');
                 samplesPane.append(samplesHeader)
                 var bodyUlSampleContent = $('<ul class="recent-files clearfix"></ul>');
                 var moreSampleLink = $('<a class="more-samples">' +
-                    '<i class="fw fw-application"></i>More Samples</a>');
+                    '<i class="fw fw-application"></i>更多例子</a>');
                 bodyUlSampleContent.attr('id', "sampleContent");
                 samplesPane.append(bodyUlSampleContent);
                 samplesPane.append(moreSampleLink);
@@ -113,22 +113,22 @@ define(['require', 'lodash', 'log', 'jquery', 'backbone', 'command', 'sample_pre
                     command.dispatch("open-sample-file-open-dialog");
                 });
 
-                var quickLinkHeader = $('<h4 class="margin-top-60">Quick links</h4>');
+                var quickLinkHeader = $('<h4 class="margin-top-60">如何使用？</h4>');
                 quickLinksPane.append(quickLinkHeader);
 
                 var bodyUlQuickLinkContent = $('<ul class="quick-links col-md-12 col-lg-8">' +
                     '<li class="col-md-4"><a href="https://docs.wso2.com/display/SP430/Quick+Start+Guide"' +
-                    'target="_blank"><i class="fw fw-list"></i>Quick Start Guide</a></li>' +
+                    'target="_blank"><i class="fw fw-list"></i>快速入门</a></li>' +
                     '<li class="col-md-4"><a href="https://wso2.github.io/siddhi/documentation/siddhi-4.0/"' +
-                    'target="_blank"><i class="fw fw-carbon"></i>Siddhi Grammar</a></li>' +
+                    'target="_blank"><i class="fw fw-carbon"></i>流处理语法</a></li>' +
                     '<li class="col-md-4"><a href="https://stackoverflow.com/questions/tagged/wso2sp"' +
-                    'target="_blank"><i class="fw fw-info"></i>Q&A</a></li>' +
+                    'target="_blank"><i class="fw fw-info"></i>常见问题</a></li>' +
                     '<li class="col-md-4"><a href="https://docs.wso2.com/display/SP430/Tutorials"' +
-                    'target="_blank"><i class="fw fw-text"></i>Tutorials</a></li>' +
+                    'target="_blank"><i class="fw fw-text"></i>教程</a></li>' +
                     '<li class="col-md-4"><a href="https://docs.wso2.com/display/SP430/Stream+Processor+Documentation"' +
-                    'target="_blank"><i class="fw fw-google-docs"></i>Documentation</a></li>' +
+                    'target="_blank"><i class="fw fw-google-docs"></i>文档</a></li>' +
                     '<li class="col-md-4"><a href="http://wso2.com/support/"' +
-                    'target="_blank"><i class="fw fw-ringing"></i>Support</a></li></ul>');
+                    'target="_blank"><i class="fw fw-ringing"></i>技术支持</a></li></ul>');
 
                 quickLinksPane.append(bodyUlQuickLinkContent);
                 contentPane.append(samplesPane);
@@ -184,8 +184,8 @@ define(['require', 'lodash', 'log', 'jquery', 'backbone', 'command', 'sample_pre
                             samplePreview.render();
                         },
                         error: function() {
-                            alertError("Unable to read a sample file.");
-                            throw "Unable to read a sample file.";
+                            alertError("不能读取例子文件.");
+                            throw "不能读取例子文件.";
                         }
                     });
                 }

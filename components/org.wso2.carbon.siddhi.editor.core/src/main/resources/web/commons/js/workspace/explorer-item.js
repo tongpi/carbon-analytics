@@ -52,13 +52,13 @@ define(['lodash', 'log', 'file_browser', 'event_channel', 'context_menu', 'boots
         header.attr("id", this.path);
         header.append(arrowHeadIcon);
         header.append(folderIcon);
-        header.append(folderName);
+        header.append(this.getFolderName(this.path)==="workspace" ? $("<span>工作空间</span>") :folderName);
         item.append(header);
         item.append(body);
         this.container.find('.mCSB_container').append(item); //add to mscroller container 
         this._itemElement = item;
 
-        header.attr('title', this.path);
+        header.attr('title', this.path==="workspace" ? "工作空间" : this.path);
         header.tooltip({
             'delay': { show: 1000, hide: 0 },
             'placement': 'bottom',

@@ -28,7 +28,7 @@ define(['require', 'jquery', 'lodash','log'], function (require, $,  _,log) {
         var config = this._config;
         var errMsg;
         if (!_.has(config, 'parentContainer')) {
-            errMsg = 'unable to find configuration for parentContainer';
+            errMsg = '未找到父容器的配置';
             log.error(errMsg);
             throw errMsg;
         }

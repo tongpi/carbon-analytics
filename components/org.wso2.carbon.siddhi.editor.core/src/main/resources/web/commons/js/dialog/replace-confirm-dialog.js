@@ -29,15 +29,15 @@ define(['jquery', './modal-dialog'], function ($, ModalDialog) {
     ReplaceConfirmDialog.prototype.askConfirmation = function (options) {
         var self = this;
 
-        this.setSubmitBtnText('Replace');
-        this.setCloseBtnText('Cancel');
+        this.setSubmitBtnText('替换');
+        this.setCloseBtnText('取消');
         this._$modalContainer.addClass("replace-confirm-dialog");
-        this.setTitle("Replace File?");
+        this.setTitle("替换文件吗?");
 
         var path = options.path;
         var body = this.getBody();
         body.empty();
-        body.append($("<p><br>File '" + path + "' already exists. Do you want to overwrite its contents?</p>"))
+        body.append($("<p><br>文件 '" + path + "' 已存在. 你要覆盖它吗?</p>"))
 
         this.getSubmitBtn().unbind('click');
 

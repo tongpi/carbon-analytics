@@ -49,7 +49,7 @@ define(['require', 'log', 'jquery', 'lodash', 'querySelect', 'queryOutputInsert'
          */
         PatternQueryForm.prototype.generatePropertiesForm = function (element, formConsole, formContainer) {
             var self = this;
-            var propertyDiv = $('<div id="property-header"><h3>Pattern Query Configuration</h3></div>' +
+            var propertyDiv = $('<div id="property-header"><h3>模式查询配置</h3></div>' +
                 '<div class="define-pattern-query"></div>');
             formContainer.append(propertyDiv);
             // design view container and toggle view button are disabled
@@ -60,7 +60,7 @@ define(['require', 'log', 'jquery', 'lodash', 'querySelect', 'queryOutputInsert'
             var clickedElement = self.configurationData.getSiddhiAppConfig().getPatternQuery(id);
             if (!clickedElement.getQueryInput()
                 || clickedElement.getQueryInput().getConnectedElementNameList().length === 0) {
-                DesignViewUtils.prototype.warnAlert('Connect input streams');
+                DesignViewUtils.prototype.warnAlert('连接输入流');
                 // design view container and toggle view button are enabled
                 self.designViewContainer.removeClass('disableContainer');
                 self.toggleViewButton.removeClass('disableContainer');
@@ -68,7 +68,7 @@ define(['require', 'log', 'jquery', 'lodash', 'querySelect', 'queryOutputInsert'
                 // close the form window
                 self.consoleListManager.removeFormConsole(formConsole);
             } else if (!clickedElement.getQueryOutput() || !clickedElement.getQueryOutput().getTarget()) {
-                DesignViewUtils.prototype.warnAlert('Connect an output element');
+                DesignViewUtils.prototype.warnAlert('连接输出元素');
                 // design view container and toggle view button are enabled
                 self.designViewContainer.removeClass('disableContainer');
                 self.toggleViewButton.removeClass('disableContainer');
@@ -331,50 +331,50 @@ define(['require', 'log', 'jquery', 'lodash', 'querySelect', 'queryOutputInsert'
                 var outputSchema;
                 if (outputElementType === 'TABLE') {
                     outputSchema = {
-                        title: "Action",
+                        title: "动作",
                         propertyOrder: 5,
                         required: true,
                         oneOf: [
                             {
                                 $ref: "#/definitions/queryOutputInsertType",
-                                title: "Insert"
+                                title: "插入"
                             },
                             {
                                 $ref: "#/definitions/queryOutputDeleteType",
-                                title: "Delete"
+                                title: "删除"
                             },
                             {
                                 $ref: "#/definitions/queryOutputUpdateType",
-                                title: "Update"
+                                title: "更新"
                             },
                             {
                                 $ref: "#/definitions/queryOutputUpdateOrInsertIntoType",
-                                title: "Update Or Insert"
+                                title: "更新或插入"
                             }
                         ]
                     };
                 } else {
                     outputSchema = {
                         required: true,
-                        title: "Action",
+                        title: "动作",
                         propertyOrder: 5,
                         type: "object",
                         properties: {
                             insert: {
                                 required: true,
-                                title: "Operation",
+                                title: "动作",
                                 type: "string",
                                 template: "Insert"
                             },
                             insertTarget: {
                                 type: 'string',
-                                title: 'Into',
+                                title: '目标',
                                 template: savedQueryOutputTarget,
                                 required: true
                             },
                             eventType: {
                                 required: true,
-                                title: "For",
+                                title: "事件类型",
                                 type: "string",
                                 enum: ['current events', 'expired events', 'all events'],
                                 default: 'current events'
@@ -394,24 +394,24 @@ define(['require', 'log', 'jquery', 'lodash', 'querySelect', 'queryOutputInsert'
                 var editorAnnotation = new JSONEditor($(formContainer).find('#form-query-annotation')[0], {
                     schema: {
                         type: "object",
-                        title: "Annotations",
+                        title: "注解",
                         properties: {
                             annotations: {
                                 propertyOrder: 1,
                                 type: "array",
                                 format: "table",
-                                title: "Add Annotations",
+                                title: "添加注解",
                                 uniqueItems: true,
                                 minItems: 1,
                                 items: {
                                     type: "object",
-                                    title: "Annotation",
+                                    title: "注解",
                                     options: {
                                         disable_properties: true
                                     },
                                     properties: {
                                         annotation: {
-                                            title: "Annotation",
+                                            title: "注解",
                                             type: "string",
                                             minLength: 1
                                         }
@@ -431,7 +431,7 @@ define(['require', 'log', 'jquery', 'lodash', 'querySelect', 'queryOutputInsert'
                  var editorQueryName = new JSONEditor($(formContainer).find('#form-query-name')[0], {
                     schema: {
                            required: true,
-                           title: "Name",
+                           title: "名称",
                            type: "string",
                            default: "query"
                     },
@@ -442,12 +442,12 @@ define(['require', 'log', 'jquery', 'lodash', 'querySelect', 'queryOutputInsert'
                 var editorInput = new JSONEditor($(formContainer).find('#form-query-input')[0], {
                     schema: {
                         type: 'object',
-                        title: 'Input',
+                        title: '输入',
                         description: descriptionForInputElements,
                         properties: {
                             conditions: {
                                 type: 'array',
-                                title: 'Conditions',
+                                title: '条件',
                                 format: 'tabs',
                                 uniqueItems: true,
                                 required: true,
@@ -463,14 +463,14 @@ define(['require', 'log', 'jquery', 'lodash', 'querySelect', 'queryOutputInsert'
                                     properties: {
                                         conditionId: {
                                             type: 'string',
-                                            title: 'Condition ID',
+                                            title: '条件 ID',
                                             required: true,
                                             minLength: 1,
                                             propertyOrder: 1
                                         },
                                         streamName: {
                                             type: 'string',
-                                            title: 'Stream',
+                                            title: '流',
                                             enum: inputStreamNames,
                                             required: true,
                                             propertyOrder: 2
@@ -479,23 +479,23 @@ define(['require', 'log', 'jquery', 'lodash', 'querySelect', 'queryOutputInsert'
                                             propertyOrder: 3,
                                             type: "array",
                                             format: "table",
-                                            title: "Stream Handlers",
+                                            title: "流处理器",
                                             minItems: 1,
                                             items: {
                                                 type: "object",
-                                                title: 'Stream Handler',
+                                                title: '流处理器',
                                                 properties: {
                                                     streamHandler: {
                                                         required: true,
-                                                        title: 'Stream Handler',
+                                                        title: '流处理器',
                                                         oneOf: [
                                                             {
                                                                 $ref: "#/definitions/filter",
-                                                                title: "Filter"
+                                                                title: "过滤"
                                                             },
                                                             {
                                                                 $ref: "#/definitions/functionDef",
-                                                                title: "Function"
+                                                                title: "函数"
                                                             }
                                                         ]
                                                     }
@@ -507,13 +507,13 @@ define(['require', 'log', 'jquery', 'lodash', 'querySelect', 'queryOutputInsert'
                             },
                             logic: {
                                 type: 'object',
-                                title: 'Logic',
+                                title: '逻辑',
                                 required: true,
                                 propertyOrder: 2,
                                 properties: {
                                     statement: {
                                         type: 'string',
-                                        title: 'Statement',
+                                        title: '语句',
                                         minLength: 1,
                                         required: true
                                     }
@@ -523,19 +523,19 @@ define(['require', 'log', 'jquery', 'lodash', 'querySelect', 'queryOutputInsert'
                         definitions: {
                             filter: {
                                 type: "object",
-                                title: "Filter",
+                                title: "过滤",
                                 required: true,
                                 properties: {
                                     filter: {
                                         required: true,
-                                        title: "Filter Condition",
+                                        title: "过滤条件",
                                         type: "string",
                                         minLength: 1
                                     }
                                 }
                             },
                             functionDef: {
-                                title: "Function",
+                                title: "函数",
                                 type: "object",
                                 required: true,
                                 options: {
@@ -544,23 +544,23 @@ define(['require', 'log', 'jquery', 'lodash', 'querySelect', 'queryOutputInsert'
                                 properties: {
                                     functionName: {
                                         required: true,
-                                        title: "Function Name",
+                                        title: "函数名",
                                         type: "string",
                                         minLength: 1
                                     },
                                     parameters: {
                                         type: "array",
                                         format: "table",
-                                        title: "Parameters",
+                                        title: "参数",
                                         minItems: 1,
                                         items: {
                                             type: "object",
-                                            title: 'Attribute',
+                                            title: '属性',
                                             properties: {
                                                 parameter: {
                                                     required: true,
                                                     type: 'string',
-                                                    title: 'Parameter Name',
+                                                    title: '参数名',
                                                     minLength: 1
                                                 }
                                             }
@@ -594,20 +594,20 @@ define(['require', 'log', 'jquery', 'lodash', 'querySelect', 'queryOutputInsert'
                             disable_properties: false
                         },
                         type: "object",
-                        title: "Select",
+                        title: "选择",
                         properties: {
                             select: {
                                 propertyOrder: 1,
-                                title: "Select",
+                                title: "选择",
                                 required: true,
                                 oneOf: [
                                     {
                                         $ref: "#/definitions/querySelectUserDefined",
-                                        title: "User Defined Attributes"
+                                        title: "用户定义的属性"
                                     },
                                     {
                                         $ref: "#/definitions/querySelectAll",
-                                        title: "All Attributes"
+                                        title: "全部属性"
                                     }
                                 ]
                             },
@@ -615,16 +615,16 @@ define(['require', 'log', 'jquery', 'lodash', 'querySelect', 'queryOutputInsert'
                                 propertyOrder: 2,
                                 type: "array",
                                 format: "table",
-                                title: "Group By Attributes",
+                                title: "分组属性",
                                 uniqueItems: true,
                                 minItems: 1,
                                 items: {
                                     type: "object",
-                                    title: 'Attribute',
+                                    title: '属性',
                                     properties: {
                                         attribute: {
                                             type: 'string',
-                                            title: 'Attribute Name',
+                                            title: '属性名',
                                             enum: possibleGroupByAttributes
                                         }
                                     }
@@ -633,11 +633,11 @@ define(['require', 'log', 'jquery', 'lodash', 'querySelect', 'queryOutputInsert'
                             postFilter: {
                                 propertyOrder: 3,
                                 type: "object",
-                                title: "Post Select Filter",
+                                title: "选择过滤器",
                                 properties: {
                                     having: {
                                         required: true,
-                                        title: "Condition",
+                                        title: "条件",
                                         type: "string",
                                         minLength: 1
                                     }
@@ -649,23 +649,23 @@ define(['require', 'log', 'jquery', 'lodash', 'querySelect', 'queryOutputInsert'
                                 required: true,
                                 type: "array",
                                 format: "table",
-                                title: "Select Attributes",
+                                title: "属性属性",
                                 uniqueItems: true,
                                 options: {
                                     disable_array_add: true,
                                     disable_array_delete: true
                                 },
                                 items: {
-                                    title: "Value Set",
+                                    title: "属性设置",
                                     type: "object",
                                     properties: {
                                         expression: {
-                                            title: "Expression",
+                                            title: "表达式",
                                             type: "string",
                                             minLength: 1
                                         },
                                         as: {
-                                            title: "As",
+                                            title: "别名",
                                             type: "string"
                                         }
                                     }
@@ -673,7 +673,7 @@ define(['require', 'log', 'jquery', 'lodash', 'querySelect', 'queryOutputInsert'
                             },
                             querySelectAll: {
                                 type: "string",
-                                title: "Select All Attributes",
+                                title: "选择全部属性",
                                 template: '*'
                             }
                         }
@@ -728,7 +728,7 @@ define(['require', 'log', 'jquery', 'lodash', 'querySelect', 'queryOutputInsert'
                     schema: {
                         required: true,
                         type: "object",
-                        title: "Output",
+                        title: "输出",
                         options: {
                             disable_properties: false
                         },
@@ -737,23 +737,23 @@ define(['require', 'log', 'jquery', 'lodash', 'querySelect', 'queryOutputInsert'
                                 propertyOrder: 2,
                                 type: "array",
                                 format: "table",
-                                title: "Order By Attributes",
+                                title: "排序属性",
                                 uniqueItems: true,
                                 minItems: 1,
                                 items: {
                                     type: "object",
-                                    title: 'Attribute',
+                                    title: '属性',
                                     properties: {
                                         attribute: {
                                             required: true,
                                             type: 'string',
-                                            title: 'Attribute Name',
+                                            title: '属性名',
                                             enum: possibleGroupByAttributes
                                         },
                                         order: {
                                             required: true,
                                             type: "string",
-                                            title: "Order",
+                                            title: "顺序",
                                             enum: ['asc', 'desc'],
                                             default: 'asc'
                                         }
@@ -763,11 +763,11 @@ define(['require', 'log', 'jquery', 'lodash', 'querySelect', 'queryOutputInsert'
                             limit: {
                                 propertyOrder: 3,
                                 type: "object",
-                                title: "Limit",
+                                title: "限制",
                                 properties: {
                                     limit: {
                                         required: true,
-                                        title: "Number of Events per Output",
+                                        title: "每个输出的事件个数",
                                         type: "number",
                                         minimum: 0
                                     }
@@ -776,11 +776,11 @@ define(['require', 'log', 'jquery', 'lodash', 'querySelect', 'queryOutputInsert'
                             outputRateLimit: {
                                 propertyOrder: 4,
                                 type: "object",
-                                title: "Rate Limiting",
+                                title: "比率限制",
                                 properties: {
                                     outputRateLimit: {
                                         required: true,
-                                        title: "By Events/Time/Snapshot",
+                                        title: "基于事件/时间/快照",
                                         type: "string",
                                         minLength: 1
                                     }
@@ -791,7 +791,7 @@ define(['require', 'log', 'jquery', 'lodash', 'querySelect', 'queryOutputInsert'
                         definitions: {
                             queryOutputInsertType: {
                                 required: true,
-                                title: "Action",
+                                title: "动作",
                                 type: "object",
                                 options: {
                                     disable_properties: true
@@ -799,13 +799,13 @@ define(['require', 'log', 'jquery', 'lodash', 'querySelect', 'queryOutputInsert'
                                 properties: {
                                     insertTarget: {
                                         type: 'string',
-                                        title: 'Into',
+                                        title: '目标',
                                         template: savedQueryOutputTarget,
                                         required: true
                                     },
                                     eventType: {
                                         required: true,
-                                        title: "For",
+                                        title: "事件类型",
                                         type: "string",
                                         enum: ['current events', 'expired events', 'all events'],
                                         default: 'all events'
@@ -814,7 +814,7 @@ define(['require', 'log', 'jquery', 'lodash', 'querySelect', 'queryOutputInsert'
                             },
                             queryOutputDeleteType: {
                                 required: true,
-                                title: "Action",
+                                title: "动作",
                                 type: "object",
                                 options: {
                                     disable_properties: true
@@ -822,12 +822,12 @@ define(['require', 'log', 'jquery', 'lodash', 'querySelect', 'queryOutputInsert'
                                 properties: {
                                     deleteTarget: {
                                         type: 'string',
-                                        title: 'From',
+                                        title: '目标',
                                         template: savedQueryOutputTarget,
                                         required: true
                                     },
                                     eventType: {
-                                        title: "For",
+                                        title: "事件类型",
                                         type: "string",
                                         enum: ['current events', 'expired events', 'all events'],
                                         default: 'all events',
@@ -835,7 +835,7 @@ define(['require', 'log', 'jquery', 'lodash', 'querySelect', 'queryOutputInsert'
                                     },
                                     on: {
                                         type: 'string',
-                                        title: 'On Condition',
+                                        title: '条件',
                                         minLength: 1,
                                         required: true
                                     }
@@ -843,7 +843,7 @@ define(['require', 'log', 'jquery', 'lodash', 'querySelect', 'queryOutputInsert'
                             },
                             queryOutputUpdateType: {
                                 required: true,
-                                title: "Action",
+                                title: "动作",
                                 type: "object",
                                 options: {
                                     disable_properties: true
@@ -851,12 +851,12 @@ define(['require', 'log', 'jquery', 'lodash', 'querySelect', 'queryOutputInsert'
                                 properties: {
                                     updateTarget: {
                                         type: 'string',
-                                        title: 'From',
+                                        title: '目标',
                                         template: savedQueryOutputTarget,
                                         required: true
                                     },
                                     eventType: {
-                                        title: "For",
+                                        title: "事件类型",
                                         type: "string",
                                         enum: ['current events', 'expired events', 'all events'],
                                         default: 'all events',
@@ -866,20 +866,20 @@ define(['require', 'log', 'jquery', 'lodash', 'querySelect', 'queryOutputInsert'
                                         required: true,
                                         type: "array",
                                         format: "table",
-                                        title: "Set",
+                                        title: "设置",
                                         uniqueItems: true,
                                         items: {
                                             type: "object",
-                                            title: 'Set Condition',
+                                            title: '设置条件',
                                             properties: {
                                                 attribute: {
                                                     type: "string",
-                                                    title: 'Attribute',
+                                                    title: '属性',
                                                     minLength: 1
                                                 },
                                                 value: {
                                                     type: "string",
-                                                    title: 'Value',
+                                                    title: '值',
                                                     minLength: 1
                                                 }
                                             }
@@ -887,7 +887,7 @@ define(['require', 'log', 'jquery', 'lodash', 'querySelect', 'queryOutputInsert'
                                     },
                                     on: {
                                         type: 'string',
-                                        title: 'On Condition',
+                                        title: '条件',
                                         minLength: 1,
                                         required: true
                                     }
@@ -895,7 +895,7 @@ define(['require', 'log', 'jquery', 'lodash', 'querySelect', 'queryOutputInsert'
                             },
                             queryOutputUpdateOrInsertIntoType: {
                                 required: true,
-                                title: "Action",
+                                title: "动作",
                                 type: "object",
                                 options: {
                                     disable_properties: true
@@ -903,12 +903,12 @@ define(['require', 'log', 'jquery', 'lodash', 'querySelect', 'queryOutputInsert'
                                 properties: {
                                     updateOrInsertIntoTarget: {
                                         type: 'string',
-                                        title: 'From/Into',
+                                        title: '目标',
                                         template: savedQueryOutputTarget,
                                         required: true
                                     },
                                     eventType: {
-                                        title: "For",
+                                        title: "事件类型",
                                         type: "string",
                                         enum: ['current events', 'expired events', 'all events'],
                                         default: 'all events',
@@ -918,20 +918,20 @@ define(['require', 'log', 'jquery', 'lodash', 'querySelect', 'queryOutputInsert'
                                         required: true,
                                         type: "array",
                                         format: "table",
-                                        title: "Set",
+                                        title: "设置",
                                         uniqueItems: true,
                                         items: {
                                             type: "object",
-                                            title: 'Set Condition',
+                                            title: '设置条件',
                                             properties: {
                                                 attribute: {
                                                     type: "string",
-                                                    title: 'Attribute',
+                                                    title: '属性',
                                                     minLength: 1
                                                 },
                                                 value: {
                                                     type: "string",
-                                                    title: 'Value',
+                                                    title: '值',
                                                     minLength: 1
                                                 }
                                             }
@@ -939,7 +939,7 @@ define(['require', 'log', 'jquery', 'lodash', 'querySelect', 'queryOutputInsert'
                                     },
                                     on: {
                                         type: 'string',
-                                        title: 'On Condition',
+                                        title: '条件',
                                         minLength: 1,
                                         required: true
                                     }
@@ -985,8 +985,7 @@ define(['require', 'log', 'jquery', 'lodash', 'querySelect', 'queryOutputInsert'
                     var isQueryNameUsed
                         = self.formUtils.isQueryDefinitionNameUsed(queryNameConfig, clickedElement.getId());
                     if (isQueryNameUsed) {
-                           DesignViewUtils.prototype.errorAlert("Query name \"" + queryNameConfig + "\" is already"
-                                                                                                +" defined.");
+                           DesignViewUtils.prototype.errorAlert("查询名称 \"" + queryNameConfig + "\" 已被使用.");
                         return;
                     }
 

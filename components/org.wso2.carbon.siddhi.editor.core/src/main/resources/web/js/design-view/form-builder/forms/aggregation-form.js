@@ -46,7 +46,7 @@ define(['require', 'log', 'jquery', 'lodash', 'attribute', 'aggregation', 'aggre
          */
         AggregationForm.prototype.generatePropertiesForm = function (element, formConsole, formContainer) {
             var self = this;
-            var propertyDiv = $('<div id="property-header"><h3>Aggregation Configuration</h3></div>' +
+            var propertyDiv = $('<div id="property-header"><h3>聚合配置</h3></div>' +
                 '<div class="define-aggregation"></div>');
             formContainer.append(propertyDiv);
 
@@ -58,13 +58,13 @@ define(['require', 'log', 'jquery', 'lodash', 'attribute', 'aggregation', 'aggre
             // retrieve the aggregation information from the collection
             var clickedElement = self.configurationData.getSiddhiAppConfig().getAggregation(id);
             if (!clickedElement) {
-                var errorMessage = 'unable to find clicked element';
+                var errorMessage = '未找到点击元素';
                 log.error(errorMessage);
                 throw errorMessage;
             }
 
             if (!clickedElement.getFrom()) {
-                DesignViewUtils.prototype.warnAlert('Connect an input stream element');
+                DesignViewUtils.prototype.warnAlert('连接一个输入流');
                 self.designViewContainer.removeClass('disableContainer');
                 self.toggleViewButton.removeClass('disableContainer');
 
@@ -204,24 +204,24 @@ define(['require', 'log', 'jquery', 'lodash', 'attribute', 'aggregation', 'aggre
                 var editorAnnotation = new JSONEditor($(formContainer).find('#form-aggregation-annotation')[0], {
                     schema: {
                         type: "object",
-                        title: "Annotations",
+                        title: "注解",
                         properties: {
                             annotations: {
                                 propertyOrder: 1,
                                 type: "array",
                                 format: "table",
-                                title: "Add Annotations",
+                                title: "添加注解",
                                 uniqueItems: true,
                                 minItems: 1,
                                 items: {
                                     type: "object",
-                                    title: "Annotation",
+                                    title: "注解",
                                     options: {
                                         disable_properties: true
                                     },
                                     properties: {
                                         annotation: {
-                                            title: "Annotation",
+                                            title: "注解",
                                             type: "string",
                                             minLength: 1
                                         }
@@ -230,7 +230,7 @@ define(['require', 'log', 'jquery', 'lodash', 'attribute', 'aggregation', 'aggre
                             },
                             storeAnnotation: {
                                 propertyOrder: 2,
-                                title: "Store Annotation",
+                                title: "保存注解",
                                 type: "object",
                                 options: {
                                     disable_properties: true
@@ -239,7 +239,7 @@ define(['require', 'log', 'jquery', 'lodash', 'attribute', 'aggregation', 'aggre
                                     annotationType: {
                                         propertyOrder: 1,
                                         required: true,
-                                        title: "Type",
+                                        title: "类型",
                                         type: "string",
                                         minLength: 1
                                     },
@@ -248,25 +248,25 @@ define(['require', 'log', 'jquery', 'lodash', 'attribute', 'aggregation', 'aggre
                                         required: true,
                                         type: "array",
                                         format: "table",
-                                        title: "Options",
+                                        title: "选项",
                                         uniqueItems: true,
                                         minItems: 1,
                                         items: {
                                             type: "object",
-                                            title: "Option",
+                                            title: "选项",
                                             options: {
                                                 disable_properties: true
                                             },
                                             properties: {
                                                 key: {
                                                     required: true,
-                                                    title: "Key",
+                                                    title: "键",
                                                     type: "string",
                                                     minLength: 1
                                                 },
                                                 value: {
                                                     required: true,
-                                                    title: "value",
+                                                    title: "值",
                                                     type: "string",
                                                     minLength: 1
                                                 }
@@ -287,18 +287,18 @@ define(['require', 'log', 'jquery', 'lodash', 'attribute', 'aggregation', 'aggre
                 var editorInput = new JSONEditor($(formContainer).find('#form-aggregation-input')[0], {
                     schema: {
                         type: "object",
-                        title: "Input",
+                        title: "输入",
                         properties: {
                             name: {
                                 type: "string",
-                                title: "Name",
+                                title: "名称",
                                 minLength: 1,
                                 required: true,
                                 propertyOrder: 1
                             },
                             from: {
                                 type: "string",
-                                title: "From",
+                                title: "从",
                                 template: from,
                                 required: true,
                                 propertyOrder: 2
@@ -317,20 +317,20 @@ define(['require', 'log', 'jquery', 'lodash', 'attribute', 'aggregation', 'aggre
                             disable_properties: false
                         },
                         type: "object",
-                        title: "Select",
+                        title: "选择",
                         properties: {
                             select: {
                                 propertyOrder: 1,
-                                title: "Select",
+                                title: "选择",
                                 required: true,
                                 oneOf: [
                                     {
                                         $ref: "#/definitions/selectAll",
-                                        title: "All Attributes"
+                                        title: "全部属性"
                                     },
                                     {
                                         $ref: "#/definitions/selectUserDefined",
-                                        title: "User Defined Attributes"
+                                        title: "用户定义的属性"
                                     }
                                 ]
                             },
@@ -338,16 +338,16 @@ define(['require', 'log', 'jquery', 'lodash', 'attribute', 'aggregation', 'aggre
                                 propertyOrder: 2,
                                 type: "array",
                                 format: "table",
-                                title: "Group By Attributes",
+                                title: "属性组",
                                 uniqueItems: true,
                                 minItems: 1,
                                 items: {
                                     type: "object",
-                                    title: 'Attribute',
+                                    title: '属性',
                                     properties: {
                                         attribute: {
                                             type: 'string',
-                                            title: 'Attribute Name',
+                                            title: '属性名称',
                                             enum: possibleGroupByAttributes
                                         }
                                     }
@@ -359,20 +359,20 @@ define(['require', 'log', 'jquery', 'lodash', 'attribute', 'aggregation', 'aggre
                                 required: true,
                                 type: "array",
                                 format: "table",
-                                title: "Select Attributes",
+                                title: "选择属性",
                                 uniqueItems: true,
                                 minItems: 1,
                                 items: {
-                                    title: "Value Set",
+                                    title: "值集合",
                                     type: "object",
                                     properties: {
                                         expression: {
-                                            title: "Expression",
+                                            title: "表达式",
                                             type: "string",
                                             minLength: 1
                                         },
                                         as: {
-                                            title: "As",
+                                            title: "别名",
                                             type: "string"
                                         }
                                     }
@@ -380,7 +380,7 @@ define(['require', 'log', 'jquery', 'lodash', 'attribute', 'aggregation', 'aggre
                             },
                             selectAll: {
                                 type: "string",
-                                title: "Select All Attributes",
+                                title: "选择全部属性",
                                 template: '*'
                             }
                         }
@@ -397,33 +397,33 @@ define(['require', 'log', 'jquery', 'lodash', 'attribute', 'aggregation', 'aggre
                 var aggregateScheme = {
                     schema: {
                         type: "object",
-                        title: "Aggregate By",
+                        title: "聚合基于",
                         properties: {
                             aggregateByAttribute: {
                                 type: "object",
-                                title: "Aggregate by Attribute",
+                                title: "聚合基于属性",
                                 propertyOrder: 1,
                                 properties: {
                                     attribute: {
                                         required: true,
                                         type: "string",
-                                        title: "Attribute Name",
+                                        title: "属性名称",
                                         minLength: 1
                                     }
                                 }
                             },
                             aggregateByTimePeriod: {
                                 propertyOrder: 2,
-                                title: "Aggregate By Time Period",
+                                title: "聚合时间周期",
                                 required: true,
                                 oneOf: [
                                     {
                                         $ref: "#/definitions/intervalValue",
-                                        title: "Interval"
+                                        title: "间隔"
                                     },
                                     {
                                         $ref: "#/definitions/rangeValue",
-                                        title: "Range"
+                                        title: "范围"
                                     }
                                 ]
                             }
@@ -432,7 +432,7 @@ define(['require', 'log', 'jquery', 'lodash', 'attribute', 'aggregation', 'aggre
                             rangeValue: {
                                 required: true,
                                 type: "object",
-                                title: "Range",
+                                title: "范围",
                                 options: {
                                     disable_properties: true
                                 },
@@ -440,7 +440,7 @@ define(['require', 'log', 'jquery', 'lodash', 'attribute', 'aggregation', 'aggre
                                     minValue: {
                                         propertyOrder: 1,
                                         type: "string",
-                                        title: "Starting Time Value",
+                                        title: "开始时间",
                                         required: true,
                                         enum: [
                                             "seconds",
@@ -457,7 +457,7 @@ define(['require', 'log', 'jquery', 'lodash', 'attribute', 'aggregation', 'aggre
                                         propertyOrder: 2,
                                         required: true,
                                         type: "string",
-                                        title: "Ending Time Value",
+                                        title: "结束时间",
                                         enum: [
                                             "seconds",
                                             "minutes",
@@ -475,18 +475,18 @@ define(['require', 'log', 'jquery', 'lodash', 'attribute', 'aggregation', 'aggre
                                 required: true,
                                 type: "array",
                                 format: "table",
-                                title: "Intervals",
+                                title: "间隔",
                                 uniqueItems: true,
                                 minItems: 1,
                                 items: {
-                                    title: "Values",
+                                    title: "值",
                                     type: "object",
                                     options: {
                                         disable_properties: true
                                     },
                                     properties: {
                                         value: {
-                                            title: "Value",
+                                            title: "值",
                                             type: "string",
                                             enum: [
                                                 "seconds",
@@ -531,7 +531,7 @@ define(['require', 'log', 'jquery', 'lodash', 'attribute', 'aggregation', 'aggre
                         self.formUtils.isDefinitionElementNameUsed(editorInput.getValue().name, clickedElement.getId());
                     if (isAggregationNameUsed) {
                         DesignViewUtils.prototype
-                            .errorAlert("Aggregation name \"" + editorInput.getValue().name + "\" is already used.");
+                            .errorAlert("聚合名称 \"" + editorInput.getValue().name + "\" 已被使用.");
                         return;
                     }
 

@@ -32,7 +32,7 @@ define(['require', 'jquery', 'lodash', './modal-dialog', 'log'], function (requi
             path = data.path + app.getPathSeperator() + itemName,
             existsResponse = this._serviceClient.exists(path);
         if (existsResponse.exists) {
-            this.showError(itemName + " already exists at " + data.path);
+            this.showError(itemName + " 已存在于 " + data.path);
         } else {
             this.clearError();
             var response = this._serviceClient.create(path, data.type);
@@ -44,7 +44,7 @@ define(['require', 'jquery', 'lodash', './modal-dialog', 'log'], function (requi
                 if(_.isFunction(successCallBack)){
                     successCallBack.call();
                 }
-                log.debug('file' + path + " created successfully");
+                log.debug('文件' + path + " 创建成功");
                 if(!_.isEqual('folder', data.type)){
                     var file = this._serviceClient.readFile(path);
                     app.commandManager.dispatch("create-new-tab", {tabOptions: {file: file}});
@@ -54,8 +54,8 @@ define(['require', 'jquery', 'lodash', './modal-dialog', 'log'], function (requi
     };
 
     NewItemDialog.prototype.displayWizard = function (data) {
-        this.setTitle("new "+ data.type);
-        this.setSubmitBtnText("create");
+        this.setTitle("新建 "+ data.type);
+        this.setSubmitBtnText("创建");
         var body = this.getBody();
         body.empty();
         this.getSubmitBtn().unbind('click');
@@ -64,9 +64,9 @@ define(['require', 'jquery', 'lodash', './modal-dialog', 'log'], function (requi
                             "<div class='container-fluid'>" +
                             "<form class='form-horizontal' onsubmit='return false'>" +
                                 "<div class='form-group'>" +
-                                    "<label for='item-name' class='col-sm-2 file-dialog-form-label'>Enter Name</label>" +
+                                    "<label for='item-name' class='col-sm-2 file-dialog-form-label'>指定名称</label>" +
                                     "<div class='file-dialog-input-field'>" +
-                                          "<input type='text' id='item-name' class='file-dialog-form-control item-name' placeholder='name'>" +
+                                          "<input type='text' id='item-name' class='file-dialog-form-control item-name' placeholder='名称'>" +
                                     "</div>" +
                                 "</div>"+
                             "</form>"+

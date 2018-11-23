@@ -34,7 +34,7 @@ define(['jquery', 'lodash', 'backbone', 'log'], function ($, _, Backbone, log) {
                 var errMsg;
                 if (!this.get('isPersisted')){
                     if(!_.has(options, 'storage')){
-                        errMsg = 'unable to find storage' + _.toString(attrs);
+                        errMsg = '未找到存储' + _.toString(attrs);
                         log.error(errMsg);
                         throw errMsg;
                     }

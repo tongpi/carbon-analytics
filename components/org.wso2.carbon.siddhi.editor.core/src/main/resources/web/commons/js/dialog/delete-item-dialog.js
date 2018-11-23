@@ -38,13 +38,13 @@ define(['require', 'jquery', 'lodash', './modal-dialog', 'log'], function (requi
             if(_.isFunction(successCallBack)){
                 successCallBack.call();
             }
-            log.debug(data.path + " deleted successfully");
+            log.debug(data.path + " 删除成功！");
         }
     };
 
     DeleteItemDialog.prototype.displayWizard = function (data) {
-        this.setTitle("delete "+ data.type);
-        this.setSubmitBtnText("delete");
+        this.setTitle("删除 "+ data.type);
+        this.setSubmitBtnText("删除");
         var body = this.getBody();
         body.empty();
         this.getSubmitBtn().unbind('click');
@@ -55,8 +55,8 @@ define(['require', 'jquery', 'lodash', './modal-dialog', 'log'], function (requi
                         "<i class='fw fw-warning fw-5x'></i>" +
                    "</div>" +
                    "<div class='text'>" +
-                            "<h3> Are you sure you want to delete the selected item?</h3>" +
-                            "<p>You are deleting:</br>" +  data.path + "</p>" +
+                            "<h3> 你确信要删除选中项吗?</h3>" +
+                            "<p>你正在删除:</br>" +  data.path + "</p>" +
                    "</div>" +
             "</div>");
         body.append(modalBody);

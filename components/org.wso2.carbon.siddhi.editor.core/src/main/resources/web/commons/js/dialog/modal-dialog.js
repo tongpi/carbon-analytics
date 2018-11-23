@@ -98,14 +98,14 @@ define(['require', 'jquery', 'event_channel', 'bootstrap'], function (require, $
         var modalDialog = $("<div class='modal-dialog file-dialog' role='document'></div>");
         var modalContent = $("<div class='modal-content'></div>");
         var modalHeader = $("<div class='modal-header'></div>");
-        var modalCloseBtnTop = $("<button type='button' class='close' data-dismiss='modal' aria-label='Close'>" +
+        var modalCloseBtnTop = $("<button type='button' class='close' data-dismiss='modal' aria-label='关闭'>" +
             "<span aria-hidden='true'>&times;</span></button>");
         var modalTitle = $("<h4 class='modal-title '></h4>");
         var modalBody = $("<div class='modal-body'></div>");
         var modalFooter = $("<div class='modal-footer'></div>");
         var modalCloseBtnBottom = $("<button type='button' class='btn btn-default btn-file-dialog'" +
-            " data-dismiss='modal'>Close</button>");
-        var modalSubmitBtn = $("<button type='button' class='btn btn-primary btn-file-dialog'>Submit</button>");
+            " data-dismiss='modal'>关闭</button>");
+        var modalSubmitBtn = $("<button type='button' class='btn btn-primary btn-file-dialog'>提交</button>");
         var errorContainer = $("<div class='alert alert-danger errors-container'></div>");
 
         this._$title = modalTitle;

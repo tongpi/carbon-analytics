@@ -80,7 +80,7 @@ define(['require', 'lodash', 'jquery', 'log', 'backbone', 'file_browser',
                         "<button type='button' class='close' data-dismiss='modal' aria-label='Close'>" +
                         "<span aria-hidden='true'>&times;</span>" +
                         "</button>" +
-                        "<h4 class='modal-title file-dialog-title' id='newConfigModalLabel'>Delete from Workspace<" +
+                        "<h4 class='modal-title file-dialog-title' id='newConfigModalLabel'>从工作空间删除<" +
                         "/h4>" +
                         "<hr class='style1'>" +
                         "</div>" +
@@ -89,19 +89,19 @@ define(['require', 'lodash', 'jquery', 'log', 'backbone', 'file_browser',
                         "<form class='form-horizontal' onsubmit='return false'>" +
                         "<div class='form-group'>" +
                         "<label for='configName' class='col-sm-9 file-dialog-label'>" +
-                        "Are you sure to delete Siddhi App: " + providedFileName + "" +
+                        "你确信要删除流应用: " + providedFileName + "" +
                         "</label>" +
                         "</div>" +
                         "<div class='form-group'>" +
                         "<div class='file-dialog-form-btn'>" +
-                        "<button id='deleteButton' type='button' class='btn btn-primary'>delete" +
+                        "<button id='deleteButton' type='button' class='btn btn-primary'>删除" +
                         "</button>" +
                         "<div class='divider'/>" +
-                        "<button type='cancelButton' class='btn btn-default' data-dismiss='modal'>cancel</button>" +
+                        "<button type='cancelButton' class='btn btn-default' data-dismiss='modal'>取消</button>" +
                         "</div>" +
                         "</form>" +
                         "<div id='deleteWizardError' class='alert alert-danger'>" +
-                        "<strong>Error!</strong> Something went wrong." +
+                        "<strong>错误!</strong> 发生了一些错误." +
                         "</div>" +
                         "</div>" +
                         "</div>" +
@@ -114,12 +114,12 @@ define(['require', 'lodash', 'jquery', 'log', 'backbone', 'file_browser',
                         "<div style='z-index: 9999;' style='line-height: 20%;' class='alert alert-success' " +
                         "id='success-alert'>" +
                         "<span class='notification'>" +
-                        "Siddhi app deleted successfully !" +
+                        "流应用已删除 !" +
                         "</span>" +
                         "</div>");
 
                     function getErrorNotification(detailedErrorMsg) {
-                        var errorMsg = "Error while deleting Siddhi app";
+                        var errorMsg = "删除流应用时出错了";
                         if (!_.isEmpty(detailedErrorMsg)) {
                             errorMsg += (" : " + detailedErrorMsg);
                         }
@@ -151,7 +151,7 @@ define(['require', 'lodash', 'jquery', 'log', 'backbone', 'file_browser',
                             deleteAppModal.modal('hide');
                         };
                         if (existsResponse.exists) {
-                            fileDelete.find("label").text("Please wait while checking on simulation dependencies.");
+                            fileDelete.find("label").text("正在检查仿真依赖，请等待.");
                             fileDelete.find("button[id='deleteButton']").prop("disabled", true);
                             SimulatorClient.getFeedSimulations(
                                 function (data) {
@@ -167,8 +167,8 @@ define(['require', 'lodash', 'jquery', 'log', 'backbone', 'file_browser',
                                                         simulations[i].properties.simulationName,
                                                         function (data) {
                                                             if (data.message == "RUN") {
-                                                                deleteWizardError.text("Cannot delete Siddhi app. " +
-                                                                    "There are running simulations.");
+                                                                deleteWizardError.text("不能删除流应用. " +
+                                                                    "基于它的仿真应用正在运行.");
                                                                 deleteWizardError.show();
                                                                 simulationsExists = true;
                                                             } 
@@ -176,7 +176,7 @@ define(['require', 'lodash', 'jquery', 'log', 'backbone', 'file_browser',
                                                         function (data) {
                                                             var message = {
                                                                 "type" : "ERROR",
-                                                                "message": "Cannot Simulate Siddhi App \"" + appName + "\" as its in Faulty state."
+                                                                "message": "不能仿真流应用 \"" + appName + "\" 它里面有故障."
                                                             };
 
                                                             log.info(data);
@@ -196,7 +196,7 @@ define(['require', 'lodash', 'jquery', 'log', 'backbone', 'file_browser',
                                 }
                             );
                         } else {
-                            deleteWizardError.text("File doesn't exists in workspace");
+                            deleteWizardError.text("工作空间中找不到文件");
                             deleteWizardError.show();
                         }
 

@@ -33,11 +33,11 @@ define(['require', 'jquery', 'backbone', 'lodash', 'log', 'design_view', "./sour
                  */
                 initialize: function (options) {
                     if (!_.has(options, 'container')) {
-                        throw "container is not defined."
+                        throw "容器未定义."
                     }
                     var container = $(_.get(options, 'container'));
                     if (!container.length > 0) {
-                        throw "container not found."
+                        throw "容器未找到."
                     }
                     this._$parent_el = container;
                     this.options = options;
@@ -59,7 +59,7 @@ define(['require', 'jquery', 'backbone', 'lodash', 'log', 'design_view', "./sour
                     var tabContentContainer = $(_.get(this.options, 'tabs_container'));
 
                     if (!canvasContainer.length > 0) {
-                        var errMsg = 'cannot find container to render svg';
+                        var errMsg = '未找到容器渲染 svg';
                         log.error(errMsg);
                         throw errMsg;
                     }
@@ -164,7 +164,7 @@ define(['require', 'jquery', 'backbone', 'lodash', 'log', 'design_view', "./sour
                     toggleViewButton.click(function () {
                         if (sourceContainer.is(':visible')) {
                             if (application.tabController.getActiveTab().getFile().isDirty()) {
-                                DesignViewUtils.prototype.warnAlert("Please save the file before switching to the Design View");
+                                DesignViewUtils.prototype.warnAlert("切换到设计视图前请先保存文件");
                                 return;
                             }
                             var response = self._designView.getDesign(self.getContent());
@@ -183,7 +183,7 @@ define(['require', 'jquery', 'backbone', 'lodash', 'log', 'design_view', "./sour
                                     self.trigger("view-switch");
                                 }, 100);
                                 toggleViewButton.html("<i class=\"fw fw-code\"></i>" +
-                                    "<span class=\"toggle-button-text\">Source View</span>");
+                                    "<span class=\"toggle-button-text\">代码视图</span>");
                             } else if (response.status === "fail") {
                                 DesignViewUtils.prototype.errorAlert(response.errorMessage);
                             }
@@ -238,7 +238,7 @@ define(['require', 'jquery', 'backbone', 'lodash', 'log', 'design_view', "./sour
                                 sourceContainer.show();
                                 self.trigger("view-switch");
                                 toggleViewButton.html("<i class=\"fw fw-design-view fw-rotate-90\"></i>" +
-                                    "<span class=\"toggle-button-text\">Design View</span>");
+                                    "<span class=\"toggle-button-text\">设计视图</span>");
                                 return;
                             }
 
@@ -270,7 +270,7 @@ define(['require', 'jquery', 'backbone', 'lodash', 'log', 'design_view', "./sour
                                     self.trigger("view-switch");
                                 }, 100);
                                 toggleViewButton.html("<i class=\"fw fw-design-view fw-rotate-90\"></i>" +
-                                    "<span class=\"toggle-button-text\">Design View</span>");
+                                    "<span class=\"toggle-button-text\">设计视图</span>");
                             } else if (response.status === "fail") {
                                 DesignViewUtils.prototype.errorAlert(response.errorMessage);
                             }
