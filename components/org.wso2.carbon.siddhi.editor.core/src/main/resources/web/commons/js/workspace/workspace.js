@@ -83,7 +83,7 @@ define(['ace/ace', 'jquery', 'lodash', 'log','dialogs','./service-client','welco
                 if (match && match[1]) {
                     filename = match[1].replace(/ /g, "_") + ".siddhi";
                 }
-                var filePath = prompt("指定一个目录(绝对路径)来保存流应用 : ");
+                var filePath = prompt("指定一个文件夹(绝对路径)来保存流应用 : ");
                 filePath = (filePath.slice(-1) === '/') ? filePath + filename : filePath + '/' + filename;
                 $.ajax({
                     type: "POST",
