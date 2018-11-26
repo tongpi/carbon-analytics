@@ -289,8 +289,7 @@ define(['require', 'lodash', 'jquery', 'log', 'backbone', 'file_browser', 'boots
                         config = config.replace(appNameToRemove,'');
                         config = appNameToAdd + config;
                     }
-
-                    var payload = "configName=" + btoa(options.configName) + "&config=" + (btoa(config));
+                    var payload = "configName=" + btoa(options.configName) + "&config=" + btoa(unescape(encodeURIComponent(config)));
 
                     $.ajax({
                         url: saveServiceURL,

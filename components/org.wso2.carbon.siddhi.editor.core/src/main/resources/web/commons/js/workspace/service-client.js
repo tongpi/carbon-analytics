@@ -223,7 +223,7 @@ define(['log', 'lodash', 'jquery', 'event_channel', './file'],
                 context: this,
                 url: _.get(this.application, 'config.services.workspace.endpoint') + "/write",
                 data: "location=" + btoa(file.getPath()) + "&configName=" +
-                    btoa(file.getName()) + "&config=" + (btoa(content)),
+                    btoa(file.getName()) + "&config=" + btoa(unescape(encodeURIComponent(content))),
                 contentType: "text/plain; charset=utf-8",
                 async: false,
                 success: function (response) {
