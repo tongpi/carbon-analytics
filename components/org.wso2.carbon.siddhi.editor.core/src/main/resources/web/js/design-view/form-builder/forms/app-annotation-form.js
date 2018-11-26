@@ -100,15 +100,15 @@ define(['require', 'log', 'jquery', 'lodash'],
                             propertyOrder: 2,
                             type: "array",
                             format: "table",
-                            title: "应用注解",
+                            title: "备注",
                             uniqueItems: true,
                             minItems: 1,
                             items: {
                                 type: "object",
-                                title: "应用注解",
+                                title: "备注",
                                 properties: {
                                     annotation: {
-                                        title: "应用注解",
+                                        title: "备注",
                                         type: "string",
                                         minLength: 1
                                     }
