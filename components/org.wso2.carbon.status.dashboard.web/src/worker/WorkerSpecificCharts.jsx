@@ -221,7 +221,7 @@ export default class WorkerSpecificCharts extends React.Component {
                 }}>
                     <div>
                         <Checkbox
-                            label="System CPU"
+                            label="系统 CPU"
                             onCheck={(e, checked) => this.setState({sysCpuChecked: checked})}
                             checked={this.state.sysCpuChecked}
                             iconStyle={{fill: '#f17b31'}}
@@ -230,7 +230,7 @@ export default class WorkerSpecificCharts extends React.Component {
                     </div>
                     <div>
                         <Checkbox
-                            label="Process CPU"
+                            label="进程 CPU"
                             onCheck={(e, checked) => this.setState({processCpuChecked: checked})}
                             checked={this.state.processCpuChecked}
                             iconStyle={{fill: '#3366cc'}}

@@ -310,7 +310,7 @@ export default class WorkerSpecific extends React.Component {
             );
         }
         return (
-            <GridTile className="container" title="Overall Throughput(events/second)" titlePosition="top"
+            <GridTile className="container" title={<FormattedMessage id='appSpecific.overallThroughput' defaultMessage='Overall Throughput (events/second)' />} titlePosition="top"
                       titleBackground='#303030'>
                 <div className="overlay"
                      style={{color: 'rgba(255, 255, 255, 0.2)', paddingTop: 20, textAlign: 'right'}}>

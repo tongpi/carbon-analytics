@@ -283,7 +283,7 @@ export default class WorkerSpecific extends React.Component {
                     </div>
 
                     <div style={{color: '#dedede', marginLeft: '24px', display: 'inline-block'}}>
-                        <h3> Siddhi Applications </h3>
+                        <h3> {<FormattedMessage id='workerSpecific.Applications.title' defaultMessage='Siddhi Applications' />} </h3>
                     </div>
                     <div style={{padding: 20, paddingTop: 10, float: 'left', boxSizing: 'border-box'}}>
                         <Card style={{height: 400}}>
