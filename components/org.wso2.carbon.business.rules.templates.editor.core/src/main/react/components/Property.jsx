@@ -82,7 +82,7 @@ class Property extends React.Component {
                     margin="normal"
                     required
                 >
-                    <InputLabel htmlFor="defaultValue">Default Value</InputLabel>
+                    <InputLabel htmlFor="defaultValue">缺省值</InputLabel>
                     <Select
                         value={this.props.configuration.propertyObject.defaultValue}
                         onChange={e => this.props.handlePropertyValueChange('defaultValue', e.target.value)}
@@ -91,15 +91,15 @@ class Property extends React.Component {
                         {this.props.configuration.propertyObject.options.map(option =>
                             (<MenuItem key={option} name={option} value={option}>{option}</MenuItem>))}
                     </Select>
-                    <FormHelperText>Select one of the provided options</FormHelperText>
+                    <FormHelperText>选择提供的选项中的一个</FormHelperText>
                 </FormControl>);
         } else {
             return (
                 <TextField
                     id="defaultValue"
                     name="defaultValue"
-                    label="Default Value"
-                    placeholder="Enter the value to show as the default value"
+                    label="缺省值"
+                    placeholder="请输入一个缺省值"
                     value={this.props.configuration.propertyObject.defaultValue}
                     onChange={e => this.props.handlePropertyValueChange('defaultValue', e.target.value)}
                     fullWidth
@@ -140,8 +140,8 @@ class Property extends React.Component {
                             <TextField
                                 id="fieldName"
                                 name="fieldName"
-                                label="Field Name"
-                                placeholder="Enter the value to show as the prompt"
+                                label="字段名"
+                                placeholder="请输入一个可以作为提示信息的值"
                                 value={this.props.configuration.propertyObject.fieldName}
                                 onChange={e => this.props.handlePropertyValueChange('fieldName', e.target.value)}
                                 required
@@ -151,8 +151,8 @@ class Property extends React.Component {
                             <TextField
                                 id="description"
                                 name="description"
-                                label="Field Description"
-                                placeholder="Enter the value to show as the helper description"
+                                label="字段描述"
+                                placeholder="请输入一些详细的帮助性文字说明"
                                 value={this.props.configuration.propertyObject.description}
                                 onChange={e => this.props.handlePropertyValueChange('description', e.target.value)}
                                 required
@@ -166,7 +166,7 @@ class Property extends React.Component {
                                 (<div>
                                     <br />
                                     <Table>
-                                        <TableHead>Options</TableHead>
+                                        <TableHead>选项</TableHead>
                                         <TableBody>
                                             {this.props.configuration.propertyObject.options.map((option, index) =>
                                                 (<TableRow key={index}>
@@ -212,7 +212,7 @@ class Property extends React.Component {
                                 >
                                     <AddIcon />
                                         &nbsp; &nbsp;
-                                        Options
+                                        选项
                                 </Button>)
                             }
                         </CardContent>

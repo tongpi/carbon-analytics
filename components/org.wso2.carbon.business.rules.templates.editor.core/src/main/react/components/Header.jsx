@@ -65,9 +65,9 @@ class Header extends React.Component {
                 <Toolbar style={styles.toolBar}>
                     <img height="17" src={Logo} />
                     <Typography type="subheading" color="inherit" style={styles.title}>
-                        Business Rules Template Editor
+                        业务规则模板编辑器
                     </Typography>
-                    <Tooltip title="New">
+                    <Tooltip title="新建">
                         <IconButton
                             color="contrast"
                             onClick={this.props.onNewClick}
@@ -76,12 +76,12 @@ class Header extends React.Component {
                             <NewIcon />
                         </IconButton>
                     </Tooltip>
-                    <Tooltip title="Open">
+                    <Tooltip title="打开">
                         <IconButton color="contrast" onClick={this.props.onOpenClick}>
                             <FolderIcon />
                         </IconButton>
                     </Tooltip>
-                    <Tooltip title="Save">
+                    <Tooltip title="保存">
                         <IconButton
                             color={this.props.isUnsaved ? "primary" : "contrast"}
                             aria-label="save"
@@ -90,7 +90,7 @@ class Header extends React.Component {
                             <SaveIcon />
                         </IconButton>
                     </Tooltip>
-                    <Tooltip title="Editor Appearance Settings">
+                    <Tooltip title="编辑器外观设置">
                         <IconButton
                             color="contrast"
                             aria-label="editor appearance settings"
@@ -99,7 +99,7 @@ class Header extends React.Component {
                             <SettingsIcon />
                         </IconButton>
                     </Tooltip>
-                    <Tooltip title="Toggle code view">
+                    <Tooltip title="切换代码视图">
                         <IconButton
                             color={this.props.isCodeViewEnabled ? ('primary') : ('contrast')}
                             aria-label="toggle code view"

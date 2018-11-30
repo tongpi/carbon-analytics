@@ -396,7 +396,7 @@ class TemplateEditor extends React.Component {
         try {
             templateGroup = JSON.parse(definition);
         } catch (error) {
-            throw 'Invalid JSON for template group definition';
+            throw '模板组定义不是有效的JSON';
         }
         if (Object.hasOwnProperty.call(templateGroup, 'templateGroup')) {
             if (TemplateEditorUtilityFunctions.isSkeletonValid(templateGroup)) {
@@ -493,10 +493,10 @@ class TemplateEditor extends React.Component {
                 aria-labelledby="editorAppearanceSettings"
                 aria-describedby="editorAppearanceSettings"
             >
-                <DialogTitle id="editorAppearanceSettings">{"Editor Appearance Settings"}</DialogTitle>
+                <DialogTitle id="editorAppearanceSettings">{"编辑器外观设置"}</DialogTitle>
                 <DialogContent style={{ width: 450 }}>
                     <br />
-                    <Typography type="body2">Theme</Typography>
+                    <Typography type="body2">主题</Typography>
                     <Select
                         value={this.state.editorSettings.theme}
                         onChange={e => this.updateEditorSettings('theme', e.target.value)}
@@ -508,7 +508,7 @@ class TemplateEditor extends React.Component {
                     </Select>
                     <br />
                     <br />
-                    <Typography type="body2">Font Size</Typography>
+                    <Typography type="body2">字体大小</Typography>
                     <Select
                         value={this.state.editorSettings.fontSize}
                         onChange={e => this.updateEditorSettings('fontSize', e.target.value)}
@@ -530,7 +530,7 @@ class TemplateEditor extends React.Component {
                                         value="codeWrap"
                                     />
                                 }
-                                label="Code wrap"
+                                label="代码折行"
                             />
                         </FormGroup>
                     </FormControl>
@@ -541,7 +541,7 @@ class TemplateEditor extends React.Component {
                         color="default"
                         autoFocus
                     >
-                        Close
+                        关闭
                     </Button>
                 </DialogActions>
             </Dialog>
@@ -558,16 +558,16 @@ class TemplateEditor extends React.Component {
             >
                 <DialogContent style={{ paddingBottom: 10, width: 500 }}>
                     <div>
-                        <Typography type="title">Open a template file</Typography>
+                        <Typography type="title">打开一个模板文件</Typography>
                         <br />
                         <input type="file" ref="fileLoadInput" />
                     </div>
                     <DialogActions>
                         <Button onClick={() => this.setState({ showOpenDialog: false })} color="default">
-                            Cancel
+                            取消
                         </Button>
                         <Button onClick={this.importFromFile} color="primary" autoFocus>
-                            Load
+                            加载
                         </Button>
                     </DialogActions>
                 </DialogContent>
@@ -585,11 +585,11 @@ class TemplateEditor extends React.Component {
             >
                 <DialogContent style={{ paddingBottom: 10, width: 500 }}>
                     <DialogTitle id="unsavedChangesTitle">
-                        Some changes are not saved
+                        有一些未保存的更改
                     </DialogTitle>
                     <DialogContent>
                         <Typography type="subheading">
-                            Do you want to save the changes?
+                            你要保存更改吗?
                         </Typography>
                     </DialogContent>
                     <DialogActions>
@@ -598,13 +598,13 @@ class TemplateEditor extends React.Component {
                             color="primary"
                             autoFocus
                         >
-                            Yes
+                            保存
                         </Button>
                         <Button onClick={() => this.handleAfterSaveConfirmation('no')} color="default">
-                            No
+                            不保存
                         </Button>
                         <Button onClick={() => this.handleAfterSaveConfirmation('cancel')} color="default">
-                            Cancel
+                            取消
                         </Button>
                     </DialogActions>
                 </DialogContent>
@@ -622,7 +622,7 @@ class TemplateEditor extends React.Component {
             >
                 <DialogContent style={{ paddingBottom: 10, width: 500 }}>
                     <DialogTitle id="incompleteTemplateTitle">
-                        Incomplete Template
+                        不完整的模板
                     </DialogTitle>
                     <DialogContent>
                         <div style={styles.incompleteTemplateErrorDisplay}>
@@ -631,7 +631,7 @@ class TemplateEditor extends React.Component {
                             </Typography>
                         </div>
                         <Typography type="subheading">
-                            Do you want to save it for editing later?
+                            你要保存以便以后修改吗?
                         </Typography>
                     </DialogContent>
                     <DialogActions>
@@ -643,13 +643,13 @@ class TemplateEditor extends React.Component {
                             color="primary"
                             autoFocus
                         >
-                            Save
+                            保存
                         </Button>
                         <Button
                             onClick={() => this.setState({ showIncompleteTemplateDialog: false })}
                             color="default"
                         >
-                            Cancel
+                            取消
                         </Button>
                     </DialogActions>
                 </DialogContent>
@@ -681,10 +681,10 @@ class TemplateEditor extends React.Component {
                                     <Toolbar style={{ padding: 0, margin: 0 }}>
                                         <ErrorIcon />
                                         <Typography type="body2" color="inherit" style={{ flex: 1 }}>
-                                            &nbsp;&nbsp;&nbsp;Error in code view.
-                                            Design view & saving the template rely on the latest valid configuration
+                                            &nbsp;&nbsp;&nbsp;代码视图中有错误.
+                                            设计视图 & 保存模板依赖于最新的有效配置
                                         </Typography>
-                                        <Tooltip title="Recover from design view">
+                                        <Tooltip title="从设计视图恢复">
                                             <IconButton
                                                 color="contrast"
                                                 onClick={this.recoverCodeView}

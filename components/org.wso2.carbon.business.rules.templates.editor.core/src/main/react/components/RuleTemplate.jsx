@@ -254,7 +254,7 @@ class RuleTemplate extends React.Component {
             }
             this.props.onChange(configuration);
         } else {
-            this.toggleSnackbar('No templated elements found in template(s)');
+            this.toggleSnackbar('模板中缺少模板元素');
         }
     }
 
@@ -435,7 +435,7 @@ class RuleTemplate extends React.Component {
                     <Typography type="subheading">
                         {(this.props.configuration.templates[0].exposedStreamDefinition) ?
                             (this.props.configuration.templates[0].exposedStreamDefinition) :
-                            ('No stream definition found in the template')}
+                            ('模板中缺少流定义')}
                     </Typography>
                 </div>);
         }
@@ -484,7 +484,7 @@ class RuleTemplate extends React.Component {
                                 name="uuid"
                                 label="UUID"
                                 value={this.props.configuration.uuid}
-                                helperText="Used to identify the rule template"
+                                helperText="用来唯一标识规则模板"
                                 margin="normal"
                                 onChange={e => this.handleValueChange(e.target.name, e.target.value)}
                             />
@@ -492,9 +492,9 @@ class RuleTemplate extends React.Component {
                                 fullWidth
                                 id="name"
                                 name="name"
-                                label="Name"
+                                label="名称"
                                 value={this.props.configuration.name}
-                                helperText="Used for representation"
+                                helperText="用于识别规则模板"
                                 margin="normal"
                                 onChange={e => this.handleValueChange(e.target.name, e.target.value)}
                             />
@@ -502,10 +502,10 @@ class RuleTemplate extends React.Component {
                                 fullWidth
                                 id="description"
                                 name="description"
-                                label="Description"
+                                label="说明"
                                 value={this.props.configuration.description ?
                                     this.props.configuration.description : ''}
-                                helperText="Short description of what this rule template does"
+                                helperText="简短的能够说明该规则模板能做什么的文字说明"
                                 margin="normal"
                                 onChange={e => this.handleValueChange(e.target.name, e.target.value)}
                             />
@@ -520,9 +520,9 @@ class RuleTemplate extends React.Component {
                                     value={this.props.configuration.type}
                                     onChange={e => this.handleValueChange(e.target.name, e.target.value)}
                                 >
-                                    <FormControlLabel value="template" control={<Radio />} label="Template" />
-                                    <FormControlLabel value="input" control={<Radio />} label="Input" />
-                                    <FormControlLabel value="output" control={<Radio />} label="Output" />
+                                    <FormControlLabel value="template" control={<Radio />} label="模板" />
+                                    <FormControlLabel value="input" control={<Radio />} label="输入" />
+                                    <FormControlLabel value="output" control={<Radio />} label="输出" />
                                 </RadioGroup>
                                 <FormHelperText>
                                     Select the rule template type
@@ -532,24 +532,24 @@ class RuleTemplate extends React.Component {
                             <br />
                             <br />
                             <FormControl component="fieldset" required>
-                                <FormLabel component="legend">Instance Count</FormLabel>
+                                <FormLabel component="legend">实例个数</FormLabel>
                                 <RadioGroup
                                     aria-label="instanceCount"
                                     name="instanceCount"
                                     value={this.props.configuration.instanceCount}
                                     onChange={e => this.handleValueChange(e.target.name, e.target.value)}
                                 >
-                                    <FormControlLabel value="one" control={<Radio />} label="One" />
-                                    <FormControlLabel value="many" control={<Radio />} label="Many" />
+                                    <FormControlLabel value="one" control={<Radio />} label="一个" />
+                                    <FormControlLabel value="many" control={<Radio />} label="多个" />
                                 </RadioGroup>
                                 <FormHelperText>
-                                    Select the usage constraint for this rule template
+                                    选择规则模板的使用限制
                                 </FormHelperText>
                             </FormControl>
                             <br />
                             <br />
                             <br />
-                            <Typography type="title">Templates</Typography>
+                            <Typography type="title">模板</Typography>
                             <br />
                             {this.props.configuration.templates.map((template, index) =>
                                 (<div key={index}>
@@ -583,7 +583,7 @@ class RuleTemplate extends React.Component {
                             <br />
                             <br />
                             <br />
-                            <Typography type="title">Script</Typography>
+                            <Typography type="title">脚本</Typography>
                             <br />
                             <Card>
                                 <CardActions disableActionSpacing style={{ padding: 5 }}>
@@ -673,7 +673,7 @@ class RuleTemplate extends React.Component {
                 >
                     <DialogTitle id="templatedElementsSelectionTitle">
                         {(this.state.selectableTemplatedElementsForScript.length > 0) ?
-                            ('Select templated elements') : ('No Templated Elements Found')}
+                            ('选择模板元素') : ('未发现模板元素')}
                     </DialogTitle>
                     <DialogContent>
                         {(this.state.selectableTemplatedElementsForScript.length > 0) ?
@@ -695,7 +695,7 @@ class RuleTemplate extends React.Component {
                                 </FormGroup>
                             </FormControl>) :
                             (<Typography type="subheading">
-                                {'Insert templated elements as: \${templatedElement} in template'}
+                                {'在模板中插入模板元素: \${templatedElement} '}
                                 {((this.props.configuration.type ===
                                     TemplateEditorConstants.RULE_TEMPLATE_TYPE_INPUT) ||
                                     (this.props.configuration.type ===

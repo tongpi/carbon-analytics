@@ -85,7 +85,7 @@ class Template extends React.Component {
                         <div style={styles.flexGrow} />
                         {(!this.props.invalid) ? (null) :
                             (<Typography type="body2" style={styles.errorText}>
-                                An {this.props.invalid} rule template can not have many templates
+                                一个 {this.props.invalid} 规则模板不能有多个模板
                             </Typography>)}
                         <IconButton
                             onClick={this.toggleExpansion}

@@ -39,7 +39,7 @@ class TemplateGroup extends React.Component {
                     name="uuid"
                     label="UUID"
                     value={this.props.configuration.uuid}
-                    helperText="Used to identify the template group"
+                    helperText="用于唯一标识一个模板组"
                     margin="normal"
                     onChange={e =>
                         this.props.handleTemplateGroupValueChange(e.target.name, e.target.value)}
@@ -48,9 +48,9 @@ class TemplateGroup extends React.Component {
                     fullWidth
                     id="name"
                     name="name"
-                    label="Name"
+                    label="名称"
                     value={this.props.configuration.name}
-                    helperText="Used for representing the template group"
+                    helperText="用于识别一个模板组"
                     margin="normal"
                     onChange={e =>
                         this.props.handleTemplateGroupValueChange(e.target.name, e.target.value)}
@@ -59,10 +59,10 @@ class TemplateGroup extends React.Component {
                     fullWidth
                     id="description"
                     name="description"
-                    label="Description"
+                    label="描述"
                     value={this.props.configuration.description ?
                         this.props.configuration.description : ''}
-                    helperText="Short description of what this template group does"
+                    helperText="简短的能够说模板组能做说明的文字说明"
                     margin="normal"
                     onChange={e =>
                         this.props.handleTemplateGroupValueChange(e.target.name, e.target.value)}
@@ -71,7 +71,7 @@ class TemplateGroup extends React.Component {
                 <br />
                 <br />
                 <Typography type="title">
-                    Rule Templates
+                    规则模板
                 </Typography>
                 <br />
                 {this.props.configuration.ruleTemplates.map((ruleTemplate, index) =>
