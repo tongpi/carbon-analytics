@@ -49,6 +49,7 @@
                             <executable>${npm.executable}</executable>
                             <arguments>
                                 <argument>install</argument>
+                                <argument>--no-optional</argument>
                             </arguments>
                         </configuration>
                     </execution>
@@ -63,6 +64,7 @@
                             <arguments>
                                 <argument>install</argument>
                                 <argument>rimraf</argument>
+                                <argument>--no-optional</argument>
                             </arguments>
                         </configuration>
                     </execution>
