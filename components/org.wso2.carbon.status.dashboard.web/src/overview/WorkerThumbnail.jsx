@@ -188,8 +188,7 @@ export default class WorkerThumbnail extends React.Component {
                     <GridList cols={2} cellHeight={98} style={styles.gridList}>
                         <GridTile>
                             <div style={{height: '100%', display: 'flex', alignItems: 'center'}}>
-                                <Tooltip title="To enable metrics, set the enabled property to true under wso2.metrics
-                                in the < SP_HOME>/conf/worker/deployment.yaml  file. ">
+                                <Tooltip title="要启用度量, 设置conf/worker/deployment.yaml文件中wso2.metrics下面的enabled属性为true">
                                     <h4 style={{
                                         textAlign: 'center',
                                         color: '#dedede',
@@ -202,13 +201,13 @@ export default class WorkerThumbnail extends React.Component {
                         </GridTile>
                         <GridTile>
                             <div className="grid-tile-h1" style={{marginTop: 30}}>
-                                <Tooltip title="Active Apps">
+                                <Tooltip title="活动的应用">
                                     <h1 className="active-apps">
                                         {this.props.worker.serverDetails.siddhiAppStatus.activeAppCount}
                                     </h1>
                                 </Tooltip>
                                 <h1 style={{display: 'inline'}}> | </h1>
-                                <Tooltip title="Inactive Apps">
+                                <Tooltip title="不活动的应用">
                                     <h1 className="inactive-apps">
                                         {this.props.worker.serverDetails.siddhiAppStatus.inactiveAppCount}
                                     </h1>
@@ -304,7 +303,7 @@ export default class WorkerThumbnail extends React.Component {
                                     color="#19cdd7"/>
                                 <div style={styles.legendContainer}>
                                     <Typography style={styles.overviewLegend} align={'center'}>
-                                        CPU Usage
+                                        CPU 使用
                                         {cpuTrend === constants.up ? <span style={{color: 'red'}}>˄</span> :
                                             <span style={{color: 'green'}}>˅</span>}
                                     </Typography>
@@ -317,7 +316,7 @@ export default class WorkerThumbnail extends React.Component {
                                     color="#f17b31"/>
                                 <div style={styles.legendContainer}>
                                     <Typography style={styles.overviewLegend} align={'center'}>
-                                        Memory Usage
+                                        内存使用
                                         {memoryTrend === constants.up ? <span style={{color: 'red'}}>˄</span> :
                                             <span style={{color: 'green'}}>˅</span>}
                                     </Typography>
@@ -333,7 +332,7 @@ export default class WorkerThumbnail extends React.Component {
                                     {loadAvg}</div>
                                 <div style={styles.legendContainer}>
                                     <Typography style={styles.overviewLegend} align={'center'}>
-                                        Load Average
+                                        平均负载
                                         {loadTrendImg}
                                     </Typography>
                                 </div>
@@ -341,13 +340,13 @@ export default class WorkerThumbnail extends React.Component {
 
                             <GridTile>
                                 <div className="grid-tile-h1" style={{marginTop: 30}}>
-                                    <Tooltip title="Active Apps">
+                                    <Tooltip title="活动流应用">
                                         <h1 className="active-apps">
                                             {this.props.worker.serverDetails.siddhiAppStatus.activeAppCount}
                                         </h1>
                                     </Tooltip>
                                     <h1 style={{display: 'inline'}}> | </h1>
-                                    <Tooltip title="Inactive Apps">
+                                    <Tooltip title="不活动流应用">
                                         <h1 className="inactive-apps">
                                             {this.props.worker.serverDetails.siddhiAppStatus.inactiveAppCount}
                                         </h1>
@@ -355,7 +354,7 @@ export default class WorkerThumbnail extends React.Component {
                                 </div>
                                 <div style={styles.legendContainer}>
                                     <Typography style={styles.overviewLegend} align={'center'}>
-                                        Siddhi Apps
+                                        流应用
                                     </Typography>
                                 </div>
                             </GridTile>
@@ -405,7 +404,7 @@ export default class WorkerThumbnail extends React.Component {
         return (
             <div>
                 <Dialog
-                    title='Confirmation'
+                    title='确认'
                     actions={actionsButtons}
                     modal={true}
                     open={this.state.open}

@@ -27,7 +27,7 @@ import {Card, CardHeader, CardMedia, Divider} from 'material-ui';
 import { FormattedMessage } from 'react-intl';
 
 const memoryMetadata = {
-    names: ['Time', 'Free Swap Space', 'Total Swap Space'],
+    names: ['时间', '可用交换空间', '总交换空间'],
     types: ['time', 'linear', 'linear']
 };
 
@@ -55,10 +55,10 @@ export default class JVMOsPhysicalMemory extends React.Component {
 
     render() {
         const memoryLineChartConfig = {
-            x: 'Time',
+            x: '时间',
             charts: [
-                {type: 'area', y: 'Free Swap Space', fill: '#f17b31', style: {markRadius: 2}},
-                {type: 'area', y: 'Total Swap Space', fill: '#8c51a5', style: {markRadius: 2}}
+                { type: 'area', y: '可用交换空间', fill: '#f17b31', style: {markRadius: 2}},
+                { type: 'area', y: '总交换空间', fill: '#8c51a5', style: {markRadius: 2}}
             ],
             width: 700,
             height: 200,
@@ -83,7 +83,7 @@ export default class JVMOsPhysicalMemory extends React.Component {
                 <div style={{paddingLeft: 10}}>
                     <Card>
                         <CardHeader
-                            title="JVM Swap Space"
+                            title="JVM 交换空间"
                         />
                         <Divider/>
                         <CardMedia>
@@ -100,7 +100,7 @@ export default class JVMOsPhysicalMemory extends React.Component {
         return (
             <div style={{paddingLeft: 10}}>
                 <ChartCard data={data} metadata={memoryMetadata} config={memoryLineChartConfig}
-                           title="JVM Swap Space"/>
+                           title="JVM 交换空间"/>
             </div>
         );
     }

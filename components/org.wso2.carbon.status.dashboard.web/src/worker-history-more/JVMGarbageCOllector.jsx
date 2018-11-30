@@ -87,7 +87,7 @@ export default class JVMGarbageCOllector extends React.Component {
                 <div>
                     <Card>
                         <CardHeader
-                            title="JVM Garbage Collector."
+                            title="JVM 垃圾回收."
                         />
                         <Divider/>
                         <CardMedia>
@@ -113,7 +113,7 @@ export default class JVMGarbageCOllector extends React.Component {
         return (
             <div>
                 <ChartCard data={data} yDomain={y3}
-                           metadata={metadata} config={chartConfig} title="JVM Garbage Collector"/>
+                           metadata={metadata} config={chartConfig} title="JVM 垃圾回收"/>
             </div>
         );
     }

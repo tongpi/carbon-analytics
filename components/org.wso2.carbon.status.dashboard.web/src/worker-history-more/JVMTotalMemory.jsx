@@ -27,7 +27,7 @@ import {Card, CardHeader, CardMedia, Divider} from 'material-ui';
 import { FormattedMessage } from 'react-intl';
 
 const memoryMetadata = {
-    names: ['Time', 'Total Committed', 'Total Init', 'Total Max', 'Total Used'],
+    names: ['时间', '合计提交', '合计初始', '合计最大', '合计已用'],
     types: ['time', 'linear', 'linear']
 };
 
@@ -59,12 +59,12 @@ export default class JVMOTotalMemory extends React.Component {
 
     render() {
         const memoryLineChartConfig = {
-            x: 'Time',
+            x: '时间',
             charts: [
-                {type: 'area', y: 'Total Committed', fill: '#FFEB3B', style: {markRadius: 2}},
-                {type: 'area', y: 'Total Init', fill: '#8c51a5', style: {markRadius: 2}},
-                {type: 'area', y: 'Total Max', fill: '#f17b31', style: {markRadius: 2}},
-                {type: 'area', y: 'Total Used', fill: '#1bf1b9', style: {markRadius: 2}}
+                { type: 'area', y: '合计提交', fill: '#FFEB3B', style: {markRadius: 2}},
+                { type: 'area', y: '合计初始', fill: '#8c51a5', style: {markRadius: 2}},
+                { type: 'area', y: '合计最大', fill: '#f17b31', style: {markRadius: 2}},
+                { type: 'area', y: '合计已用', fill: '#1bf1b9', style: {markRadius: 2}}
             ],
             width: 700,
             height: 200,
@@ -89,7 +89,7 @@ export default class JVMOTotalMemory extends React.Component {
                 <div>
                     <Card>
                         <CardHeader
-                            title="JVM Total Memory (bytes)"
+                            title="JVM 总内存 (字节)"
                         />
                         <Divider/>
                         <CardMedia>
@@ -116,7 +116,7 @@ export default class JVMOTotalMemory extends React.Component {
         return (
             <div>
                 <ChartCard data={data} metadata={memoryMetadata} config={memoryLineChartConfig} yDomain={y}
-                           title="JVM Total Memory (bytes)"/>
+                           title="JVM 总内存 (字节)"/>
             </div>
         );
     }

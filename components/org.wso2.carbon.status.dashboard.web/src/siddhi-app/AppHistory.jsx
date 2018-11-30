@@ -347,19 +347,19 @@ export default class AppSpecific extends React.Component {
                     </Typography>
                     <Toolbar style={toolBar}>
                         <ToolbarGroup firstChild={true}>
-                            <RaisedButton label="Last 5 Minutes" backgroundColor={this.setColor('5min')}
+                            <RaisedButton label="最近5分钟" backgroundColor={this.setColor('5min')}
                                           onClick={() => this.handleChange("5min")}
                                           style={styles.button}/>
-                            <RaisedButton label="Last 1 Hour" backgroundColor={this.setColor('1hr')}
+                            <RaisedButton label="最近1小时" backgroundColor={this.setColor('1hr')}
                                           onClick={() => this.handleChange("1hr")}
                                           style={styles.button}/>
-                            <RaisedButton label="Last 6 Hours" backgroundColor={this.setColor('6hr')}
+                            <RaisedButton label="最近6小时" backgroundColor={this.setColor('6hr')}
                                           onClick={() => this.handleChange("6hr")}
                                           style={styles.button}/>
-                            <RaisedButton label="Last day" backgroundColor={this.setColor('24hr')}
+                            <RaisedButton label="最近一天" backgroundColor={this.setColor('24hr')}
                                           onClick={() => this.handleChange("24hr")}
                                           style={styles.button}/>
-                            <RaisedButton label="Last Week" backgroundColor={this.setColor('1wk')}
+                            <RaisedButton label="最近一周" backgroundColor={this.setColor('1wk')}
                                           onClick={() => this.handleChange("1wk")}
                                           style={styles.button}/>
                         </ToolbarGroup>

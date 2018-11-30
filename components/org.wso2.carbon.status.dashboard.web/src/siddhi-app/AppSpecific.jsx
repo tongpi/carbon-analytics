@@ -51,10 +51,10 @@ const styles = {
     titleStyle: {fontSize: '1.6rem', margin: '20px 0 0 24px', color: '#dedede'},
     button: {margin: 0, fontSize: 10, borderLeft: '1px solid #4c4c4c', borderRadius: 0}
 };
-const memoryMetadata = {names: ['Time', 'Memory'], types: ['time', 'linear']};
+const memoryMetadata = {names: ['时间', '内存'], types: ['time', 'linear']};
 const memoryLineChartConfig = {
-    x: 'Time',
-    charts: [{type: 'line', y: 'Memory', fill: '#f17b31'}],
+    x: '时间',
+    charts: [{type: 'line', y: '内存', fill: '#f17b31'}],
     gridColor: '#f2f2f2',
     tipTimeFormat: "%M:%S %Z",
     style: {
@@ -64,10 +64,10 @@ const memoryLineChartConfig = {
         axisLabelColor: '#9c9898'
     }
 };
-const latencyMetadata = {names: ['Time', 'Latency'], types: ['time', 'linear']};
+const latencyMetadata = {names: ['时间', '延迟'], types: ['time', 'linear']};
 const latencyLineChartConfig = {
-    x: 'Time',
-    charts: [{type: 'line', y: 'Latency', fill: '#f17b31'}],
+    x: '时间',
+    charts: [{type: 'line', y: '延迟', fill: '#f17b31'}],
     gridColor: '#f2f2f2',
     tipTimeFormat: "%M:%S %Z",
     style: {
@@ -77,10 +77,10 @@ const latencyLineChartConfig = {
         axisLabelColor: '#9c9898'
     }
 };
-const tpMetadata = {names: ['Time', 'Throughput'], types: ['time', 'linear']};
+const tpMetadata = {names: ['时间', '吞吐量'], types: ['time', 'linear']};
 const tpLineChartConfig = {
-    x: 'Time',
-    charts: [{type: 'line', y: 'Throughput', fill: '#f17b31'}],
+    x: '时间',
+    charts: [{type: 'line', y: '吞吐量', fill: '#f17b31'}],
     gridColor: '#f2f2f2',
     tipTimeFormat: "%M:%S %Z",
     style: {

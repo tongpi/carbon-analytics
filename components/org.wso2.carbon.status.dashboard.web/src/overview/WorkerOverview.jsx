@@ -181,7 +181,7 @@ export default class WorkerOverview extends React.Component {
                             this.context.intl.formatMessage({ id: 'workerOverview.noNodes', defaultMessage: 'Currently there are no nodes to display' }) : ''
                     });
                 } else {
-                    console.log("manager connection failed")
+                    console.log("管理节点连接失败")
                 }
 
             }).catch((error) => {
@@ -195,7 +195,7 @@ export default class WorkerOverview extends React.Component {
                 } else if (error.response.status === 403) {
                     this.setState({
                         isManagerApiCalled: true,
-                        statusMessage: "User Have No Permission to view this page."
+                        statusMessage: this.context.intl.formatMessage({ id: 'noViewPermission', defaultMessage: 'User Have No Permission to view this page.' })
                     })
                 } else {
                     this.state({
@@ -457,9 +457,15 @@ export default class WorkerOverview extends React.Component {
                             )
 
                         } else {
+                            let dispTitle="";
+                            if(id === "Single Node Deployments"){
+                               dispTitle = "单节点部署";
+                            }else if(id === "Never Reached"){
+                               dispTitle = "不能连通";
+                            }
                             return (
                                 <div>
-                                    <h3 style={styles.h3Title}>{id}</h3>
+                                    <h3 style={styles.h3Title}>{dispTitle}</h3>
                                     <Divider inset={true} style={styles.divider}/>
                                     <div style={styles.root}>
                                         <GridList className={'node-wrapper'} cols={3} cellHeight='100%'
@@ -583,9 +589,15 @@ export default class WorkerOverview extends React.Component {
                             )
 
                         } else {
+                            let dispTitle="";
+                            if(id === "Single Node Deployments"){
+                               dispTitle = "单节点部署";
+                            }else if(id === "Never Reached"){
+                               dispTitle = "不能连通";
+                            }
                             return (
                                 <div>
-                                    <h3 style={styles.h3Title}>{id}</h3>
+                                    <h3 style={styles.h3Title}>{dispTitle}</h3>
                                     <Divider inset={true} style={styles.divider}/>
                                     <div style={styles.root}>
                                         <GridList className={'node-wrapper'} cols={3} cellHeight='100%'
@@ -657,7 +669,7 @@ export default class WorkerOverview extends React.Component {
                         } else {
                             return (
                                 <div>
-                                    <h3 style={styles.h3Title}>Managers</h3>
+                                    <h3 style={styles.h3Title}>管理节点</h3>
                                     <Divider inset={true} style={styles.divider}/>
                                     <div style={styles.root}>
                                         <GridList className={'node-wrapper'} cols={3} cellHeight='100%'

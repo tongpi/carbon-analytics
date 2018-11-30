@@ -27,8 +27,8 @@ import {Card, CardHeader, CardMedia, Divider} from 'material-ui';
 import { FormattedMessage } from 'react-intl';
 
 const memoryMetadata = {
-    names: ['Time', 'Free Physical Memory', 'Total Physical Memory', 'Total Committed', 'Total Init',
-        'Total Max', 'Total Used', 'Pool Size', 'Committed Virtual Memory'],
+    names: ['时间', '可用物理内存', '总物理内存', '合计提交', '合计初始',
+        '合计最大', '合计已用', '池大小', '已提交虚拟内存'],
     types: ['time', 'linear', 'linear']
 };
 
@@ -58,10 +58,10 @@ export default class JVMOsPhysicalMemory extends React.Component {
 
     render() {
         const memoryLineChartConfig = {
-            x: 'Time',
-            charts: [{type: 'area', y: 'Free Physical Memory', fill: '#058DC7', style: {markRadius: 2}},
-                {type: 'area', y: 'Total Physical Memory', fill: '#50B432', style: {markRadius: 2}},
-                {type: 'area', y: 'Committed Virtual Memory', fill: '#7119ff', style: {markRadius: 2}}
+            x: '时间',
+            charts: [{ type: 'area', y: '可用物理内存', fill: '#058DC7', style: {markRadius: 2}},
+                { type: 'area', y: '总物理内存', fill: '#50B432', style: {markRadius: 2}},
+                { type: 'area', y: '已提交虚拟内存', fill: '#7119ff', style: {markRadius: 2}}
             ],
             width: 700,
             height: 200,
@@ -85,7 +85,7 @@ export default class JVMOsPhysicalMemory extends React.Component {
                 <div>
                     <Card>
                         <CardHeader
-                            title="JVM Physical Memory (bytes)"
+                            title="JVM 物理内存 (字节)"
                         />
                         <Divider/>
                         <CardMedia>
@@ -107,7 +107,7 @@ export default class JVMOsPhysicalMemory extends React.Component {
         return (
             <div>
                 <ChartCard data={data} metadata={memoryMetadata} config={memoryLineChartConfig} yDomain={y}
-                           title="JVM Physical Memory (bytes)"/>
+                           title="JVM 物理内存 (字节)"/>
             </div>
         );
     }

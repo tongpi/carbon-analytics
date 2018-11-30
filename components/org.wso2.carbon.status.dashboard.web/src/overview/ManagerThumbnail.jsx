@@ -412,13 +412,13 @@ export default class ManagerThumbnail extends React.Component {
                                 {/*Active Nodes display the siddhi detils*/}
                                 <GridTile>
                                     <div className="grid-tile-h1" style={{marginTop: 30}}>
-                                        <Tooltip title="Active Apps">
+                                        <Tooltip title="活动流应用">
                                             <h1 className="active-apps">
                                                 {this.props.worker.serverDetails.siddhiAppStatus.activeAppCount}
                                             </h1>
                                         </Tooltip>
                                         <h1 style={{display: 'inline'}}> |</h1>
-                                        <Tooltip title="Inactive Apps">
+                                        <Tooltip title="不活动流应用">
                                             <h1 className="inactive-apps">
                                                 {this.props.worker.serverDetails.siddhiAppStatus.inactiveAppCount}
                                             </h1>
@@ -537,7 +537,7 @@ export default class ManagerThumbnail extends React.Component {
         return (
             <div style={styles.background}>
                 <Dialog
-                    title="Confirmation"
+                    title="确认"
                     actions={actionsButtons}
                     modal={true}
                     open={this.state.open}

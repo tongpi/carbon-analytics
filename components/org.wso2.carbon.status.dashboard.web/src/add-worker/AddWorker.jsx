@@ -494,7 +494,7 @@ class AddWorker extends React.Component {
                                               disabled={this.state.host === '' || this.state.port === ''}
                                     label={this.context.intl.formatMessage({ id: 'addworker.testConnection', defaultMessage: 'Test Connection' })}
                                               onClick={this._testConnection}/>
-                                <Link to={window.contextPath}><RaisedButton style={buttonStyle} label="Cancel"/></Link>
+                                <Link to={window.contextPath}><RaisedButton style={buttonStyle} label="取消"/></Link>
                             </FormPanel>
                         </div>
                     </MuiThemeProvider>

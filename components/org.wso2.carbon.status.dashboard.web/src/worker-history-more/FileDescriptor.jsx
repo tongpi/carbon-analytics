@@ -25,7 +25,7 @@ import ChartCard from '../common/ChartCard';
 import {Card, CardHeader, CardMedia, Divider} from 'material-ui';
 import { FormattedMessage } from 'react-intl';
 
-const metadata = {names: ['Time', 'Open Count', 'Max Count'], types: ['time', 'linear', 'linear']};
+const metadata = {names: ['时间', '打开个数', '最大个数'], types: ['time', 'linear', 'linear']};
 
 
 /**
@@ -51,9 +51,9 @@ export default class FileDescriptor extends React.Component {
 
     render() {
         const chartConfig = {
-            x: 'Time',
-            charts: [{type: 'area', y: 'Open Count', fill: '#f17b31', style: {markRadius: 2}},
-                {type: 'area', y: 'Max Count', style: {markRadius: 2}}],
+            x: '时间',
+            charts: [{ type: 'area', y: '打开个数', fill: '#f17b31', style: {markRadius: 2}},
+                {type: 'area', y: '最大个数', style: {markRadius: 2}}],
             width: 700,
             height: 200,
             style: {

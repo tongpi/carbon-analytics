@@ -27,8 +27,7 @@ import {Card, CardHeader, CardMedia, Divider} from 'material-ui';
 import { FormattedMessage } from 'react-intl';
 
 const threadMetadata = {
-    names: ['Time', 'Live Threads', 'Daemon Threads', 'Blocked Threads', 'Deadlock Threads', 'New' +
-    ' Threads', 'Runnable Threads', 'Terminated Threads', 'Timed Waiting Threads', 'Waiting Threads'],
+    names: ['时间', '活动线程', '后台线程', '阻塞线程', '死锁线程', '新线程', '可运行线程', '已中断线程', '待时线程', '待命线程'],
     types: ['time', 'linear', 'linear']
 };
 
@@ -70,17 +69,17 @@ export default class JVMThread extends React.Component {
 
     render() {
         const threadLineChartConfig = {
-            x: 'Time',
+            x: '时间',
             charts: [
-                {type: 'area', y: 'Live Threads', fill: '#5a09a5', style: {markRadius: 2}},
-                {type: 'area', y: 'Daemon Threads', fill: '#1af12c', style: {markRadius: 2}},
-                {type: 'area', y: 'Blocked Threads', fill: '#a5390e', style: {markRadius: 2}},
-                {type: 'area', y: 'Deadlock Threads', fill: '#0cf1bf', style: {markRadius: 2}},
-                {type: 'area', y: 'New Threads', fill: '#f1b32d', style: {markRadius: 2}},
-                {type: 'area', y: 'Runnable Threads', fill: '#7b82f1', style: {markRadius: 2}},
-                {type: 'area', y: 'Terminated Threads', fill: '#f10c8e', style: {markRadius: 2}},
-                {type: 'area', y: 'Timed Waiting Threads', style: {markRadius: 2}},
-                {type: 'area', y: 'Waiting Threads', fill: '#f17b31', style: {markRadius: 2}}
+                {type: 'area', y: '活动线程', fill: '#5a09a5', style: {markRadius: 2}},
+                { type: 'area', y: '后台线程', fill: '#1af12c', style: {markRadius: 2}},
+                { type: 'area', y: '阻塞线程', fill: '#a5390e', style: {markRadius: 2}},
+                { type: 'area', y: '死锁线程', fill: '#0cf1bf', style: {markRadius: 2}},
+                { type: 'area', y: '新线程', fill: '#f1b32d', style: {markRadius: 2}},
+                { type: 'area', y: '可运行线程', fill: '#7b82f1', style: {markRadius: 2}},
+                { type: 'area', y: '已中断线程', fill: '#f10c8e', style: {markRadius: 2}},
+                { type: 'area', y: '待时线程', style: {markRadius: 2}},
+                { type: 'area', y: '待命线程', fill: '#f17b31', style: {markRadius: 2}}
             ],
             width: 700,
             height: 200,
@@ -104,7 +103,7 @@ export default class JVMThread extends React.Component {
                 <div>
                     <Card>
                         <CardHeader
-                            title="Threads"
+                            title="线程"
                         />
                         <Divider/>
                         <CardMedia>
@@ -138,7 +137,7 @@ export default class JVMThread extends React.Component {
         return (
             <div>
                 <ChartCard data={data} yDomain={y}
-                           metadata={threadMetadata} config={threadLineChartConfig} title="Threads"/>
+                           metadata={threadMetadata} config={threadLineChartConfig} title="线程"/>
             </div>
         );
     }

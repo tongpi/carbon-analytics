@@ -27,7 +27,7 @@ import {Card, CardHeader, CardMedia, Divider} from 'material-ui';
 import { FormattedMessage } from 'react-intl';
 
 const metadata = {
-    names: ['Time', 'Total Classes Loaded', 'Current Classes Loaded', 'Total Classes Unloaded'],
+    names: ['时间', '已加载的类总计', '当前类数量', '已卸载的类数量'],
     types: ['time', 'linear', 'linear', 'linear']
 };
 
@@ -56,10 +56,10 @@ export default class JVMLoading extends React.Component {
 
     render() {
         const chartConfig = {
-            x: 'Time',
-            charts: [{type: 'area', y: 'Total Classes Loaded', fill: '#058DC7', style: {markRadius: 2}},
-                {type: 'area', y: 'Current Classes Loaded', fill: '#50B432', style: {markRadius: 2}},
-                {type: 'area', y: 'Total Classes Unloaded', fill: '#f17b31', style: {markRadius: 2}}],
+            x: '时间',
+            charts: [{ type: 'area', y: '已加载的类总计', fill: '#058DC7', style: {markRadius: 2}},
+                { type: 'area', y: '当前类数量', fill: '#50B432', style: {markRadius: 2}},
+                { type: 'area', y: '已卸载的类数量', fill: '#f17b31', style: {markRadius: 2}}],
             width: 700,
             height: 200,
             style: {
@@ -82,7 +82,7 @@ export default class JVMLoading extends React.Component {
                 <div>
                     <Card>
                         <CardHeader
-                            title="Class Loading"
+                            title="类加载"
                         />
                         <Divider/>
                         <CardMedia>
@@ -106,7 +106,7 @@ export default class JVMLoading extends React.Component {
         return (
             <div>
                 <ChartCard data={data} metadata={metadata} config={chartConfig} yDomain={y2}
-                           title="Class Loading"/>
+                           title="类加载"/>
             </div>
 
         );

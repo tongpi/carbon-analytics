@@ -27,7 +27,7 @@ import {Card, CardHeader, CardMedia, Divider} from 'material-ui';
 import { FormattedMessage } from 'react-intl';
 
 const metadata = {
-    names: ['Time', 'Heap Init', 'Heap Used', 'Heap Committed', 'Heap Max', 'Heap Usage'],
+    names: ['时间', '堆初始', '堆已用', '堆提交', '堆最大', '堆可用'],
     types: ['time', 'linear', 'linear', 'linear', 'linear']
 };
 
@@ -60,12 +60,12 @@ export default class HeapMemory extends React.Component {
 
     render() {
         const chartConfig = {
-            x: 'Time',
-            charts: [{type: 'area', y: 'Heap Init', fill: '#058DC7', style: {markRadius: 2}},
-                {type: 'area', y: 'Heap Used', fill: '#50B432', style: {markRadius: 2}},
-                {type: 'area', y: 'Heap Committed', fill: '#f17b31', style: {markRadius: 2}},
-                {type: 'area', y: 'Heap Max', fill: '#8c51a5', style: {markRadius: 2}},
-                {type: 'area', y: 'Heap Usage', fill: '#5a09a5', style: {markRadius: 2}}
+            x: '时间',
+            charts: [{type: 'area', y: '堆初始', fill: '#058DC7', style: {markRadius: 2}},
+                {type: 'area', y: '堆已用', fill: '#50B432', style: {markRadius: 2}},
+                {type: 'area', y: '堆提交', fill: '#f17b31', style: {markRadius: 2}},
+                {type: 'area', y: '堆最大', fill: '#8c51a5', style: {markRadius: 2}},
+                {type: 'area', y: '堆可用', fill: '#5a09a5', style: {markRadius: 2}}
             ],
 
             width: 700,
@@ -91,7 +91,7 @@ export default class HeapMemory extends React.Component {
                 <div>
                     <Card>
                         <CardHeader
-                            title="JVM Heap Memory (bytes)"
+                            title="JVM 堆内存 (字节)"
                         />
                         <Divider/>
                         <CardMedia>
@@ -117,7 +117,7 @@ export default class HeapMemory extends React.Component {
         return (
             <div>
                 <ChartCard data={data} yDomain={y}
-                           metadata={metadata} config={chartConfig} title="JVM Heap Memory"/>
+                           metadata={metadata} config={chartConfig} title="JVM 堆内存"/>
             </div>
         );
     }

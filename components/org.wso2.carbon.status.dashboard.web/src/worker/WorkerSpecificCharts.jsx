@@ -28,10 +28,10 @@ import {CardMedia, CardTitle, Checkbox, GridList, GridTile, IconButton} from 'ma
 //Localization
 import { FormattedMessage } from 'react-intl';
 
-const loadMetadata = {names: ['Time', 'Load Average'], types: ['time', 'linear']};
+const loadMetadata = {names: ['时间', '平均负载'], types: ['time', 'linear']};
 const loadLineChartConfig = {
-    x: 'Time',
-    charts: [{type: 'line', y: 'Load Average', style: {markRadius: 2}}],
+    x: '时间',
+    charts: [{ type: 'line', y: '平均负载', style: {markRadius: 2}}],
     gridColor: '#f2f2f2',
     tipTimeFormat: "%M:%S %Z",
     style: {
@@ -41,9 +41,9 @@ const loadLineChartConfig = {
         tickLabelColor: '#f2f2f2',
     }
 };
-const tpMetadata = {names: ['Time', 'Throughput(events/second)'], types: ['time', 'linear']};
+const tpMetadata = {names: ['时间', '吞吐量(事件/秒)'], types: ['time', 'linear']};
 const tpLineChartConfig = {
-    x: 'Time', charts: [{type: 'line', y: 'Throughput(events/second)', style: {markRadius: 2}}],
+    x: '时间', charts: [{type: 'line', y: '吞吐量(事件/秒)', style: {markRadius: 2}}],
     gridColor: '#f2f2f2',
     tipTimeFormat: "%M:%S %Z",
     style: {
@@ -53,13 +53,13 @@ const tpLineChartConfig = {
         axisLabelColor: '#9c9898'
     }
 };
-const cpuMetadata = {names: ['Time', 'System CPU', 'Process CPU'], types: ['time', 'linear', 'linear']};
+const cpuMetadata = {names: ['时间', '系统 CPU', '进程 CPU'], types: ['time', 'linear', 'linear']};
 const cpuLineChartConfig = {
-    x: 'Time',
-    charts: [{type: 'line', y: 'System CPU', fill: '#f17b31', style: {markRadius: 2}}, {
+    x: '时间',
+    charts: [{type: 'line', y: '系统 CPU', fill: '#f17b31', style: {markRadius: 2}}, {
         type: 'line',
         fill: '#3366cc',
-        y: 'Process CPU',
+        y: '进程 CPU',
         style: {markRadius: 2}
     }],
     width: 100, height: 50,
@@ -72,12 +72,12 @@ const cpuLineChartConfig = {
         axisLabelColor: '#9c9898'
     }
 };
-const memoryMetadata = {names: ['Time', 'Used Memory', 'Total Memory'], types: ['time', 'linear', 'linear']};
+const memoryMetadata = {names: ['时间', '已用内存', '总内存'], types: ['time', 'linear', 'linear']};
 const memoryLineChartConfig = {
-    x: 'Time',
-    charts: [{type: 'line', y: 'Used Memory', fill: '#f17b31', style: {markRadius: 2}}, {
-        type: 'line', y: 'Total' +
-        ' Memory', fill: '#3366cc', style: {markRadius: 2}
+    x: '时间',
+    charts: [{type: 'line', y: '已用内存', fill: '#f17b31', style: {markRadius: 2}}, {
+        type: 'line', y: '总' +
+        '内存', fill: '#3366cc', style: {markRadius: 2}
     }],
     width: 800,
     height: 330,
@@ -145,8 +145,8 @@ export default class WorkerSpecificCharts extends React.Component {
         } else if (this.state.sysCpuChecked) {
             data = this.state.systemCpu;
             config = {
-                x: 'Time',
-                charts: [{type: 'line', fill: '#f17b31', y: 'System CPU', style: {markRadius: 2}}],
+                x: '时间',
+                charts: [{type: 'line', fill: '#f17b31', y: '系统 CPU', style: {markRadius: 2}}],
                 width: 100,
                 height: 50,
                 gridColor: '#f2f2f2',
@@ -158,11 +158,11 @@ export default class WorkerSpecificCharts extends React.Component {
                     axisLabelColor: '#9c9898'
                 }
             };
-            metadata = {names: ['Time', 'System CPU'], types: ['time', 'linear']};
+            metadata = {names: ['时间', '系统 CPU'], types: ['time', 'linear']};
         } else if (this.state.processCpuChecked) {
             data = this.state.processCpu;
             config = {
-                x: 'Time', charts: [{type: 'line', fill: '#3366cc', y: 'Process CPU', style: {markRadius: 2}}],
+                x: '时间', charts: [{type: 'line', fill: '#3366cc', y: '进程 CPU', style: {markRadius: 2}}],
                 gridColor: '#f2f2f2',
                 tipTimeFormat: "%M:%S %Z",
                 style: {
@@ -172,11 +172,11 @@ export default class WorkerSpecificCharts extends React.Component {
                     axisLabelColor: '#9c9898'
                 }
             };
-            metadata = {names: ['Time', 'Process CPU'], types: ['time', 'linear']};
+            metadata = {names: ['时间', '进程 CPU'], types: ['time', 'linear']};
         } else {
             data = [];
             config = {
-                x: 'Time', charts: [{type: 'line', y: 'value', style: {markRadius: 2}}],
+                x: '时间', charts: [{type: 'line', y: '值', style: {markRadius: 2}}],
                 gridColor: '#f2f2f2',
                 tipTimeFormat: "%M:%S %Z",
                 style: {
@@ -186,7 +186,7 @@ export default class WorkerSpecificCharts extends React.Component {
                     axisLabelColor: '#9c9898'
                 }
             };
-            metadata = {names: ['Time', 'value'], types: ['time', 'linear']};
+            metadata = {names: ['时间', '值'], types: ['time', 'linear']};
         }
 
 
@@ -264,7 +264,7 @@ export default class WorkerSpecificCharts extends React.Component {
         } else if (this.state.totalMemoryChecked) {
             data = this.state.totalMem;
             config = {
-                x: 'Time', charts: [{type: 'line', fill: '#3366cc', y: 'Total Memory', style: {markRadius: 2}}],
+                x: '时间', charts: [{type: 'line', fill: '#3366cc', y: '总内存', style: {markRadius: 2}}],
                 gridColor: '#f2f2f2',
                 tipTimeFormat: "%M:%S %Z",
                 style: {
@@ -276,11 +276,11 @@ export default class WorkerSpecificCharts extends React.Component {
 
 
             };
-            metadata = {names: ['Time', 'Total Memory'], types: ['time', 'linear']};
+            metadata = {names: ['时间', '总内存'], types: ['time', 'linear']};
         } else if (this.state.usedMemoryChecked) {
             data = this.state.usedMem;
             config = {
-                x: 'Time', charts: [{type: 'line', fill: '#f17b31', y: 'Used Memory', style: {markRadius: 2}}],
+                x: '时间', charts: [{type: 'line', fill: '#f17b31', y: '已用内存', style: {markRadius: 2}}],
                 gridColor: '#f2f2f2',
                 tipTimeFormat: "%M:%S %Z",
                 style: {
@@ -291,11 +291,11 @@ export default class WorkerSpecificCharts extends React.Component {
                 }
 
             };
-            metadata = {names: ['Time', 'Used Memory'], types: ['time', 'linear']};
+            metadata = {names: ['时间', '已用内存'], types: ['time', 'linear']};
         } else {
             data = [];
             config = {
-                x: 'Time', charts: [{type: 'line', y: 'value', style: {markRadius: 2}}],
+                x: '时间', charts: [{type: 'line', y: '值', style: {markRadius: 2}}],
                 gridColor: '#f2f2f2',
                 tipTimeFormat: "%M:%S %Z",
                 style: {
@@ -306,7 +306,7 @@ export default class WorkerSpecificCharts extends React.Component {
                 }
 
             };
-            metadata = {names: ['Time', 'value'], types: ['time', 'linear']};
+            metadata = {names: ['时间', '值'], types: ['time', 'linear']};
         }
 
         if (this.state.usedMem.length === 0 && this.state.totalMem.length === 0) {

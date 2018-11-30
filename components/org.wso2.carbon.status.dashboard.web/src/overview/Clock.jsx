@@ -38,25 +38,25 @@ export default class Clock extends Component {
         let temp = Math.floor(milliseconds / 1000);
         let years = Math.floor(temp / 31536000);
         if (years) {
-            return years + ' y' + numberEnding(years);
+            return years + ' 年' + numberEnding(years);
         }
         let days = Math.floor((temp %= 31536000) / 86400);
         if (days) {
-            return days + ' d' + numberEnding(days);
+            return days + ' 天' + numberEnding(days);
         }
         let hours = Math.floor((temp %= 86400) / 3600);
         if (hours) {
-            return hours + ' h' + numberEnding(hours);
+            return hours + ' 点' + numberEnding(hours);
         }
         let minutes = Math.floor((temp %= 3600) / 60);
         if (minutes) {
-            return minutes + ' m' + numberEnding(minutes);
+            return minutes + ' 分' + numberEnding(minutes);
         }
         let seconds = temp % 60;
         if (seconds) {
-            return seconds + ' s' + numberEnding(seconds);
+            return seconds + ' 秒' + numberEnding(seconds);
         }
-        return 'just now'; //'just now'
+        return '刚才'; //'just now'
     }
 
     componentWillMount() {
@@ -67,7 +67,7 @@ export default class Clock extends Component {
 
     render() {
         return (
-            <text>{this.millisecondsToStr(this.state.lastUpdatedTime) + " ago"}</text>
+            <text>{this.millisecondsToStr(this.state.lastUpdatedTime) + " 之前"}</text>
         );
     }
 }

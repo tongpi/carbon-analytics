@@ -63,7 +63,7 @@ export default class KafkaFlow extends React.Component {
                                 +"<span class='indicator '></span>"
                                 + "<span id='myTextInput' class='nodeLabel'>" + entry.appName  + "</span>"
 
-                                +"<span id='hostPort' class='hostPort' title='Deployed Node'>"+"Un-Deployed App"+"</span> "
+                                +"<span id='hostPort' class='hostPort' title='已部署节点'>"+"取消部署应用"+"</span> "
 
                                 + "</div>"
 
@@ -73,7 +73,7 @@ export default class KafkaFlow extends React.Component {
                                 +"<span class='indicator '></span>"
                                 + "<span id='myTextInput' class='nodeLabel'>" + entry.appName  + "</span>"
 
-                                +"<span id='hostPort' class='hostPort' title='Deployed Node'>"+ entry.deployedHost+" : "+entry.deployedPort+"</span> "
+                                +"<span id='hostPort' class='hostPort' title='已部署节点'>"+ entry.deployedHost+" : "+entry.deployedPort+"</span> "
 
                                 + "</div>"
 
@@ -84,7 +84,7 @@ export default class KafkaFlow extends React.Component {
 
                         entry.sourceList.map((source) => {
                             sourceHtml =
-                                "<div id='container' class='node-content' title='kafka_topic'>"
+                                "<div id='container' class='node-content' title='kafka主题'>"
                                 +"<span class='topic-indicator '></span>"
                                 + "<span id='myTextInput' class='nodeLabel'style='margin-top: 10px'>" + source + "</span>"
                                 + "</div>";
@@ -94,7 +94,7 @@ export default class KafkaFlow extends React.Component {
                         entry.sinkList.map((sink) => {
 
                             sinkHtml =
-                                "<div id='container' class='node-content' title='kafka_topic'>"
+                                "<div id='container' class='node-content' title='kafka主题'>"
                                 +"<span class='topic-indicator '></span>"
                                 + "<span id='myTextInput' class='nodeLabel' itemref='myTextInput'>"  + sink + "</span>"
                                 + "</div>";

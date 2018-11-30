@@ -27,8 +27,7 @@ import {Card, CardHeader, CardMedia, Divider} from 'material-ui';
 import { FormattedMessage } from 'react-intl';
 
 const metadata = {
-    names: ['Time', 'Non-Heap Init', 'Non-Heap Used', 'Non-Heap Committed', 'Non-Heap Max', 'Non-Heap' +
-    ' Usage'],
+    names: ['时间', '非堆初始', '非堆已用', '非堆提交', '非堆最大', '非堆可用'],
     types: ['time', 'linear', 'linear', 'linear', 'linear']
 };
 
@@ -62,12 +61,12 @@ export default class NonHeapMemory extends React.Component {
 
     render() {
         const chartConfig = {
-            x: 'Time',
-            charts: [{type: 'area', y: 'Non-Heap Init', fill: '#058DC7', style: {markRadius: 2}},
-                {type: 'area', y: 'Non-Heap Used', fill: '#50B432', style: {markRadius: 2}},
-                {type: 'area', y: 'Non-Heap Committed', fill: '#f17b31', style: {markRadius: 2}},
-                {type: 'area', y: 'Non-Heap Max', fill: '#8c51a5', style: {markRadius: 2}},
-                {type: 'area', y: 'Non-Heap Usage', fill: '#540aa5', style: {markRadius: 2}}
+            x: '时间',
+            charts: [{ type: 'area', y: '非堆初始', fill: '#058DC7', style: {markRadius: 2}},
+                { type: 'area', y: '非堆已用', fill: '#50B432', style: {markRadius: 2}},
+                { type: 'area', y: '非堆提交', fill: '#f17b31', style: {markRadius: 2}},
+                { type: 'area', y: '非堆最大', fill: '#8c51a5', style: {markRadius: 2}},
+                { type: 'area', y: '非堆可用', fill: '#540aa5', style: {markRadius: 2}}
             ],
             width: 700,
             height: 200,
@@ -91,7 +90,7 @@ export default class NonHeapMemory extends React.Component {
                 <div >
                     <Card>
                         <CardHeader
-                            title="JVM Non-Heap Memory (bytes)"
+                            title="JVM 非堆内存 (字节)"
                         />
                         <Divider/>
                         <CardMedia>
@@ -119,7 +118,7 @@ export default class NonHeapMemory extends React.Component {
         return (
             <div>
                 <ChartCard data={data} yDomain={y}
-                           metadata={metadata} config={chartConfig} title="JVM Non-Heap Memory (bytes)"/>
+                           metadata={metadata} config={chartConfig} title="JVM 非堆内存 (字节)"/>
             </div>
         );
     }

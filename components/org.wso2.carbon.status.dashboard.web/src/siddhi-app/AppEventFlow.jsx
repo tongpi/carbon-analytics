@@ -96,7 +96,7 @@ export default class AppEventFlow extends React.Component {
                         siddhiAppContainer =
                             `<div id="container" class="node-content" title='${entry.partitionQuery}'>
                                 <span class="query-indicator" style="border: 3px solid white; margin-left: -1px;"></span>
-                                <span id="myTextInput" class="nodeLabel" style="margin-top: 10px">query</span>
+                                <span id="myTextInput" class="nodeLabel" style="margin-top: 10px">查询</span>
                              </div>`;
                         g.setNode(entry.query, {
                             labelType: "html",

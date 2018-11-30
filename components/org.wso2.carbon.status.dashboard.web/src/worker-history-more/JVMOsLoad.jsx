@@ -27,7 +27,7 @@ import {Card, CardHeader, CardMedia, Divider} from 'material-ui';
 import { FormattedMessage } from 'react-intl';
 
 const cpuMetadata = {
-    names: ['Time', 'System CPU Load', 'Process CPU Load', 'System Load Avg'],
+    names: ['时间', '系统CPU负载', '进程CPU负载', '系统平均负载'],
     types: ['time', 'linear', 'linear']
 };
 
@@ -54,9 +54,9 @@ export default class JVMOsLoad extends React.Component {
 
     render() {
         const cpuLineChartConfig = {
-            x: 'Time',
-            charts: [{type: 'area', y: 'System CPU Load', fill: '#f17b31', style: {markRadius: 2}},
-                {type: 'area', y: 'Process CPU Load', fill: '#1af12c', style: {markRadius: 2}}
+            x: '时间',
+            charts: [{ type: 'area', y: '系统CPU负载', fill: '#f17b31', style: {markRadius: 2}},
+                { type: 'area', y: '进程CPU负载', fill: '#1af12c', style: {markRadius: 2}}
             ],
             width: 700,
             height: 200,
@@ -79,7 +79,7 @@ export default class JVMOsLoad extends React.Component {
                 <div>
                     <Card>
                         <CardHeader
-                            title="JVM CPU Load"
+                            title="JVM CPU 负载"
                         />
                         <Divider/>
                         <CardMedia>
@@ -99,7 +99,7 @@ export default class JVMOsLoad extends React.Component {
         return (
             <div>
                 <ChartCard data={data} yDomain={y}
-                           metadata={cpuMetadata} config={cpuLineChartConfig} title="JVM CPU Load"/>
+                           metadata={cpuMetadata} config={cpuLineChartConfig} title="JVM CPU 负载"/>
             </div>
         );
     }

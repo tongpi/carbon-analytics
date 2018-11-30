@@ -25,7 +25,7 @@ import {Card, CardHeader, CardMedia, Divider} from 'material-ui';
 // Localization
 import { FormattedMessage } from 'react-intl';
 
-const swapMetadata = {names: ['Time', 'free swap size', 'total swap size'], types: ['time', 'linear', 'linear']};
+const swapMetadata = {names: ['时间', '可用交换空间', '总交换空间'], types: ['time', 'linear', 'linear']};
 
 /**
  * JVM Swap Space chart component.
@@ -52,9 +52,9 @@ export default class JVMSwap extends React.Component {
 
     render() {
         const swapLineChartConfig = {
-            x: 'Time',
-            charts: [{type: 'area', y: 'free swap size', fill: '#f17b31', style: {markRadius: 2}},
-                {type: 'area', y: 'total' + ' swap size', style: {markRadius: 2}}],
+            x: '时间',
+            charts: [{ type: 'area', y: '可用交换空间', fill: '#f17b31', style: {markRadius: 2}},
+                { type: 'area', y: '总交换空间', style: {markRadius: 2}}],
             width: 700,
             height: 200,
             style: {
@@ -76,7 +76,7 @@ export default class JVMSwap extends React.Component {
                 <div>
                     <Card>
                         <CardHeader
-                            title="JVM Swap Space"
+                            title="JVM 交换空间"
                         />
                         <Divider/>
                         <CardMedia>
@@ -92,7 +92,7 @@ export default class JVMSwap extends React.Component {
         return (
             <div>
                 <ChartCard data={DashboardUtils.getCombinedChartList(this.state.freeSize, this.state.totalSize)}
-                           yDomain={y} metadata={swapMetadata} config={swapLineChartConfig} title="JVM Swap Space"/>
+                           yDomain={y} metadata={swapMetadata} config={swapLineChartConfig} title="JVM 交换空间"/>
             </div>
         );
     }
