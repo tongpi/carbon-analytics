@@ -27,7 +27,7 @@ import AuthManager from '../auth/utils/AuthManager';
 import Logo from '../images/wso2-logo.svg';
 import { FormattedMessage } from 'react-intl';
 
-const title = {color: '#EEE', fontSize: 16, height: 40, lineHeight: '40px'};
+const title = {color: '#EEE', fontSize: 24, height: 40, lineHeight: '40px'};
 const appBar = {backgroundColor: '#263238', height:40, display:'flex', alignItems:'center'};
 const logoStyle = {margin: '0 15px 0 0', height: 17};
 const accName = {display: 'flex', alignItems: 'center', color: '#EEE', textTransform: 'capitalize'};
@@ -85,7 +85,7 @@ export default class Header extends Component {
             <AppBar
                 style={appBar}
                 title={<FormattedMessage id='header.title' defaultMessage='Stream Processor Status Dashboard' />}
-                iconElementLeft={<img height='17' src={Logo}/>}
+                iconElementLeft={<img height='22' src={Logo}/>}
                 titleStyle={title}
                 iconStyleLeft={logoStyle}
                 iconStyleRight={{margin: 0}}
