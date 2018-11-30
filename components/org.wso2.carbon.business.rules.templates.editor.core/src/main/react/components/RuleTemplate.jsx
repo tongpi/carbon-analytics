@@ -513,7 +513,7 @@ class RuleTemplate extends React.Component {
                             <br />
                             <br />
                             <FormControl component="fieldset" required>
-                                <FormLabel component="legend">Type</FormLabel>
+                                <FormLabel component="legend">类型</FormLabel>
                                 <RadioGroup
                                     aria-label="type"
                                     name="type"
@@ -525,7 +525,7 @@ class RuleTemplate extends React.Component {
                                     <FormControlLabel value="output" control={<Radio />} label="输出" />
                                 </RadioGroup>
                                 <FormHelperText>
-                                    Select the rule template type
+                                    选择规则模板类型
                                 </FormHelperText>
                             </FormControl>
                             <br />
@@ -593,7 +593,7 @@ class RuleTemplate extends React.Component {
                                         style={{ marginLeft: 5 }}
                                         onClick={this.loadTemplatedElementSelection}
                                     >
-                                        Add variables
+                                        添加变量
                                     </Button>
                                     <div style={styles.flexGrow} />
                                     <IconButton
@@ -634,7 +634,7 @@ class RuleTemplate extends React.Component {
                             <br />
                             <br />
                             <Typography type="title">
-                                Properties
+                                属性
                                 &nbsp;
                                 <Button
                                     raised
@@ -642,7 +642,7 @@ class RuleTemplate extends React.Component {
                                     style={{ marginLeft: 10 }}
                                     onClick={this.generateProperties}
                                 >
-                                    Generate
+                                    生成
                                 </Button>
                             </Typography>
                             <br />
