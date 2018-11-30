@@ -98,7 +98,7 @@ define(['require', 'jquery', 'event_channel', 'bootstrap'], function (require, $
         var modalDialog = $("<div class='modal-dialog file-dialog' role='document'></div>");
         var modalContent = $("<div class='modal-content'></div>");
         var modalHeader = $("<div class='modal-header'></div>");
-        var modalCloseBtnTop = $("<button type='button' class='close' data-dismiss='modal' aria-label='关闭'>" +
+        var modalCloseBtnTop = $("<button type='button' class='close' data-dismiss='modal' aria-label='Close'>" +
             "<span aria-hidden='true'>&times;</span></button>");
         var modalTitle = $("<h4 class='modal-title '></h4>");
         var modalBody = $("<div class='modal-body'></div>");
