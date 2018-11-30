@@ -293,7 +293,7 @@ export default class FilterComponent extends Component {
         <TextField
           id="ruleLogic"
           name="ruleLogic"
-          label="Rule Logic"
+          label="规则逻辑"
           helperText={BusinessRulesMessages.RULE_LOGIC_HELPER_TEXT}
           value={this.props.ruleComponents.ruleLogic}
           onChange={e => this.updateRuleLogic(e.target.value)}

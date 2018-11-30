@@ -118,7 +118,7 @@ export default class BusinessRule extends Component {
      */
     displayDeploymentInfoButton() {
         return (
-            <Tooltip id="tooltip-right" title="Deployment Info" placement="bottom">
+            <Tooltip id="tooltip-right" title="部署信息" placement="bottom">
                 <IconButton
                     aria-label="Deployment Info"
                     onClick={() => this.handleDeploymentInfoRequest()}
@@ -135,7 +135,7 @@ export default class BusinessRule extends Component {
      */
     displayViewButton() {
         return (
-            <Tooltip id="tooltip-right" title="View" placement="bottom">
+            <Tooltip id="tooltip-right" title="查看" placement="bottom">
                 <Link
                     to={`${appContext}/${this.getFormPath(this.props.type)}` +
                     `/${BusinessRulesConstants.BUSINESS_RULE_FORM_MODE_VIEW}` +
@@ -156,7 +156,7 @@ export default class BusinessRule extends Component {
      */
     displayEditButton() {
         return (
-            <Tooltip id="tooltip-right" title="Edit" placement="bottom">
+            <Tooltip id="tooltip-right" title="编辑" placement="bottom">
                 <Link
                     to={`${appContext}/${this.getFormPath(this.props.type)}` +
                     `/${BusinessRulesConstants.BUSINESS_RULE_FORM_MODE_EDIT}` +
@@ -177,7 +177,7 @@ export default class BusinessRule extends Component {
      */
     displayDeleteButton() {
         return (
-            <Tooltip id="tooltip-right" title="Delete" placement="bottom">
+            <Tooltip id="tooltip-right" title="删除" placement="bottom">
                 <IconButton aria-label="Delete" onClick={() => this.handleDeleteButtonClick()}>
                     <DeleteIcon />
                 </IconButton>
