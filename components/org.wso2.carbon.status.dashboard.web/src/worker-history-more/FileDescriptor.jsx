@@ -84,7 +84,7 @@ export default class FileDescriptor extends React.Component {
                                 backgroundColor: '#131313', textAlign: 'center', lineHeight: '60px',
                                 color: '#9c9898'
                             }}>
-                                <FormattedMessage id='appSpecific.noData' defaultMessage='No Data Available' />
+                                <FormattedMessage id='noData' defaultMessage='No Data Available' />
                             </div>
                         </CardMedia>
                     </Card>
