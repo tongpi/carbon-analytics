@@ -47,13 +47,13 @@ const styles = {
     titleStyle: {fontSize: '1.6rem', margin: '20px 0 0 24px', color: '#dedede'},
     button: {margin: 0, fontSize: 10, borderLeft: '1px solid #4c4c4c', borderRadius: 0}
 };
-const cpuMetadata = {names: ['Time', 'System CPU', 'Process CPU'], types: ['time', 'linear', 'linear']};
+const cpuMetadata = {names: ['时间', '系统 CPU', '进程 CPU'], types: ['time', 'linear', 'linear']};
 const memoryMetadata = {
-    names: ['Time', 'Used Memory', 'Init Memory', 'Committed Memory', 'Total Memory'],
+    names: ['时间', '已用内存', '初始内存', '提交内存', '总内存'],
     types: ['time', 'linear', 'linear', 'linear', 'linear']
 };
-const loadAvgMetadata = {names: ['Time', 'Load Average'], types: ['time', 'linear']};
-const throughputMetadata = {names: ['Time', 'Throughput(events/second)'], types: ['time', 'linear']};
+const loadAvgMetadata = {names: ['时间', '平均负载'], types: ['time', 'linear']};
+const throughputMetadata = {names: ['时间', '吞吐量(事件/秒)'], types: ['time', 'linear']};
 const noData = [
     <div style={{
         backgroundColor: '#131313', textAlign: 'center', lineHeight: '60px',
@@ -183,9 +183,9 @@ export default class WorkerHistory extends React.Component {
 
     renderCpuChart() {
         const cpuLineChartConfig = {
-            x: 'Time',
-            charts: [{type: 'area', y: 'System CPU', fill: '#f17b31', style: {markRadius: 2}},
-                {type: 'area', y: 'Process CPU', style: {markRadius: 2}}],
+            x: '时间',
+            charts: [{type: 'area', y: '系统 CPU', fill: '#f17b31', style: {markRadius: 2}},
+                {type: 'area', y: '进程 CPU', style: {markRadius: 2}}],
             width: 800,
             height: 250,
             legend: true,
@@ -221,11 +221,11 @@ export default class WorkerHistory extends React.Component {
 
     renderMemoryChart() {
         const memoryLineChartConfig = {
-            x: 'Time',
-            charts: [{type: 'area', y: 'Used Memory', fill: '#058DC7', style: {markRadius: 2}},
-                {type: 'area', y: 'Init Memory', fill: '#50B432', style: {markRadius: 2}},
-                {type: 'area', y: 'Committed Memory', fill: '#f17b31', style: {markRadius: 2}},
-                {type: 'area', y: 'Total Memory', fill: '#8c51a5', style: {markRadius: 2}}],
+            x: '时间',
+            charts: [{type: 'area', y: '已用内存', fill: '#058DC7', style: {markRadius: 2}},
+                {type: 'area', y: '初始内存', fill: '#50B432', style: {markRadius: 2}},
+                {type: 'area', y: '提交内存', fill: '#f17b31', style: {markRadius: 2}},
+                {type: 'area', y: '总内存', fill: '#8c51a5', style: {markRadius: 2}}],
             width: 800,
             height: 250,
             legend: true, interactiveLegend: true,
@@ -265,7 +265,7 @@ export default class WorkerHistory extends React.Component {
 
     renderLoadAverageChart() {
         const loadAvgLineChartConfig = {
-            x: 'Time', charts: [{type: 'area', y: 'Load Average', style: {markRadius: 2}}], width: 800, height: 250,
+            x: '时间', charts: [{type: 'area', y: '平均负载', style: {markRadius: 2}}], width: 800, height: 250,
             legend: true,
             interactiveLegend: true,
             gridColor: 'white',
@@ -297,8 +297,8 @@ export default class WorkerHistory extends React.Component {
 
     renderThroughputChart() {
         const throughputChartConfig = {
-            x: 'Time',
-            charts: [{type: 'area', y: 'Throughput(events/second)', style: {markRadius: 2}}],
+            x: '时间',
+            charts: [{ type: 'area', y: '吞吐量(事件/秒)', style: {markRadius: 2}}],
             width: 800,
             height: 250,
             legend: true,

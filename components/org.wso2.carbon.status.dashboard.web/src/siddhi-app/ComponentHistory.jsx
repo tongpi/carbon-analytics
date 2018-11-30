@@ -47,26 +47,26 @@ const styles = {
 const toolBar = {position: 'absolute', top: 85, right: 15, padding: 0, backgroundColor: 'transparent'};
 
 const latencyMetadata = {
-    names: ['Time', 'Max', 'Mean', 'Min', 'Standard Deviation', '75th Percentile', '95th Percentile',
-        '99th Percentile', '99.9th Percentile', 'Mean Rate', '1 Minute Rate', '5 Minutes Rate', '15 Minutes Rate'],
+    names: ['时间', '最大', '平均', '最小', '标准差', '75%', '95%',
+        '99%', '99.9%', '平均变化率', '1 分钟变化率', '5 分钟变化率', '15 分钟变化率'],
     types: ['time', 'linear', 'linear', 'linear', 'linear', 'linear', 'linear', 'linear', 'linear', 'linear', 'linear',
         'linear', 'linear']
 };
 const latencyLineChartConfig = {
-    x: 'Time',
+    x: '时间',
     charts: [
-        {type: 'area', y: 'Max', fill: '#50B432', style: {markRadius: 2}},
-        {type: 'area', y: 'Mean', fill: '#f17b31', style: {markRadius: 2}},
-        {type: 'area', y: 'Min', fill: '#8c51a5', style: {markRadius: 2}},
-        {type: 'area', y: 'Standard Deviation', fill: '#FFEB3B', style: {markRadius: 2}},
-        {type: 'area', y: '75th Percentile', fill: '#70dbed', style: {markRadius: 2}},
-        {type: 'area', y: '95th Percentile', fill: '#ffb873', style: {markRadius: 2}},
-        {type: 'area', y: '99th Percentile', fill: '#95dd87', style: {markRadius: 2}},
-        {type: 'area', y: '99.9th Percentile', fill: '#890f02', style: {markRadius: 2}},
-        {type: 'area', y: 'Mean Rate', fill: '#ff918f', style: {markRadius: 2}},
-        {type: 'area', y: '1 Minute Rate', fill: '#b76969', style: {markRadius: 2}},
-        {type: 'area', y: '5 Minutes Rate', fill: '#aea2e0', style: {markRadius: 2}},
-        {type: 'area', y: '15 Minutes Rate', fill: '#FFEB3B', style: {markRadius: 2}}
+        {type: 'area', y: '最大', fill: '#50B432', style: {markRadius: 2}},
+        {type: 'area', y: '平均', fill: '#f17b31', style: {markRadius: 2}},
+        {type: 'area', y: '最小', fill: '#8c51a5', style: {markRadius: 2}},
+        {type: 'area', y: '标准差', fill: '#FFEB3B', style: {markRadius: 2}},
+        {type: 'area', y: '75%', fill: '#70dbed', style: {markRadius: 2}},
+        {type: 'area', y: '95%', fill: '#ffb873', style: {markRadius: 2}},
+        {type: 'area', y: '99%', fill: '#95dd87', style: {markRadius: 2}},
+        {type: 'area', y: '99.9%', fill: '#890f02', style: {markRadius: 2}},
+        {type: 'area', y: '平均变化率', fill: '#ff918f', style: {markRadius: 2}},
+        {type: 'area', y: '1 分钟变化率', fill: '#b76969', style: {markRadius: 2}},
+        {type: 'area', y: '5 分钟变化率', fill: '#aea2e0', style: {markRadius: 2}},
+        {type: 'area', y: '15 分钟变化率', fill: '#FFEB3B', style: {markRadius: 2}}
     ],
     width: 800,
     height: 250,
@@ -84,10 +84,10 @@ const latencyLineChartConfig = {
     gridColor: '#f2f2f2',
     xAxisTickCount: 10
 };
-const memoryMetadata = {names: ['Time', 'Memory'], types: ['time', 'linear']};
+const memoryMetadata = {names: ['时间', '内存'], types: ['time', 'linear']};
 const memoryLineChartConfig = {
-    x: 'Time',
-    charts: [{type: 'area', y: 'Memory', fill: '#f17b31', style: {markRadius: 2}}],
+    x: '时间',
+    charts: [{type: 'area', y: '内存', fill: '#f17b31', style: {markRadius: 2}}],
     width: 800,
     height: 250,
     style: {
@@ -105,17 +105,17 @@ const memoryLineChartConfig = {
     xAxisTickCount: 10
 };
 const tpMetadata = {
-    names: ['Time', 'Mean', '1 Minute', '5 Minutes', '15 Minutes'],
+    names: ['时间', '平均', '1 分钟', '5 分钟', '15 分钟'],
     types: ['time', 'linear', 'linear', 'linear', 'linear']
 };
 
 const tpLineChartConfig = {
-    x: 'Time',
+    x: '时间',
     charts: [
-        {type: 'area', y: 'Mean', fill: '#50B432', style: {markRadius: 2}},
-        {type: 'area', y: '1 Minute', fill: '#f17b31', style: {markRadius: 2}},
-        {type: 'area', y: '5 Minutes', fill: '#8c51a5', style: {markRadius: 2}},
-        {type: 'area', y: '15 Minutes', fill: '#FFEB3B', style: {markRadius: 2}}
+        {type: 'area', y: '平均', fill: '#50B432', style: {markRadius: 2}},
+        {type: 'area', y: '1 分钟', fill: '#f17b31', style: {markRadius: 2}},
+        {type: 'area', y: '5 分钟', fill: '#8c51a5', style: {markRadius: 2}},
+        {type: 'area', y: '15 分钟', fill: '#FFEB3B', style: {markRadius: 2}}
     ],
     width: 800,
     height: 250,

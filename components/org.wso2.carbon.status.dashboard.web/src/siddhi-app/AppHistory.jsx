@@ -45,11 +45,11 @@ const styles = {
     button: {margin: 0, fontSize: 10, borderLeft: '1px solid #4c4c4c', borderRadius: 0}
 };
 
-const memoryMetadata = {names: ['Time', 'Memory(bytes)'], types: ['time', 'linear']};
+const memoryMetadata = {names: ['时间', '内存(字节)'], types: ['time', 'linear']};
 
-const latencyMetadata = {names: ['Time', 'Latency(milliseconds)'], types: ['time', 'linear']};
+const latencyMetadata = {names: ['时间', '延迟(毫秒)'], types: ['time', 'linear']};
 
-const tpMetadata = {names: ['Time', 'Throughput(events/second)'], types: ['time', 'linear']};
+const tpMetadata = { names: ['时间', '吞吐量(事件/秒)'], types: ['time', 'linear']};
 
 const toolBar = {position: 'absolute', top: 85, right: 15, padding: 0, backgroundColor: 'transparent'};
 
@@ -168,8 +168,8 @@ export default class AppSpecific extends React.Component {
     renderLatencyChart() {
 
         const latencyLineChartConfig = {
-            x: 'Time',
-            charts: [{type: 'area', y: 'Latency(milliseconds)', fill: '#f17b31', style: {markRadius: 2}}],
+            x: '时间',
+            charts: [{type: 'area', y: '延迟(毫秒)', fill: '#f17b31', style: {markRadius: 2}}],
             width: 800,
             height: 250,
             legend: true,
@@ -205,8 +205,8 @@ export default class AppSpecific extends React.Component {
 
     renderMemoryChart() {
         const memoryLineChartConfig = {
-            x: 'Time',
-            charts: [{type: 'area', y: 'Memory(bytes)', fill: '#f17b31', style: {markRadius: 2}}],
+            x: '时间',
+            charts: [{type: 'area', y: '内存(字节)', fill: '#f17b31', style: {markRadius: 2}}],
             width: 800,
             height: 250,
             legend: true,
@@ -243,8 +243,8 @@ export default class AppSpecific extends React.Component {
     renderThroughputChart() {
 
         const tpLineChartConfig = {
-            x: 'Time',
-            charts: [{type: 'area', y: 'Throughput(events/second)', fill: '#f17b31', style: {markRadius: 2}}],
+            x: '时间',
+            charts: [{ type: 'area', y: '吞吐量(事件/秒)', fill: '#f17b31', style: {markRadius: 2}}],
             width: 800,
             height: 250,
             legend: true,
