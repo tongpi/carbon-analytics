@@ -109,15 +109,14 @@ public class SiddhiProvider extends AbstractDataProvider {
     public String providerConfig() {
         Map<String, String> renderingTypes = new HashMap();
         Map<String, String> renderingHints = new HashMap();
-        String providerDescription = "Siddhi app provider will allow the user to retrieve data from siddhi by " +
-                "writing using a siddhi app";
+        String providerDescription = "Siddhi应用提供者允许用户通过写一个Siddhi应用并从该应用中获取数据到小部件";
         renderingTypes.put(SIDDHI_APP, InputFieldTypes.SIDDHI_CODE);
-        renderingHints.put(SIDDHI_APP, "Siddhi app which is used to retrieve the data");
+        renderingHints.put(SIDDHI_APP, "用来获取数据的Siddhi应用名");
         renderingTypes.put(STORE_QUERY, InputFieldTypes.DYNAMIC_SIDDHI_CODE);
         renderingTypes.put(PULISHING_INTERVAL, InputFieldTypes.NUMBER);
-        renderingHints.put(PULISHING_INTERVAL, "Rate at which data should be sent to the widget");
+        renderingHints.put(PULISHING_INTERVAL, "数据发送速率");
         renderingTypes.put(TIME_COLUMNS, InputFieldTypes.TEXT_FIELD);
-        renderingHints.put(TIME_COLUMNS, "Comma separated columns of the table that contain timestamps");
+        renderingHints.put(TIME_COLUMNS, "包含时间戳的逗号分隔的表字段");
         return new Gson().toJson(new Object[]{renderingTypes, new SiddhiDataProviderConfig(), renderingHints,
                 providerDescription});
     }

@@ -284,29 +284,28 @@ public class AbstractRDBMSDataProvider extends AbstractDataProvider {
     public String providerConfig() {
         Map<String, String> renderingTypes = new HashMap<>();
         Map<String, String> renderingHints = new HashMap<>();
-        String providerDescription = "RDBMS provider supports retrieve data for widgets using any SQL database table" +
-                ". The Batch provider allows the user to get all the data in the table batch wise and Streaming data" +
-                " provider will allow the user retrieve data in a streaming manner using an incremental data column.";
+        String providerDescription = "RDBMS 数据提供者支持从任何SQL数据库表中获取数据给小部件使用" +
+                ". 批数据提供者允许用户批量获取表中的所有数据和流数据" +
+                " 同时还允许用户使用增量数据列以流方式检索数据.";
         renderingTypes.put("publishingInterval", InputFieldTypes.NUMBER);
-        renderingHints.put("publishingInterval", "Rate at which data should be sent to the widget");
+        renderingHints.put("publishingInterval", "控制将数据发送到小部件的速率");
         renderingTypes.put("purgingInterval", InputFieldTypes.NUMBER);
-        renderingHints.put("purgingInterval", "Rate at which data deletion queries should run against the table");
+        renderingHints.put("purgingInterval", "控制对表运行数据清除操作的速率");
         renderingTypes.put("isPurgingEnable", InputFieldTypes.SWITCH);
-        renderingHints.put("isPurgingEnable", "Enable execution of data deletion queries against the table at regular " +
-                "intervals");
+        renderingHints.put("isPurgingEnable", "允许定期对表执行数据删除操作");
         renderingTypes.put("publishingLimit", InputFieldTypes.NUMBER);
-        renderingHints.put("publishingLimit", "Limit of records that should be sent at a time");
+        renderingHints.put("publishingLimit", "一次发送的记录数限制");
         renderingTypes.put("purgingLimit", InputFieldTypes.NUMBER);
-        renderingHints.put("purgingLimit", "Limit of data entries that should be deleted at a time");
+        renderingHints.put("purgingLimit", "一次删除的数据条目限制");
         renderingTypes.put("datasourceName", InputFieldTypes.TEXT_FIELD);
-        renderingHints.put("datasourceName", "Name of the datasource defined in the deployment.yaml");
+        renderingHints.put("datasourceName", "在deployment.yaml文件中配置的数据源名称");
         renderingTypes.put("queryData", InputFieldTypes.DYNAMIC_SQL_CODE);
         renderingTypes.put("tableName", InputFieldTypes.TEXT_FIELD);
-        renderingHints.put("tableName", "Name of the table where data is retrieved from");
+        renderingHints.put("tableName", "获取数据的数据库表名");
         renderingTypes.put("incrementalColumn", InputFieldTypes.TEXT_FIELD);
-        renderingHints.put("incrementalColumn", "Column of the table that is used to identify the incremental data");
+        renderingHints.put("incrementalColumn", "表的列，用于标识增量数据");
         renderingTypes.put("timeColumns", InputFieldTypes.TEXT_FIELD);
-        renderingHints.put("timeColumns", "Columns of the table that contain timestamps");
+        renderingHints.put("timeColumns", "表的列，该列应包含数据的时间戳");
         return new Gson().toJson(new Object[]{renderingTypes, new RDBMSDataProviderConf(), renderingHints,
                 providerDescription});
     }
