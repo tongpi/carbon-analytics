@@ -80,8 +80,8 @@ public class WebSocketProvider implements DataProvider {
     @Override
     public String providerConfig() {
         Map<String, String> renderingTypes = new HashMap<>();
-        String providerDescription = "Websocket 数据提供者支持通过一个websocket获取数据到小部件" +
-                ", 该提供者支持json、xml和text数据映射";
+        String providerDescription = "Websocket \u6570\u636e\u63d0\u4f9b\u8005\u652f\u6301\u901a\u8fc7\u4e00\u4e2awebsocket\u83b7\u53d6\u6570\u636e\u5230\u5c0f\u90e8\u4ef6"
+                + ", \u8be5\u63d0\u4f9b\u8005\u652f\u6301json\u3001xml\u548ctext\u6570\u636e\u6620\u5c04";
         renderingTypes.put("topic", InputFieldTypes.TEXT_FIELD);
         renderingTypes.put("mapType", InputFieldTypes.TEXT_FIELD);
         return new Gson().toJson(new Object[]{renderingTypes, new WebSocketChannel(), null, providerDescription});

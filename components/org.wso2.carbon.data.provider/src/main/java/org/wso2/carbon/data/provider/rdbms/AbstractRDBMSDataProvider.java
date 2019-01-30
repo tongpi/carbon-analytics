@@ -284,30 +284,36 @@ public class AbstractRDBMSDataProvider extends AbstractDataProvider {
     public String providerConfig() {
         Map<String, String> renderingTypes = new HashMap<>();
         Map<String, String> renderingHints = new HashMap<>();
-        String providerDescription = "RDBMS 数据提供者支持从任何SQL数据库表中获取数据给小部件使用" +
-                ". 批数据提供者允许用户批量获取表中的所有数据和流数据" +
-                " 同时还允许用户使用增量数据列以流方式检索数据.";
+        String providerDescription = "RDBMS \u6570\u636e\u63d0\u4f9b\u8005\u652f\u6301\u4ece\u4efb\u4f55SQL\u6570\u636e\u5e93\u8868\u4e2d\u83b7\u53d6\u6570\u636e\u7ed9\u5c0f\u90e8\u4ef6\u4f7f\u7528"
+                + ". \u6279\u6570\u636e\u63d0\u4f9b\u8005\u5141\u8bb8\u7528\u6237\u6279\u91cf\u83b7\u53d6\u8868\u4e2d\u7684\u6240\u6709\u6570\u636e\u548c\u6d41\u6570\u636e"
+                + " \u540c\u65f6\u8fd8\u5141\u8bb8\u7528\u6237\u4f7f\u7528\u589e\u91cf\u6570\u636e\u5217\u4ee5\u6d41\u65b9\u5f0f\u68c0\u7d22\u6570\u636e.";
         renderingTypes.put("publishingInterval", InputFieldTypes.NUMBER);
-        renderingHints.put("publishingInterval", "控制将数据发送到小部件的速率");
+        renderingHints.put("publishingInterval",
+                "\u63a7\u5236\u5c06\u6570\u636e\u53d1\u9001\u5230\u5c0f\u90e8\u4ef6\u7684\u901f\u7387");
         renderingTypes.put("purgingInterval", InputFieldTypes.NUMBER);
-        renderingHints.put("purgingInterval", "控制对表运行数据清除操作的速率");
+        renderingHints.put("purgingInterval",
+                "\u63a7\u5236\u5bf9\u8868\u8fd0\u884c\u6570\u636e\u6e05\u9664\u64cd\u4f5c\u7684\u901f\u7387");
         renderingTypes.put("isPurgingEnable", InputFieldTypes.SWITCH);
-        renderingHints.put("isPurgingEnable", "允许定期对表执行数据删除操作");
+        renderingHints.put("isPurgingEnable",
+                "\u5141\u8bb8\u5b9a\u671f\u5bf9\u8868\u6267\u884c\u6570\u636e\u5220\u9664\u64cd\u4f5c");
         renderingTypes.put("publishingLimit", InputFieldTypes.NUMBER);
-        renderingHints.put("publishingLimit", "一次发送的记录数限制");
+        renderingHints.put("publishingLimit", "\u4e00\u6b21\u53d1\u9001\u7684\u8bb0\u5f55\u6570\u9650\u5236");
         renderingTypes.put("purgingLimit", InputFieldTypes.NUMBER);
-        renderingHints.put("purgingLimit", "一次删除的数据条目限制");
+        renderingHints.put("purgingLimit", "\u4e00\u6b21\u5220\u9664\u7684\u6570\u636e\u6761\u76ee\u9650\u5236");
         renderingTypes.put("datasourceName", InputFieldTypes.TEXT_FIELD);
-        renderingHints.put("datasourceName", "在deployment.yaml文件中配置的数据源名称");
+        renderingHints.put("datasourceName",
+                "\u5728deployment.yaml\u6587\u4ef6\u4e2d\u914d\u7f6e\u7684\u6570\u636e\u6e90\u540d\u79f0");
         renderingTypes.put("queryData", InputFieldTypes.DYNAMIC_SQL_CODE);
         renderingTypes.put("tableName", InputFieldTypes.TEXT_FIELD);
-        renderingHints.put("tableName", "获取数据的数据库表名");
+        renderingHints.put("tableName", "\u83b7\u53d6\u6570\u636e\u7684\u6570\u636e\u5e93\u8868\u540d");
         renderingTypes.put("incrementalColumn", InputFieldTypes.TEXT_FIELD);
-        renderingHints.put("incrementalColumn", "表的列，用于标识增量数据");
+        renderingHints.put("incrementalColumn",
+                "\u8868\u7684\u5217\uff0c\u7528\u4e8e\u6807\u8bc6\u589e\u91cf\u6570\u636e");
         renderingTypes.put("timeColumns", InputFieldTypes.TEXT_FIELD);
-        renderingHints.put("timeColumns", "表的列，该列应包含数据的时间戳");
-        return new Gson().toJson(new Object[]{renderingTypes, new RDBMSDataProviderConf(), renderingHints,
-                providerDescription});
+        renderingHints.put("timeColumns",
+                "\u8868\u7684\u5217\uff0c\u8be5\u5217\u5e94\u5305\u542b\u6570\u636e\u7684\u65f6\u95f4\u6233");
+        return new Gson().toJson(
+                new Object[] { renderingTypes, new RDBMSDataProviderConf(), renderingHints, providerDescription });
     }
 
     @Override

@@ -109,14 +109,15 @@ public class SiddhiProvider extends AbstractDataProvider {
     public String providerConfig() {
         Map<String, String> renderingTypes = new HashMap();
         Map<String, String> renderingHints = new HashMap();
-        String providerDescription = "Siddhi应用提供者允许用户通过写一个Siddhi应用并从该应用中获取数据到小部件";
+        String providerDescription = "Siddhi\u5e94\u7528\u63d0\u4f9b\u8005\u5141\u8bb8\u7528\u6237\u901a\u8fc7\u5199\u4e00\u4e2aSiddhi\u5e94\u7528\u5e76\u4ece\u8be5\u5e94\u7528\u4e2d\u83b7\u53d6\u6570\u636e\u5230\u5c0f\u90e8\u4ef6";
         renderingTypes.put(SIDDHI_APP, InputFieldTypes.SIDDHI_CODE);
-        renderingHints.put(SIDDHI_APP, "用来获取数据的Siddhi应用名");
+        renderingHints.put(SIDDHI_APP, "\u7528\u6765\u83b7\u53d6\u6570\u636e\u7684Siddhi\u5e94\u7528\u540d");
         renderingTypes.put(STORE_QUERY, InputFieldTypes.DYNAMIC_SIDDHI_CODE);
         renderingTypes.put(PULISHING_INTERVAL, InputFieldTypes.NUMBER);
-        renderingHints.put(PULISHING_INTERVAL, "数据发送速率");
+        renderingHints.put(PULISHING_INTERVAL, "\u6570\u636e\u53d1\u9001\u901f\u7387");
         renderingTypes.put(TIME_COLUMNS, InputFieldTypes.TEXT_FIELD);
-        renderingHints.put(TIME_COLUMNS, "包含时间戳的逗号分隔的表字段");
+        renderingHints.put(TIME_COLUMNS,
+                "\u5305\u542b\u65f6\u95f4\u6233\u7684\u9017\u53f7\u5206\u9694\u7684\u8868\u5b57\u6bb5");
         return new Gson().toJson(new Object[]{renderingTypes, new SiddhiDataProviderConfig(), renderingHints,
                 providerDescription});
     }
