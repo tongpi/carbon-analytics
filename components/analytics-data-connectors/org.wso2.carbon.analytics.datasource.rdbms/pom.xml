@@ -88,11 +88,11 @@
             <scope>test</scope>
         </dependency>
 
-		<dependency>
+<!-- 		<dependency>
 			<groupId>com.oracle</groupId>
 			<artifactId>ojdbc6</artifactId>
 			<scope>test</scope>
-		</dependency>
+		</dependency> -->
 
 		<dependency>
 			<groupId>net.sourceforge.jtds</groupId>
@@ -108,12 +108,12 @@
 			<scope>test</scope>
 		</dependency>
 
-		<dependency>
+<!-- 		<dependency>
 			<groupId>cn.guoyukun.jdbc</groupId>
 			<artifactId>db2jcc</artifactId>
 			<version>1.4.2</version>
 			<scope>test</scope>
-		</dependency>
+		</dependency> -->
 
 	</dependencies>
 
